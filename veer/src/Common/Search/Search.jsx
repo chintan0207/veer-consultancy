@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import MyContext from '../Context/MyContext';
 import './Search.scss';
 
@@ -27,79 +27,78 @@ const Search = () => {
 
   // Handle recent search click to populate the search term
   const handleRecentSearchClick = (search) => {
- 
+
     const [aTitle, cName] = search.split(' for ');
-   
-   
+
+
     const matchingApi = api.find((item) => item.title === aTitle);
     const matchingCountry = matchingApi?.country?.find((country) => country.title === cName);
-   
+
     if (matchingApi && matchingCountry) {
       Navigate(`/${matchingApi.name}/${matchingCountry.name}`);
     }
   };
 
- 
+
   return (
     <div className="search-mains">
-    <div className='search-bar'>
-      {/* Conditionally display recent searches only when searchTerm is empty */}
-      {!searchTerm && (
-        <>
-        <div className="recent-searches">
-          <h3>Most Recent Searches</h3>
-          <div className="keyword">
+      <div className='search-bar'>
+        {/* Conditionally display recent searches only when searchTerm is empty */}
+        {!searchTerm && (
+          <>
+            <div className="recent-searches">
+              <h3>Most Recent Searches</h3>
+              <div className="keyword">
 
-           {recentSearches.map((search, index) => (
-            <div 
-              key={index}  
-              className="keyword-box" 
-              onClick={() => handleRecentSearchClick(search)}>
-           
-             {search}
-           </div>
-))}
-            </div>
-          </div>
-        </>
-      )}
+                {recentSearches.map((search, index) => (
+                  <div
+                    key={index}
+                    className="keyword-box"
+                    onClick={() => handleRecentSearchClick(search)}>
 
-
-  {searchTerm && (
-      <div className="search-list">
-        {api
-         
-          
-          .map((a) => {
-            return (
-              <div key={a.name}>
-                {
-                a.country &&
-                  a.country
-                  
-                  .filter((c) => {
-                    const newjson = c.title.toLowerCase().trim() + a.title.toLowerCase().trim()
-                   
-                    const newinput = searchTerm.toLowerCase().trim()
-                    return newinput && newjson.includes(newinput);
-                  })
-                  .map((c) => (
-                    <ul key={c.id}>
-                      <li
-                        style={{ listStyle: 'none' }}
-                        onClick={() => handleSearch(a, c)}
-                      >
-                 {    a.title.match('Visa') ?  `${a.title} for ${c.title}`:c.title}
-                    
-                      </li>
-                    </ul>
-                  ))}
+                    {search}
+                  </div>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          </>
+        )}
+
+
+        {searchTerm && (
+          <div className="search-list">
+            {api
+
+              .map((a) => {
+                return (
+                  <div key={a.name}>
+                    {
+                      a.country &&
+                      a.country
+
+                        .filter((c) => {
+                          const newjson = c.title.toLowerCase().trim() + a.title.toLowerCase().trim()
+
+                          const newinput = searchTerm.toLowerCase().trim()
+                          return newinput && newjson.includes(newinput);
+                        })
+                        .map((c) => (
+                          <ul key={c.id}>
+                            <li
+                              style={{ listStyle: 'none' }}
+                              onClick={() => handleSearch(a, c)}
+                            >
+                              {a.title.match('Visa') ? `${a.title} for ${c.title}` : c.title}
+
+                            </li>
+                          </ul>
+                        ))}
+                  </div>
+                );
+              })}
+          </div>
+        )}
       </div>
-  )}
-    </div>
     </div>
   );
 };

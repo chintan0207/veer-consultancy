@@ -23,6 +23,7 @@ import CountryPage from './CountryPage/CountryPage'
 import Admin from './Admin/Admin'
 import Layoutdoc from './Common/LayoutDoc/Layoutdoc'
 import ErrorPage from './Common/ErrorPage/ErrorPage'
+import Droplist from './Common/Droplist/Droplist.jsx'
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
         <Register />
         <ContactBatch />
         <ServiceCardModal />
+        <Droplist />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />

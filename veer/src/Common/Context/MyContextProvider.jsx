@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import MyContext from './MyContext'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -97,7 +97,6 @@ const MyContextProvider = ({ children }) => {
   const totalPosts = api.length
   //for pagination end
 
-
   // for saving token state start
   const [token, setToken] = useState(() => {
     const storetoken = sessionStorage.getItem('token')
@@ -125,28 +124,13 @@ const MyContextProvider = ({ children }) => {
   };
   // handle login end
 
-
   // handle logout start
-  const handleLogout = () => {
-
+  const handleLogout = useCallback(() => {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('userdata');
     setToken('');
     setUserdata(null)
-    window.location.reload()
-    setShowLogoutConfirm(true);
-  }
-  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
-
-  const confirmLogout = () => {
-    handleLogout(true); // Call the logout handler
-    setShowLogoutConfirm(false); // Hide the confirmation prompt
-  };
-
-  const cancelLogout = () => {
-    setShowLogoutConfirm(false); // Cancel logout and hide the prompt
-  };
-  // handle logout end
+  }, [])
 
   const [dropOpen, setDropOpen] = useState(false)
 
@@ -220,7 +204,7 @@ const MyContextProvider = ({ children }) => {
     getInquiryData()
     getNewsletterData()
     getPassportVerifyData()
-  }, []);
+  }, [handleLogout]);
 
 
 
@@ -235,7 +219,7 @@ const MyContextProvider = ({ children }) => {
       deleteInquiryById, deleteNewsLetterById, deletePassportById, updateById, findPById, updateTableData,
       pageData, setPageData, countryName, setCountryName,
       token, setToken, userdata, setUserdata, handleLogout, handleLogin, dropOpen, setDropOpen,
-      showLogoutConfirm, setShowLogoutConfirm, confirmLogout, cancelLogout
+      // showLogoutConfirm, setShowLogoutConfirm, confirmLogout, cancelLogout
 
     }}>
       {children}

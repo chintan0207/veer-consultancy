@@ -3,7 +3,7 @@ import MyContext from '../Context/MyContext'
 import './Droplist.scss'
 
 const Droplist = () => {
-  const { setShowLogoutConfirm, dropOpen, setDropOpen } = useContext(MyContext)
+  const { handleLogout, dropOpen, setDropOpen } = useContext(MyContext)
   return (
     <div>
       {dropOpen && (
@@ -11,7 +11,7 @@ const Droplist = () => {
           <div className="drop-list">
             <span>
               <li>Account</li>
-              <li onClick={() => setShowLogoutConfirm(true)}>Logout</li>
+              <li onClick={() => handleLogout()}>Logout</li>
             </span>
           </div>
         </div>)
