@@ -1,0 +1,203 @@
+@import "../Mixin.scss";
+
+.box-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: fit-content;
+  background-color: white;
+  box-sizing: border-box;
+
+  .box-content {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px;
+    box-sizing: border-box;
+
+    @include max650 {
+      padding: 10px;
+      flex-direction: column;
+    }
+
+    .left-content {
+      // flex: 4;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+      box-sizing: border-box;
+
+      @include max650 {
+        flex-direction: row;
+      }
+
+      .left-1 {
+        // Make the boxes flexible
+        min-width: 250px; // Set a minimum width
+        max-width: 100%; // Prevent growing too large
+        box-sizing: border-box;
+        padding: 10px 15px;
+
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: auto; // Dynamic height based on content
+        word-wrap: break-word;
+
+        @include max650 {
+          min-width: 100px; // Further reduce width on smaller screens
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 18px;
+          line-height: 20px;
+          margin-bottom: 10px;
+
+          @include max650 {
+            font-size: 14px;
+            line-height: 15px;
+          }
+        }
+
+        .list {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 5px;
+
+          .list-icon {
+            color: #ff0000;
+            @include max650 {
+              font-size: 12px;
+            }
+          }
+
+          span {
+            font-size: 16px;
+            line-height: 22px;
+
+            @include max650 {
+              font-size: 12px;
+              line-height: 15px;
+            }
+          }
+        }
+      }
+      .left-2 {
+        min-width: 250px;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 10px 15px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: auto;
+        word-wrap: break-word;
+
+        @include max650 {
+          min-width: 100px;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 18px;
+          line-height: 20px;
+          margin-bottom: 10px;
+
+          @include max650 {
+            font-size: 14px;
+            line-height: 15px;
+          }
+        }
+
+        .list {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 5px;
+
+          .list-icon {
+            color: #ff0000;
+            @include max650 {
+              font-size: 12px;
+            }
+          }
+
+          span {
+            font-size: 16px;
+            line-height: 22px;
+
+            @include max650 {
+              font-size: 12px;
+              line-height: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .right-content {
+    flex: 8;
+    min-width: 500px;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: auto;
+
+    @include max1024 {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+    }
+
+    @include max650 {
+      min-width: 200px;
+      padding: 15px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 25px;
+      margin-bottom: 10px;
+
+      @include max650 {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+
+    .list {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+
+      .list-icon {
+        color: #ff0000;
+        @include max650 {
+          font-size: 12px;
+        }
+      }
+
+      span {
+        font-size: 16px;
+        line-height: 22px;
+
+        @include max650 {
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+    }
+  }
+}

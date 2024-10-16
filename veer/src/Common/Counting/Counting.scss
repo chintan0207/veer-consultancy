@@ -1,0 +1,23 @@
+
+
+.count-main{
+    width: 100%;
+    margin: 40px 0;
+    .count-detail{
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: pink;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .count-right{
+                   display: flex;
+                   flex-direction: column;
+                   
+
+        }
+    }
+}

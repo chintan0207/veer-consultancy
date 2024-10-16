@@ -1,0 +1,109 @@
+@import "../Common/Mixin.scss";
+
+.bi {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  @include max650 {
+    // height: 100vh;
+    height: calc(100vh - 160px);
+  }
+
+  .first {
+    width: 100%;
+    height: 80%;
+    background: rgba(248, 246, 246, 0.726)
+      url("../Assets/images/Free\ Photo\ _\ Top\ view\ white\ toy\ plane\ and\ map.jpg")
+      no-repeat center;
+    background-size: cover;
+
+    @include max650 {
+      background: none;
+      background-color: rgba(236, 226, 226, 0.836);
+
+      .heading {
+        align-items: center;
+      }
+    }
+
+    .heading {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      // border: 1px solid red;
+      gap: 5px;
+      height: 100%;
+      padding: 50px;
+
+      .b-heading {
+        max-width: 50%;
+        font-size: 50px;
+        line-height: 60px;
+        margin: 0;
+        color: #2c3f69;
+      }
+      .b-span {
+        max-width: 50%;
+        font-size: 20px;
+        line-height: 25px;
+        margin: 0;
+        font-weight: 500;
+        color: black;
+
+        @include max650 {
+          text-align: center;
+        }
+      }
+
+      @include max1024 {
+        padding: 30px;
+        .b-heading {
+          font-size: 40px;
+          line-height: 48px;
+        }
+        .b-span {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+
+      @include max525 {
+        padding: 16px;
+        .b-heading {
+          max-width: 70%;
+          font-size: 22px;
+          line-height: 26px;
+        }
+        .b-span {
+          max-width: 70%;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .second {
+    width: 65%;
+    max-width: 1200px;
+    position: absolute;
+    bottom: 10%;
+    height: fit-content;
+    margin: 0 auto;
+
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    padding-top: 15px;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}

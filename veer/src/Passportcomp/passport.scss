@@ -1,0 +1,603 @@
+@import "../Common/Mixin.scss";
+
+.passport-comp {
+  width: 100%;
+
+  .passport {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    // border: 1px solid red;
+    height: fit-content;
+    .pass {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 16px;
+
+      .panim {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include m1000 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0.5;
+        }
+
+        .pentagon-border {
+          position: absolute;
+          opacity: 0;
+          transform: scale(0);
+          animation-timing-function: ease-in-out;
+        }
+
+        /* Pentagon sizes */
+        .outer-pentagon {
+          width: 250px;
+          height: 250px;
+          animation: pentagonAnim 6s infinite;
+          animation-delay: 0s;
+        }
+
+        .inner-pentagon {
+          width: 200px;
+          height: 200px;
+          animation: pentagonAnim 6s infinite;
+          animation-delay: 1s;
+        }
+
+        .inner1-pentagon {
+          width: 150px;
+          height: 150px;
+          animation: pentagonAnim 6s infinite;
+          animation-delay: 2s;
+        }
+
+        .inner2-pentagon {
+          width: 100px;
+          height: 100px;
+          animation: pentagonAnim 6s infinite;
+          animation-delay: 3s;
+        }
+
+        .inner3-pentagon {
+          width: 50px;
+          height: 50px;
+          animation: pentagonAnim 6s infinite;
+          animation-delay: 4s;
+        }
+
+        @include max650 {
+          .outer-pentagon {
+            width: 180px;
+            height: 180px;
+          }
+          .inner-pentagon {
+            width: 150px;
+            height: 150px;
+          }
+          .inner1-pentagon {
+            width: 120px;
+            height: 120px;
+          }
+          .inner2-pentagon {
+            width: 90px;
+            height: 90px;
+          }
+          .inner3-pentagon {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+
+      .pform-container {
+        // max-width: 400px;
+        width: 30%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 0px 30px 0px;
+        // border: 1px solid red;
+        @include max1024 {
+          width: 45%;
+        }
+
+        @include max800 {
+          width: 70%;
+        }
+
+        @include max650 {
+          width: 100%;
+        }
+
+        .passport-form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          //   border: 1px solid #ff0000;
+          border-radius: 10px;
+          padding: 20px;
+          .form-field {
+            width: 100%;
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            label {
+              font-size: 14px;
+              margin-bottom: 5px;
+              color: #333;
+            }
+
+            input {
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              font-size: 14px;
+              transition: all 0.3s ease;
+
+              &::placeholder {
+                opacity: 0.5;
+                color: gray;
+              }
+
+              &:focus {
+                border-color: #f04;
+                box-shadow: 0 0 5px rgba(240, 4, 4, 0.5);
+                outline: none;
+              }
+            }
+
+            select {
+              padding: 10px;
+              border-radius: 4px;
+              transition: all 0.3s ease;
+              font-size: 12px;
+              border: 1px solid #ccc;
+              opacity: 0.5;
+              background-color: white;
+              option {
+                // color: #ff0000;
+                // background-color: #ff0000;
+              }
+              &::placeholder {
+                opacity: 0.5;
+                color: gray;
+              }
+
+              &:focus {
+                border-color: #f04;
+                box-shadow: 0 0 5px rgba(240, 4, 4, 0.5);
+                outline: none;
+              }
+            }
+
+            .error {
+              position: absolute;
+              bottom: -17px;
+              color: red;
+              font-size: 12px;
+              margin-top: 5px;
+            }
+          }
+
+          .psubmit-button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ff0000;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            border: 1px solid #ff0000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background-color: transparent;
+              border: 1px solid #ff0000;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .passport-comp {
+//   width: 100%;
+
+//   .passport {
+//     max-width: 1200px;
+//     margin: 0 auto;
+//     box-sizing: border-box;
+//     border: 1px solid red;
+
+//     @include min650 {
+//       padding: 50px 30px;
+//     }
+
+//     @include max1024 {
+//       padding: 16px;
+//     }
+
+//     .pass {
+//       width: 100%;
+//       display: flex;
+//       justify-content: space-around;
+//       align-items: center;
+
+//       .panim {
+//         position: relative;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         border: 1px solid red;
+//         @include m1000 {
+//           position: absolute;
+//           top: 50%;
+//           left: 50%;
+//           transform: translate(-50%, -50%);
+//           opacity: 0.5;
+//         }
+
+//         .pentagon-border {
+//           position: absolute;
+//           opacity: 0;
+//           transform: scale(0);
+//           animation-timing-function: ease-in-out;
+//         }
+
+//         /* Pentagon sizes */
+//         .outer-pentagon {
+//           width: 250px;
+//           height: 250px;
+//           animation: pentagonAnim 6s infinite;
+//           animation-delay: 0s;
+//         }
+
+//         .inner-pentagon {
+//           width: 200px;
+//           height: 200px;
+//           animation: pentagonAnim 6s infinite;
+//           animation-delay: 1s;
+//         }
+
+//         .inner1-pentagon {
+//           width: 150px;
+//           height: 150px;
+//           animation: pentagonAnim 6s infinite;
+//           animation-delay: 2s;
+//         }
+
+//         .inner2-pentagon {
+//           width: 100px;
+//           height: 100px;
+//           animation: pentagonAnim 6s infinite;
+//           animation-delay: 3s;
+//         }
+
+//         .inner3-pentagon {
+//           width: 50px;
+//           height: 50px;
+//           animation: pentagonAnim 6s infinite;
+//           animation-delay: 4s;
+//         }
+//       }
+
+//       .form-container {
+//         z-index: 9;
+//         max-width: 400px;
+//         margin: 0 auto;
+//         box-sizing: border-box;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+
+//         .contact-form {
+//           width: 100%;
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: center;
+//           align-items: center;
+//           border: 1px solid #ff0000;
+//           border-radius: 10px;
+//           padding: 30px;
+
+//           .contact-responset {
+//             width: 100%;
+//             border: 1px solid green;
+//             border-radius: 5px;
+//             color: green;
+
+//             span {
+//               padding: 3px 5px;
+//             }
+//           }
+
+//           .contact-responsef {
+//             width: 100%;
+//             border: 1px solid rgb(255, 0, 0);
+//             border-radius: 5px;
+//             color: red;
+
+//             span {
+//               padding: 3px 5px;
+//             }
+//           }
+
+//           .form-field {
+//             width: 100%;
+//             margin-bottom: 15px;
+//             display: flex;
+//             flex-direction: column;
+
+//             label {
+//               font-size: 14px;
+//               margin-bottom: 5px;
+//               color: #333;
+//             }
+
+// select {
+//   padding: 7px;
+//   border-radius: 4px;
+//   transition: all 0.3s ease;
+//   font-size: 12px;
+//   border: 1px solid #ccc;
+//   opacity: 0.5;
+
+//   option {
+//     // color: #ff0000;
+//     // background-color: #ff0000;
+//   }
+
+//   &:focus {
+//     border-color: #f04;
+//     box-shadow: 0 0 5px rgba(240, 4, 4, 0.5);
+//     outline: none;
+//   }
+// }
+
+//             input {
+//               // width: 300px;
+//               padding: 7px;
+//               border: 1px solid #ccc;
+//               border-radius: 4px;
+//               font-size: 12px;
+//               transition: all 0.3s ease;
+
+//               &::placeholder {
+//                 opacity: 0.5;
+//               }
+
+//               &:focus {
+//                 border-color: #f04;
+//                 box-shadow: 0 0 5px rgba(240, 4, 4, 0.5);
+//                 outline: none;
+//               }
+//             }
+
+//             .error {
+//               color: red;
+//               font-size: 12px;
+//               margin-top: 5px;
+//             }
+//           }
+
+//           .submit-button {
+//             width: 100%;
+//             padding: 10px;
+//             background-color: #ff0000;
+//             color: white;
+//             font-size: 16px;
+//             border: none;
+//             border-radius: 4px;
+//             border: 1px solid #ff0000;
+//             cursor: pointer;
+//             transition: all 0.3s ease;
+
+//             &:hover {
+//               background-color: transparent;
+//               border: 1px solid #ff0000;
+//               color: black;
+//             }
+//           }
+//         }
+//       }
+//     }
+
+//     .anim {
+//       position: relative;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+
+//       @include m1000 {
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         opacity: 0.5;
+//       }
+
+//       .pentagon-border {
+//         position: absolute;
+//         opacity: 0;
+//         transform: scale(0);
+//         animation-timing-function: ease-in-out;
+//       }
+
+//       /* Pentagon sizes */
+//       .outer-pentagon {
+//         width: 250px;
+//         height: 250px;
+//         animation: pentagonAnim 6s infinite;
+//         animation-delay: 0s;
+//       }
+
+//       .inner-pentagon {
+//         width: 200px;
+//         height: 200px;
+//         animation: pentagonAnim 6s infinite;
+//         animation-delay: 1s;
+//       }
+
+//       .inner1-pentagon {
+//         width: 150px;
+//         height: 150px;
+//         animation: pentagonAnim 6s infinite;
+//         animation-delay: 2s;
+//       }
+
+//       .inner2-pentagon {
+//         width: 100px;
+//         height: 100px;
+//         animation: pentagonAnim 6s infinite;
+//         animation-delay: 3s;
+//       }
+
+//       .inner3-pentagon {
+//         width: 50px;
+//         height: 50px;
+//         animation: pentagonAnim 6s infinite;
+//         animation-delay: 4s;
+//       }
+//     }
+
+//     .form-container {
+//       z-index: 9;
+//       max-width: 400px;
+//       margin: 0 auto;
+//       box-sizing: border-box;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+
+//       .contact-form {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         border: 1px solid #ff0000;
+//         border-radius: 10px;
+//         padding: 30px;
+
+//         .contact-responset {
+//           width: 100%;
+//           border: 1px solid green;
+//           border-radius: 5px;
+//           color: green;
+
+//           span {
+//             padding: 3px 5px;
+//           }
+//         }
+
+//         .contact-responsef {
+//           width: 100%;
+//           border: 1px solid rgb(255, 0, 0);
+//           border-radius: 5px;
+//           color: red;
+
+//           span {
+//             padding: 3px 5px;
+//           }
+//         }
+
+//         .form-field {
+//           width: 100%;
+//           margin-bottom: 15px;
+//           display: flex;
+//           flex-direction: column;
+
+//           label {
+//             font-size: 14px;
+//             margin-bottom: 5px;
+//             color: #333;
+//           }
+
+//           select {
+//             padding: 7px;
+//             border-radius: 4px;
+//             transition: all 0.3s ease;
+//             font-size: 12px;
+//             border: 1px solid #ccc;
+//             opacity: 0.5;
+
+//             option {
+//               // color: #ff0000;
+//               // background-color: #ff0000;
+//             }
+
+//             &:focus {
+//               border-color: #f04;
+//               box-shadow: 0 0 5px rgba(240, 4, 4, 0.5);
+//               outline: none;
+//             }
+//           }
+
+//           input {
+//             // width: 300px;
+//             padding: 7px;
+//             border: 1px solid #ccc;
+//             border-radius: 4px;
+//             font-size: 12px;
+//             transition: all 0.3s ease;
+
+//             &::placeholder {
+//               opacity: 0.5;
+//             }
+
+//             &:focus {
+//               border-color: #f04;
+//               box-shadow: 0 0 5px rgba(240, 4, 4, 0.5);
+//               outline: none;
+//             }
+//           }
+
+//           // textarea {
+//           //   resize: none;
+//           //   height: 100px;
+//           // }
+
+//           .error {
+//             color: red;
+//             font-size: 12px;
+//             margin-top: 5px;
+//           }
+//         }
+
+//         .submit-button {
+//           width: 100%;
+//           padding: 10px;
+//           background-color: #ff0000;
+//           color: white;
+//           font-size: 16px;
+//           border: none;
+//           border-radius: 4px;
+//           border: 1px solid #ff0000;
+//           cursor: pointer;
+//           transition: all 0.3s ease;
+
+//           &:hover {
+//             background-color: transparent;
+//             border: 1px solid #ff0000;
+//             color: black;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

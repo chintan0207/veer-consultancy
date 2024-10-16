@@ -1,0 +1,91 @@
+@import '../Mixin.scss';
+
+
+.search-mains{
+  width: 100%;
+
+.search-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-flow: wrap;
+ 
+
+.recent-searches {
+
+ h3 {
+  font-size: 18px;
+  margin: 10px;
+  color: #333;
+ 
+}
+
+.keyword {
+ 
+  display:flex;
+  flex-flow: wrap;
+  cursor: pointer;
+ padding: 10px;
+  
+
+ 
+ 
+ 
+
+
+.keyword-box {
+
+  background-color: rgba(0,0,0,0.04);
+  padding: 0px 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid rgba(128, 128, 128, 0.223);
+  border-radius: 10px;
+font-size: 14px;
+
+
+
+       &  :hover {
+  background-color: #e0e0e0; 
+          }
+       }
+  
+}
+}
+
+
+.search-list {
+
+  z-index: 10;
+  width:550px;
+  height: 440px;
+  overflow: auto;
+ position: relative;
+ top: 0px;
+ left: 20%;
+
+ @include m606{
+  position: relative;
+  left: 10px;
+ }
+
+  ul {
+  padding-left: 0;
+}
+
+  li {
+  padding: 8px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 6px;
+ 
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+   &:hover {
+  background-color: #e0e0e042;
+}
+  }  
+}
+}
+}
