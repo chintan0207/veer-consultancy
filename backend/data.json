@@ -1743,7 +1743,18 @@
                 "id": 3,
                 "name": "transfer-pf",
                 "title": "Transfer PF",
-                "pricing": "1000",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
                 "img": "/flaticons/pft.png"
             }
         ]
@@ -1759,7 +1770,18 @@
                 "id": 1,
                 "name": "new-ration-card",
                 "title": "New Ration Card",
-                "pricing": "1000",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
                 "img": "/flaticons/create.png",
                 "details": [
                     "Passport",
@@ -1783,7 +1805,18 @@
                 "id": 2,
                 "name": "update-ration-card",
                 "title": "Update Ration Card",
-                "pricing": "1000",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
                 "img": "/flaticons/update.png",
                 "details": [
                     "Passport",
@@ -1816,7 +1849,18 @@
                 "id": 1,
                 "name": "new-msme-registration",
                 "title": "New MSME Registration",
-                "pricing": "1000",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
                 "img": "/flaticons/create.png",
                 "details": [
                     "Passport",
@@ -1842,7 +1886,18 @@
                 "id": 2,
                 "name": "update-msme-registration",
                 "title": "Update MSME Registration",
-                "pricing": "1000",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
                 "img": "/flaticons/update.png",
                 "details": [
                     "Passport",
@@ -1876,7 +1931,18 @@
                 "id": 1,
                 "name": "create-newspaper-ads",
                 "title": "Create Newspaper Ads",
-                "pricing": "1000",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
                 "img": "/flaticons/newspaperadd.png",
                 "details": [
                     "Passport",

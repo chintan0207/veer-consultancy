@@ -11,9 +11,20 @@ import datas from "./routes/Api/datas.js"
 import registerroute from './routes/registerroute.js'
 import loginroute from './routes/loginroute.js'
 import accountroute from './routes/accountroute.js'
+import detailroute from './routes/detalisroute.js'
+
+import path from "path";  // Ensure this is the path module
+import { fileURLToPath } from "url";  // For static file serving
 dotenv.config();
 
 const app = express();
+
+// // Static file serving (serves files from the uploads folder)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
 app.use(cors());
 app.use(express.json());
 
@@ -35,6 +46,7 @@ app.use('/', datas)
 app.use('/', registerroute)
 app.use('/', loginroute)
 app.use('/', accountroute)
+app.use('/', detailroute)
 
 app.listen(3034, () => {
   console.log('Server connected');
