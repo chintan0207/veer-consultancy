@@ -21,7 +21,7 @@ const Layoutdoc = () => {
                 .filter((item) => item.name === countryName)
                 .map((item, index) => {
                   return (
-                    <>{item.documents.map((doc, index) => {
+                    <>{item.documents?.map((doc, index) => {
                       return (
                         <div className='list' key={index}>
                           <FaAngleDoubleRight className='list-icon' size={"15px"} />
@@ -62,7 +62,7 @@ const Layoutdoc = () => {
               .filter((item) => item.name === countryName)
               .map((item) => {
                 return (
-                  <>{item.details.map((doc, index) => {
+                  <>{item.details?.map((doc, index) => {
                     return (
                       <div className='list' key={index}>
                         <FaAngleDoubleRight className='list-icon' size={"15px"} />

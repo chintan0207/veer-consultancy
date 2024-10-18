@@ -13,14 +13,14 @@ const LayoutDoc2 = () => {
     // Form validation schema using Yup
     const validationSchema = Yup.object({
         name: Yup.string().required('*Name is required'),
+        motherName: Yup.string().required('*MotherName is required'),
+        placeOfBirth: Yup.string().required('*PlaceOfBirth is required'),
+        education: Yup.string().required('*Education is required'),
+        employeementType: Yup.string().required('*EmployeementType is required'),
         email: Yup.string().required('*Email is required'),
         mobileNo: Yup.string().required('*MobileNo is required'),
         alterMobileNo: Yup.string().required('*AlterMobileNo is required'),
-        motherName: Yup.string().required('*MotherName is required'),
-        placeOfBirth: Yup.string().required('*PlaceOfBirth is required'),
         policeStation: Yup.string().required('*PoliceStation is required'),
-        education: Yup.string().required('*Education is required'),
-        employeementType: Yup.string().required('*EmployeementType is required'),
         identity: Yup.mixed().required('*Any Identity Proof is required'),
         birth: Yup.mixed().required('*Any Birth Proof is required'),
         address:Yup.mixed().required('*Any Address Proof is required'),
@@ -30,14 +30,14 @@ const LayoutDoc2 = () => {
     // Initial form values
     const initialValues = {
         name: '',
+        motherName: '',
+        placeOfBirth: '',
+        education: '',
+        employeementType: '',
         email: '',
         mobileNo: '',
         alterMobileNo: '',
-        motherName: '',
-        placeOfBirth: '',
-        policeStation: '',
-        education: '',
-        employeementType: '',
+        policeStation: '', 
         identity: null,
         birth: null,
         address:null,
@@ -92,7 +92,7 @@ const LayoutDoc2 = () => {
                       
                   <div className="form-group">
                         <div className='label-div'>
-                           <label htmlFor="motherName">MotherName</label>
+                           <label htmlFor="motherName">MotherName (optional)</label>
                                </div>
                                   <div className='input-error'>
                                 <Field type="text" id="motherName" name="motherName" />
@@ -161,7 +161,7 @@ const LayoutDoc2 = () => {
 
                          <button
                 type="button"
-                onClick={() => handleNextStage(validateForm, setTouched, 'contact', ['name', 'mothername',])}
+                onClick={() => handleNextStage(validateForm, setTouched, 'contact', ['name', 'motherName','placeOfBirth','education','employeementType'])}
               >
                 Next
               </button>
@@ -195,7 +195,7 @@ const LayoutDoc2 = () => {
 
                       <div className="form-group">
                         <div className='label-div'>
-                      <label htmlFor="alterMobileNo">Alternative Mobile No</label>
+                      <label htmlFor="alterMobileNo">Alternative Mobile No </label>
                            </div>
                      <div className='input-error'>
                         <Field type="text" id="alterMobileNo" name="alterMobileNo" />
@@ -215,25 +215,11 @@ const LayoutDoc2 = () => {
 
                                 
                                 <button
-                                        type="button"
-                                        onClick={() => {
-                                            validateForm().then((errors) => {
-                                                if (Object.keys(errors).length === 0) {
-                                                    handleupload();
-                                                    setLayout('upload');
-                                                } else {
-                                                    setTouched({
-                                                        placeOfBirth: true,
-                                                        education: true,
-                                                        employeementType: true,
-                                                        policeStation: true,
-                                                    });
-                                                }
-                                            });
-                                        }}
-                                    >
-                                        Next
-                                    </button>
+                type="button"
+                onClick={() => handleNextStage(validateForm, setTouched, 'upload', ['email', 'mobileNo','alterMobileNo','policeStation'])}
+              >
+                Next
+              </button>
 
                             </>
                         }
@@ -296,84 +282,20 @@ const LayoutDoc2 = () => {
 
 
                                 <button
-                                        type="button"
-                                        onClick={() => {
-                                            validateForm().then((errors) => {
-                                                if (Object.keys(errors).length === 0) {
-                                                    handlepayment();
-                                                    setLayout('payment');
-                                                } else {
-                                                    setTouched({
-                                                        identity: true,
-                                                        birth: true,
-                                                        address: true,
-                                                    });
-                                                }
-                                            });
-                                        }}
-                                    >
-                                        Proceed to payment
-                                    </button>
+                type="button"
+                onClick={() => handleNextStage(validateForm, setTouched, 'payment', ['identity','birth', 'address'])}
+              >
+                Next
+              </button>
                                 </>
                             }
 
                             {layout==='payment' &&
-                               <>
-                               <h2>Personal Details</h2>
+                              <div>
+                                payment
 
-                     <div className="form-group ">
-                  <div className='label-div'>
-                        <label htmlFor="name">Name</label>
-                   </div>
-                  <div className='input-error'>
-                 <Field type="text" id="name" name="name" />
-                 <ErrorMessage name="name" component="div" className="error" />
-                  </div>
-               </div>
-
-                    <div className="form-group">
-               <div className='label-div'>
-              <label htmlFor="email">Email</label>
-              </div>
-                <div className='input-error'>
-                   <Field type="email" id="email" name="email" />
-                  <ErrorMessage name="email" component="div" className="error" />
-                 </div>
-                </div>
-
-                 <div className="form-group">
-                   <div className='label-div'>
-                   <label htmlFor="mobileNo">Mobile No</label>
-                   </div>
-                   <div className='input-error'>
-                    <Field type="text" id="mobileNo" name="mobileNo" />
-                     <ErrorMessage name="mobileNo" component="div" className="error" />
-                       </div>
-                   </div>
-
-             <div className="form-group">
- <div className='label-div'>
-     <label htmlFor="alterMobileNo">Alternative Mobile No</label>
- </div>
- <div className='input-error'>
-     <Field type="text" id="alterMobileNo" name="alterMobileNo" />
-     <ErrorMessage name="alterMobileNo" component="div" className="error" />
- </div>
-</div>
-
-<div className="form-group">
- <div className='label-div'>
-     <label htmlFor="motherName">MotherName</label>
- </div>
- <div className='input-error'>
-     <Field type="text" id="motherName" name="motherName" />
-     <ErrorMessage name="motherName" component="div" className="error" />
- </div>
-</div>
-
-
-<button type="submit"> Next</button>
-                               </>
+                                <button type='submit'>Pay Now</button>
+                              </div>
                             }
                         </Form>
                     )}
