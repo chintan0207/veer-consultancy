@@ -1719,7 +1719,24 @@
                         "price": 1200
                     }
                 ],
-                "img": "/flaticons/claim.png"
+                "img": "/flaticons/claim.png",
+                "details": [
+                    "Passport",
+                    "Study Permit Application Form",
+                    "Fee Receipt",
+                    "Photo",
+                    "Letter of Acceptance",
+                    "Financial Proof",
+                    "Medical Exam (if applicable)",
+                    "Home Ties"
+                ],
+                "documents": [
+                    "Application Form",
+                    "Existing Certificate",
+                    "ID Proof",
+                    "Updated Income Proof",
+                    "Address Proof"
+                ]
             },
             {
                 "id": 2,
@@ -1737,7 +1754,24 @@
                         "price": 1200
                     }
                 ],
-                "img": "/flaticons/kyc.png"
+                "img": "/flaticons/kyc.png",
+                "details": [
+                    "Passport",
+                    "Study Permit Application Form",
+                    "Fee Receipt",
+                    "Photo",
+                    "Letter of Acceptance",
+                    "Financial Proof",
+                    "Medical Exam (if applicable)",
+                    "Home Ties"
+                ],
+                "documents": [
+                    "Application Form",
+                    "Existing Certificate",
+                    "ID Proof",
+                    "Updated Income Proof",
+                    "Address Proof"
+                ]
             },
             {
                 "id": 3,
@@ -1755,7 +1789,24 @@
                         "price": 1200
                     }
                 ],
-                "img": "/flaticons/pft.png"
+                "img": "/flaticons/pft.png",
+                "details": [
+                    "Passport",
+                    "Study Permit Application Form",
+                    "Fee Receipt",
+                    "Photo",
+                    "Letter of Acceptance",
+                    "Financial Proof",
+                    "Medical Exam (if applicable)",
+                    "Home Ties"
+                ],
+                "documents": [
+                    "Application Form",
+                    "Existing Certificate",
+                    "ID Proof",
+                    "Updated Income Proof",
+                    "Address Proof"
+                ]
             }
         ]
     },
