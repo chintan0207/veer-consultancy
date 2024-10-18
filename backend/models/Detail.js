@@ -13,6 +13,10 @@ const detailSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    education: {
+        type: String,
+        required: true,
+    },
     alterMobileNo: {
         type: String,
         required: false,

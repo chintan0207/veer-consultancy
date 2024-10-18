@@ -28,7 +28,7 @@ app.post('/details', upload.fields([
     try {
         const { identityProof, birthProof, addressProof } = req.files;
         // console.log(identityProof[0].filename)
-        const { name, email, mobileNo, alterMobileNo, motherName,
+        const { name, email, mobileNo, education, alterMobileNo, motherName,
             placeOfBirth, policeStation } = req.body;
 
         const exist = await Detail.findOne({ email, mobileNo });
@@ -63,7 +63,7 @@ app.post('/details', upload.fields([
 
         // Save detail in the Detail collection
         const detail = await new Detail({
-            name, email, mobileNo, alterMobileNo, motherName,
+            name, email, mobileNo, education, alterMobileNo, motherName,
             placeOfBirth, policeStation,
             identityProof: result1.filepath,
             birthProof: result2.filepath,
