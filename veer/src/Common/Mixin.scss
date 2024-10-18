@@ -107,18 +107,26 @@
     @content;
   }
 }
+@mixin max550 {
+  @media only screen and (max-width: 550px) {
+    @content;
+  }
+}
 @mixin max450 {
   @media only screen and (max-width: 450px) {
     @content;
   }
 }
-
+@mixin max420 {
+  @media only screen and (max-width: 420px) {
+    @content;
+  }
+}
 @mixin max345 {
   @media only screen and (max-width: 345px) {
     @content;
   }
 }
-
 @mixin m1270 {
   @media only screen and (max-width: 1270px) {
     @content;
@@ -132,12 +140,12 @@
 }
 
 .scroll-to-top {
-  background-color: #0000;
+  background-color: transparent;
   padding: 0;
   height: 40px;
   width: 40px;
   box-shadow: none;
-
+  
   @include max650 {
     right: 25px;
     bottom: 25px;

@@ -6,7 +6,7 @@ import { MdLogin } from "react-icons/md";
 import { RiArrowDropDownFill } from "react-icons/ri";
 
 const Header = () => {
-  const { Navigate, location, setIsOpen, searchTerm, setSearchTerm, token, dropOpen, setDropOpen } = useContext(MyContext)
+  const { Navigate, location, setIsOpen, searchTerm, setSearchTerm, token, logopen,setLogopen} = useContext(MyContext)
   const items = useMemo(() => ['passport', 'student visa', 'visitor visa', 'work permit', 'ielts', 'pte', 'aadhar card', 'pan card', 'election card', 'driving license'], []);
   const [right, setRight] = useState(items[0]);
   const [index, setIndex] = useState(0);
@@ -56,7 +56,7 @@ const Header = () => {
           <div className='right'>
             {token ?
               <div className="accounti">
-                <span onClick={() => setDropOpen(!dropOpen)}> Account  <RiArrowDropDownFill /></span>
+                <span onClick={() => setLogopen(!logopen)}> Account  <RiArrowDropDownFill /></span>
               </div> :
               <button className='btn1' onClick={() => setIsOpen(true)}><MdLogin />Login</button>
             }

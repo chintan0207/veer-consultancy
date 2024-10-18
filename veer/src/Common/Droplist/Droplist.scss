@@ -1,39 +1,44 @@
-@import "../Mixin.scss";
+@import '../Mixin.scss';
 
-.logout-overlay {
-  overflow: hidden;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 20;
-  background-color: rgba(0, 0, 0, 0.129);
+.logout-overlay{
+        overflow: hidden;
+    width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+height: 100vh;
+z-index: 20;
+background-color: rgba(0, 0, 0, 0.019);
 
-  .drop-list {
+    
+  .drop-list{
     background-color: white;
     width: fit-content;
     position: absolute;
     top: 14%;
     right: 7%;
     padding: 20px;
-    border: 1px solid grey;
+    border: 1px solid rgb(253, 250, 250);
     border-radius: 5px;
     z-index: 9999;
 
-    @include max767 {
+    
+
+    @include max767{
       position: absolute;
       top: 60px;
       left: 73%;
     }
 
-    @include m945 {
+    
+
+    @include m945{
       position: absolute;
       top: 10%;
       right: 10%;
     }
 
-    @include max650 {
+    @include max650{
       position: absolute;
       top: 10%;
       left: 75%;
@@ -42,29 +47,34 @@
       padding: 5px;
     }
 
-    @include m1000 {
-      position: absolute;
-      top: 6%;
-      right: 9%;
+  
+
+    @include m1000{
+        position:absolute;
+        top: 6%;
+        right: 9%;
     }
-    li {
-      list-style: none;
+    li{
+    
+     
+     list-style: none;
+      
+        cursor: pointer;
+        background:none;
 
-      cursor: pointer;
-      background: none;
-
-      &::after {
-        content: "";
-        width: 0%;
-        height: 2px;
-        margin: 2px 6px;
-        background: rgba(128, 128, 128, 0.336);
-        display: block;
-        transition: 0.5s;
-      }
-      &:hover::after {
-        width: 70%;
-      }
+        &::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            margin: 2px 6px;
+            background: rgba(128, 128, 128, 0.336);
+            display: block;
+            transition: 0.5s;
+          }
+          &:hover::after{
+            width: 70%;
+          }
+    
     }
   }
 }

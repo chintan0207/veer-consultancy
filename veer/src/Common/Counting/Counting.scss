@@ -1,23 +1,212 @@
-
+@import '../Mixin.scss';
 
 .count-main{
     width: 100%;
     margin: 40px 0;
     .count-detail{
+        background-image: url('../../Assets/images/Untitled\ \(1\).png  ');
         max-width: 1200px;
         margin: 0 auto;
-        background-color: pink;
-        height: 400px;
+        height: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
+       border: 1px solid rgba(128, 128, 128, 0.001);
+        flex-flow: wrap;
 
+        .count-left{
+            height: 500px;
+            width: 50%;
+          
+            h5{
+                text-align: center;
+                font-size: 35px;
+                padding: 20px; 
+                color: rgba(9, 11, 12, 0.511);
+
+            }
+
+           @include max1180{
+            width: 40%;
+           }
+           @include m945{
+            width: 30%;
+           }
+           @include max850{
+            width: 0%;
+           }
+
+        }
 
         .count-right{
                    display: flex;
                    flex-direction: column;
-                   
+                   position: relative;
+                   width: 50%;
+                   height: 500px;
 
+                   @include max1180{
+                    width: 60%;
+                   }
+
+                   @include m945{
+                    width: 70%;
+                   }
+                   @include max850{
+                    width: 100%;
+                   }
+                 
+                   span{
+                    font-size: 15px;
+                    text-align: center;
+
+                    :nth-child(1){
+                     font-size: 13px;
+                    }
+                    @include max550{
+                        font-size: 10px;
+                        padding: 2px;
+                        
+                    }
+                   }
+                  p{
+                   font-size: 10px; 
+                   color: rgba(0, 0, 0, 0.563); 
+                   
+                   text-align: center;
+
+                   @include max550{
+                    font-size: 8px;
+                    padding: 2px;
+                    
+                }
+                   @include max420{
+                    font-size: 8px;
+                   }
+                  }
+
+
+         .circleone{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10%;
+            left: 12%;
+            height: 150px;
+            width: 150px;
+            background-color: rgb(247, 247, 249);
+            border-radius: 50%;
+            box-shadow: 5px 10px #8888884f;
+           
+            @include max1180{
+                position: absolute;
+                top: 10%;
+                left: 5%;  
+            }
+            @include max550{
+             height: 120px;
+             width: 120px;   
+            }
+            @include max420{
+                height: 100px;
+                width: 100px;
+               }
+         }
+
+         .circletwo{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 15%;
+            height: 150px;
+            width: 150px;
+            background-color: rgb(247, 247, 249);
+            border-radius: 50%;
+            box-shadow: 5px 10px #8888884f;
+            
+            @include max550{
+                height: 120px;
+                width: 120px;     
+               }
+               @include max420{
+                height: 100px;
+                width: 100px;
+               }
+         }
+         .circlethree{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 24%;
+            left: 40%;
+            height: 150px;
+            width: 150px;
+            background-color: rgb(247, 247, 249);
+            border-radius: 50%; 
+            box-shadow: 5px 10px #8888884f;
+            
+            @include max550{
+                height: 120px;
+                width: 120px;     
+               }
+               @include max420{
+                height: 100px;
+                width: 100px;
+               }
+         }
+         .circlefour{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 8%;
+            right: 30%;
+            height: 150px;
+            width: 150px;
+            background-color: rgb(247, 247, 249);
+            border-radius: 50%;
+            box-shadow: 5px 10px #8888884f; 
+           
+            @include max550{
+                height: 120px;
+                width: 120px;     
+               }
+               @include max420{
+                height: 100px;
+                width: 100px;
+               }
+         }
+         .circlefive{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 30%;
+            right: 2%;
+            height: 150px;
+            width: 150px;
+            background-color: rgb(247, 247, 249);
+            border-radius: 50%; 
+            box-shadow: 5px 10px #8888884f;
+            
+            @include max550{
+                height: 120px;
+                width: 120px;     
+               }
+               @include max420{
+                height: 100px;
+                width: 100px;
+               }
+         }
         }
     }
 }

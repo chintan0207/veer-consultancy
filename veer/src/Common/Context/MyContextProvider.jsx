@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import MyContext from './MyContext'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -95,6 +95,7 @@ const MyContextProvider = ({ children }) => {
 
   const currentPosts = api.slice(firstPostIndex, lastPostIndex)
   const totalPosts = api.length
+
   //for pagination end
 
   // for saving token state start
@@ -125,14 +126,33 @@ const MyContextProvider = ({ children }) => {
   // handle login end
 
   // handle logout start
-  const handleLogout = useCallback(() => {
+  const handleLogout = () => {
+
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('userdata');
     setToken('');
     setUserdata(null)
-  }, [])
+    window.location.reload()
+    setShowLogoutConfirm(true); 
+  }
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
-  const [dropOpen, setDropOpen] = useState(false)
+  const confirmLogout = () => {
+    handleLogout(true); // Call the logout handler
+    setShowLogoutConfirm(false); // Hide the confirmation prompt
+  };
+  
+  const cancelLogout = () => {
+    setShowLogoutConfirm(false); // Cancel logout and hide the prompt
+  };
+
+// handle logout end
+
+// for droplist open start
+  const [logopen,setLogopen] =useState(false)
+
+  //for droplist open end
+
 
   // for admin table start
 
@@ -143,70 +163,90 @@ const MyContextProvider = ({ children }) => {
   const [save, setSave] = useState("contact")
   const [updateTableData, setUpdateTableData] = useState({})
 
-  const getContactData = async () => {
-    const { data } = await axios.get('http://localhost:3034/contacts')
-    // console.log(data);
-    setContacts(data.contacts)
-  }
-  const getInquiryData = async () => {
-    const { data } = await axios.get('http://localhost:3034/inquiries')
-    setInquiries(data.inquiries)
-  }
-  const getNewsletterData = async () => {
-    const { data } = await axios.get('http://localhost:3034/allnewsletters')
-    setNewsletters(data.newsletters)
-  }
-  const getPassportVerifyData = async () => {
-    const { data } = await axios.get('http://localhost:3034/allpassportverify')
-    setPassportData(data.passportData)
-  }
+  // const getContactData = async () => {
+  //   const { data } = await axios.get('http://localhost:3034/contacts')
+  //   // console.log(data);
+  //   setContacts(data.contacts)
+  // }
+  // const getInquiryData = async () => {
+  //   const { data } = await axios.get('http://localhost:3034/inquiries')
+  //   setInquiries(data.inquiries)
+  // }
+  // const getNewsletterData = async () => {
+  //   const { data } = await axios.get('http://localhost:3034/allnewsletters')
+  //   setNewsletters(data.newsletters)
+  // }
+  // const getPassportVerifyData = async () => {
+  //   const { data } = await axios.get('http://localhost:3034/allpassportverify')
+  //   setPassportData(data.passportData)
+  // }
 
-  const deleteContactById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/contact/${id}`)
-    console.log(data);
-    getContactData()
-  }
+  // const deleteContactById = async (id) => {
+  //   const { data } = await axios.delete(`http://localhost:3034/contact/${id}`)
+  //   console.log(data);
+  //   getContactData()
+  // }
 
-  const deleteInquiryById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/inquiry/${id}`)
-    console.log(data);
-    getInquiryData()
+  // const deleteInquiryById = async (id) => {
+  //   const { data } = await axios.delete(`http://localhost:3034/inquiry/${id}`)
+  //   console.log(data);
+  //   getInquiryData()
 
-  }
+  // }
 
-  const deleteNewsLetterById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/newsletter/${id}`)
-    console.log(data);
-    getNewsletterData()
-  }
+  // const deleteNewsLetterById = async (id) => {
+  //   const { data } = await axios.delete(`http://localhost:3034/newsletter/${id}`)
+  //   console.log(data);
+  //   getNewsletterData()
+  // }
 
-  const deletePassportById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/passportverify/${id}`)
-    console.log(data);
-    getPassportVerifyData()
+  // const deletePassportById = async (id) => {
+  //   const { data } = await axios.delete(`http://localhost:3034/passportverify/${id}`)
+  //   console.log(data);
+  //   getPassportVerifyData()
 
-  }
+  // }
 
-  const findPById = async (id) => {
-    const { data } = await axios.get(`http://localhost:3034/passport/${id}`)
-    console.log(data.data);
-    setUpdateTableData(data.data);
-  }
+  // const findPById = async (id) => {
+  //   const { data } = await axios.get(`http://localhost:3034/passport/${id}`)
+  //   console.log(data.data);
+  //   setUpdateTableData(data.data);
+  // }
 
-  const updateById = async (id, obj) => {
-    const { data } = await axios.delete(`http://localhost:3034/passport/${id}`, obj)
-    console.log(data);
-  }
-
-
-  useEffect(() => {
-    getContactData()
-    getInquiryData()
-    getNewsletterData()
-    getPassportVerifyData()
-  }, [handleLogout]);
+  // const updateById = async (id, obj) => {
+  //   const { data } = await axios.delete(`http://localhost:3034/passport/${id}`, obj)
+  //   console.log(data);
+  // }
 
 
+  // useEffect(() => {
+  //   getContactData()
+  //   getInquiryData()
+  //   getNewsletterData()
+  //   getPassportVerifyData()
+  // }, );
+
+//for layout page open start
+
+const [layout,setLayout] =useState('document')
+
+
+const handlepersonal =()=>{
+  setLayout('personal');
+}
+
+const handlecontact =()=>{
+ setLayout('contact')
+}
+
+const handleupload =()=>{
+  setLayout('upload')
+}
+
+const handlepayment =()=>{
+  setLayout('payment')
+}
+//for layout page open end
 
   return (
     <MyContext.Provider value={{
@@ -215,11 +255,12 @@ const MyContextProvider = ({ children }) => {
       closeModal, cardName, setCardName, bgColor, setBgColor, currentStep, setCurrentStep,
       complete, setComplete, searchTerm, setSearchTerm, data, setData, api, setApi, currentPage, setCurrentPage,
       postsPerPage, setPostsPerPage, currentPosts, totalPosts, lastPostIndex, firstPostIndex,
-      contacts, setContacts, inquiries, newsletters, passportData, save, setSave, deleteContactById,
-      deleteInquiryById, deleteNewsLetterById, deletePassportById, updateById, findPById, updateTableData,
+      // contacts, setContacts, inquiries, newsletters, passportData, save, setSave, deleteContactById,
+      // deleteInquiryById, deleteNewsLetterById, deletePassportById, updateById, findPById, updateTableData,
       pageData, setPageData, countryName, setCountryName,
-      token, setToken, userdata, setUserdata, handleLogout, handleLogin, dropOpen, setDropOpen,
-      // showLogoutConfirm, setShowLogoutConfirm, confirmLogout, cancelLogout
+      token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal,
+      layout,setLayout,logopen,setLogopen,cancelLogout,confirmLogout ,showLogoutConfirm, setShowLogoutConfirm,
+      handlecontact, handleupload,handlepayment
 
     }}>
       {children}

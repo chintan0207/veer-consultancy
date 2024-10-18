@@ -24,6 +24,7 @@ import Admin from './Admin/Admin'
 import Layoutdoc from './Common/LayoutDoc/Layoutdoc'
 import ErrorPage from './Common/ErrorPage/ErrorPage'
 import Droplist from './Common/Droplist/Droplist.jsx'
+import Logout from './Common/Logout/Logout.jsx'
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
         <ContactBatch />
         <ServiceCardModal />
         <Droplist />
+        <Logout/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />

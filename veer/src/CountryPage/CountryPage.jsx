@@ -2,9 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import "./CountryPage.scss"
 import MyContext from '../Common/Context/MyContext';
 import { useParams } from 'react-router-dom';
-import Layoutdoc from '../Common/LayoutDoc/Layoutdoc';
-import LayoutDoc2 from '../Common/Layout2/LayoutDoc2';
-import LayoutDoc3 from '../Common/Layout3/LayoutDoc3';
+import Layoutbox from '../Common/Layoutbox/Layoutbox';
 
 const CountryPage = () => {
 
@@ -33,9 +31,7 @@ const CountryPage = () => {
                 </div>
             </div>
             <div className='country-main'>
-                <Layoutdoc />
-                <LayoutDoc2 />
-                <LayoutDoc3 />
+                <Layoutbox/>
             </div>
         </div>
     )

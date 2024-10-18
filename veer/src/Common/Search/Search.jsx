@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import MyContext from '../Context/MyContext';
 import './Search.scss';
+import { IoSearchOutline } from "react-icons/io5";
 
 const Search = () => {
   const { searchTerm, setSearchTerm, api, Navigate } = useContext(MyContext);
@@ -55,7 +56,7 @@ const Search = () => {
                     key={index}
                     className="keyword-box"
                     onClick={() => handleRecentSearchClick(search)}>
-
+                    <span><IoSearchOutline /></span>
                     {search}
                   </div>
                 ))}

@@ -1,0 +1,107 @@
+@import '../Mixin.scss';
+.work{
+    width: 100%;
+   
+   padding: 20px 0px ;
+   margin: 40px 0px;
+.work-main{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(128, 128, 128, 0.032);
+    max-width: 1200px;
+    margin: 0px auto;
+   
+    @include max650{
+      gap: 20px;
+    }    
+
+    .work-head{
+        font-size: 20px;
+    }
+
+    .work-process{
+        display: flex;
+        flex-flow: wrap;
+        gap: 80px;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        @include max650{
+            padding: 0px 150px;
+        }
+
+        @include max550{
+            padding: 0px 90px;
+        }
+
+        @include max420{
+            padding: 0px 10px;
+        }        
+        .work-icon{ 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            
+           
+
+          .work-line{
+          position: absolute;
+          top: 30%;
+          left: 100%;
+          border: 1px solid black;
+          width: 60px;
+          height: .01px;
+
+         
+
+      
+
+          .triangle {
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 14px solid rgb(6, 5, 5);
+            transform: translate(-50%,6px) rotate(90deg);
+            position: absolute;
+            bottom: 0px;
+            left: 100%;  
+
+           
+        }
+        }
+        .no{
+
+          @include max650{
+            display: none;
+          }
+        }
+            svg{
+                font-size: 40px;
+            }
+
+            span{
+                
+                display: flex;
+                gap: 40px;
+                padding: 20px ;
+                outline: 3px solid grey;
+                border-radius: 50%;
+                background-color: white; 
+               
+            }
+
+        }
+
+       
+       
+    }
+
+}
+}

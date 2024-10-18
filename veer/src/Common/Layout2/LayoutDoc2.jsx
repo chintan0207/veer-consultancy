@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./LayoutDoc2.scss"
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import MyContext from '../Context/MyContext';
+
 
 const LayoutDoc2 = () => {
-
+ 
+    const {handleupload,handlecontact,handlepayment,setLayout,layout} =useContext(MyContext)
+   
 
     // Form validation schema using Yup
     const validationSchema = Yup.object({
@@ -12,14 +16,15 @@ const LayoutDoc2 = () => {
         email: Yup.string().required('*Email is required'),
         mobileNo: Yup.string().required('*MobileNo is required'),
         alterMobileNo: Yup.string().required('*AlterMobileNo is required'),
+        motherName: Yup.string().required('*MotherName is required'),
         placeOfBirth: Yup.string().required('*PlaceOfBirth is required'),
         policeStation: Yup.string().required('*PoliceStation is required'),
         education: Yup.string().required('*Education is required'),
         employeementType: Yup.string().required('*EmployeementType is required'),
-        motherName: Yup.string().required('*MotherName is required'),
-        adharcard: Yup.mixed().required('*AdharCard is required'),
-        pancard: Yup.mixed().required('*PanCard is required'),
-
+        identity: Yup.mixed().required('*Any Identity Proof is required'),
+        birth: Yup.mixed().required('*Any Birth Proof is required'),
+        address:Yup.mixed().required('*Any Address Proof is required'),
+      
     });
 
     // Initial form values
@@ -28,21 +33,35 @@ const LayoutDoc2 = () => {
         email: '',
         mobileNo: '',
         alterMobileNo: '',
+        motherName: '',
         placeOfBirth: '',
         policeStation: '',
         education: '',
         employeementType: '',
-        motherName: '',
-        adharcard: null,
-        pancard: null,
+        identity: null,
+        birth: null,
+        address:null,
 
     };
 
     // Form submission handler
     const onSubmit = (values) => {
         console.log("submit")
-        console.log('Form data:', values);
+        console.log('Form data:', values);  
     };
+
+     
+  // Handle stage navigation with validation
+  const handleNextStage = (validateForm, setTouched, currentStage, nextStageFields) => {
+    validateForm().then((errors) => {
+      if (Object.keys(errors).some(field => nextStageFields.includes(field))) {
+        setTouched(nextStageFields.reduce((acc, field) => ({ ...acc, [field]: true }), {}));
+      } else {
+        setLayout(currentStage);
+      }
+    });
+  };
+
     return (
         <div className='main'>
             <div className="form-container">
@@ -51,66 +70,38 @@ const LayoutDoc2 = () => {
                     validationSchema={validationSchema}
                     onSubmit={onSubmit}
                 >
-                    {({ setFieldValue }) => (
-                        <Form>
-                            <>
-                                <h2>Personal Details</h2>
-                                <div className="form-group ">
-                                    <div className='label-div'>
-                                        <label htmlFor="name">Name</label>
-                                    </div>
-                                    <div className='input-error'>
-                                        <Field type="text" id="name" name="name" />
-                                        <ErrorMessage name="name" component="div" className="error" />
-                                    </div>
-                                </div>
+                    {({ setFieldValue,validateForm, setTouched  }) => (
+                       
+                       
+                       <Form>
 
-                                <div className="form-group">
-                                    <div className='label-div'>
-                                        <label htmlFor="email">Email</label>
-                                    </div>
-                                    <div className='input-error'>
-                                        <Field type="email" id="email" name="email" />
-                                        <ErrorMessage name="email" component="div" className="error" />
-                                    </div>
-                                </div>
+                        {  layout==='personal' &&
+                        <>
+                                  <h2>Personal Details</h2>
 
-                                <div className="form-group">
-                                    <div className='label-div'>
-                                        <label htmlFor="mobileNo">Mobile No</label>
-                                    </div>
-                                    <div className='input-error'>
-                                        <Field type="text" id="mobileNo" name="mobileNo" />
-                                        <ErrorMessage name="mobileNo" component="div" className="error" />
-                                    </div>
-                                </div>
+                        <div className="form-group ">
+                     <div className='label-div'>
+                           <label htmlFor="name">Name</label>
+                      </div>
+                     <div className='input-error'>
+                    <Field type="text" id="name" name="name" />
+                    <ErrorMessage name="name" component="div" className="error" />
+                     </div>
+                  </div>
 
-                                <div className="form-group">
-                                    <div className='label-div'>
-                                        <label htmlFor="alterMobileNo">Alternative Mobile No</label>
-                                    </div>
-                                    <div className='input-error'>
-                                        <Field type="text" id="alterMobileNo" name="alterMobileNo" />
-                                        <ErrorMessage name="alterMobileNo" component="div" className="error" />
-                                    </div>
-                                </div>
+                      
+                  <div className="form-group">
+                        <div className='label-div'>
+                           <label htmlFor="motherName">MotherName</label>
+                               </div>
+                                  <div className='input-error'>
+                                <Field type="text" id="motherName" name="motherName" />
+                             <ErrorMessage name="motherName" component="div" className="error" />
+                               </div>
+                            </div>
 
-                                <div className="form-group">
-                                    <div className='label-div'>
-                                        <label htmlFor="motherName">MotherName</label>
-                                    </div>
-                                    <div className='input-error'>
-                                        <Field type="text" id="motherName" name="motherName" />
-                                        <ErrorMessage name="motherName" component="div" className="error" />
-                                    </div>
-                                </div>
 
-                                <button type="submit" >Next</button>
-                            </>
-                            <>
-                                <h2>Contact Details</h2>
-
-                                <div className="form-group">
+                            <div className="form-group">
                                     <div className='label-div'>
                                         <label htmlFor="placeOfBirth">Place of Birth</label>
                                     </div>
@@ -119,6 +110,8 @@ const LayoutDoc2 = () => {
                                         <ErrorMessage name="placeOfBirth" component="div" className="error" />
                                     </div>
                                 </div>
+
+
                                 <div className="form-group">
                                     <div className='label-div'>
                                         <label htmlFor="education">Education</label>
@@ -126,8 +119,8 @@ const LayoutDoc2 = () => {
                                     <div className='input-error'>
                                         <Field as="select" name="education" id="education">
                                             <option value="">Select your education</option>
-                                            <option value="7th-10th">7th-10th</option>
-                                            <option value="12th">12th</option>
+                                            <option value="7th-10th">less than 7th</option>
+                                            <option value="12th">10th-12th</option>
                                             <option value="graduate">Graduate</option>
                                             <option value="post-graduate">PostGraduate</option>
                                         </Field>
@@ -135,6 +128,8 @@ const LayoutDoc2 = () => {
                                     </div>
                                 </div>
 
+
+                                
                                 <div className="form-group">
                                     <div className='label-div'>
                                         <label htmlFor="employeementType">Employment Type</label>
@@ -156,6 +151,57 @@ const LayoutDoc2 = () => {
                                         <ErrorMessage name="employeementType" component="div" className="error" />
                                     </div>
                                 </div>
+                      
+
+                   
+
+                       
+
+
+
+                         <button
+                type="button"
+                onClick={() => handleNextStage(validateForm, setTouched, 'contact', ['name', 'mothername',])}
+              >
+                Next
+              </button>
+                        </>
+                        }
+                     
+                        {layout==='contact' &&
+                            <>
+                                <h2>Contact Details</h2>
+
+                                <div className="form-group">
+                  <div className='label-div'>
+                 <label htmlFor="email">Email</label>
+                 </div>
+                   <div className='input-error'>
+                      <Field type="email" id="email" name="email" />
+                     <ErrorMessage name="email" component="div" className="error" />
+                    </div>
+                   </div>
+                               
+ 
+                   <div className="form-group">
+                      <div className='label-div'>
+                      <label htmlFor="mobileNo">Mobile No</label>
+                      </div>
+                      <div className='input-error'>
+                       <Field type="text" id="mobileNo" name="mobileNo" />
+                        <ErrorMessage name="mobileNo" component="div" className="error" />
+                          </div>
+                      </div>
+
+                      <div className="form-group">
+                        <div className='label-div'>
+                      <label htmlFor="alterMobileNo">Alternative Mobile No</label>
+                           </div>
+                     <div className='input-error'>
+                        <Field type="text" id="alterMobileNo" name="alterMobileNo" />
+                     <ErrorMessage name="alterMobileNo" component="div" className="error" />
+                       </div>
+                        </div>
 
                                 <div className="form-group">
                                     <div className='label-div'>
@@ -167,47 +213,168 @@ const LayoutDoc2 = () => {
                                     </div>
                                 </div>
 
-                                <div className="form-group">
-                                    <div className='label-div'>
-                                        <label htmlFor="adharcard">Upload Aadhaar Card</label>
-                                    </div>
-                                    <div className='input-error'>
-                                        <input
-                                            id="adharcard"
-                                            name="adharcard"
-                                            type="file"
-                                            onChange={(event) => {
-                                                setFieldValue('adharcard', event.currentTarget.files[0]);
-                                            }}
-                                        />
-                                        <ErrorMessage name="adharcard" component="div" className="error" />
-                                    </div>
-
-                                </div>
-
-                                <div className="form-group">
-                                    <div className='label-div'>
-                                        <label htmlFor="pancard">Upload Pan Card</label>
-                                    </div>
-                                    <div className='input-error'>
-                                        <input
-                                            id="pancard"
-                                            name="pancard"
-                                            type="file"
-                                            onChange={(event) => {
-                                                setFieldValue('pancard', event.currentTarget.files[0]);
-                                            }}
-                                        />
-                                        <ErrorMessage name="pancard" component="div" className="error" />
-                                    </div>
-
-                                </div>
-                                <button type="submit">Submit</button>
+                                
+                                <button
+                                        type="button"
+                                        onClick={() => {
+                                            validateForm().then((errors) => {
+                                                if (Object.keys(errors).length === 0) {
+                                                    handleupload();
+                                                    setLayout('upload');
+                                                } else {
+                                                    setTouched({
+                                                        placeOfBirth: true,
+                                                        education: true,
+                                                        employeementType: true,
+                                                        policeStation: true,
+                                                    });
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        Next
+                                    </button>
 
                             </>
+                        }
+                    
+                             {layout==='upload' &&
+                              <>
+                                 <div className="form-group">
+                                    <div className='label-div'>
+                                        <label htmlFor="identity">Upload Identity Proof</label>
+                                    </div>
+                                    <div className='input-error'>
+                                        <input
+                                            id="identity"
+                                            name="identity"
+                                            type="file"
+                                            onChange={(event) => {
+                                                setFieldValue('identity', event.currentTarget.files[0]);
+                                            }}
+                                        />
+                                        <ErrorMessage name="identity" component="div" className="error" />
+                                    </div>
+
+                                </div>
+
+                                <div className="form-group">
+                                    <div className='label-div'>
+                                        <label htmlFor="birth">Upload Birth Proof</label>
+                                    </div>
+                                    <div className='input-error'>
+                                        <input
+                                            id="birth"
+                                            name="birth"
+                                            type="file"
+                                            onChange={(event) => {
+                                                setFieldValue('birth', event.currentTarget.files[0]);
+                                            }}
+                                        />
+                                        <ErrorMessage name="birth" component="div" className="error" />
+                                    </div>
+
+                                </div>
+
+                                <div className="form-group">
+                                    <div className='label-div'>
+                                        <label htmlFor="address">Upload Address Proof</label>
+                                    </div>
+                                    <div className='input-error'>
+                                        <input
+                                            id="address"
+                                            name="address"
+                                            type="file"
+                                            onChange={(event) => {
+                                                setFieldValue('address', event.currentTarget.files[0]);
+                                            }}
+                                        />
+                                        <ErrorMessage name="address" component="div" className="error" />
+                                    </div>
+
+                                </div>
 
 
+                                <button
+                                        type="button"
+                                        onClick={() => {
+                                            validateForm().then((errors) => {
+                                                if (Object.keys(errors).length === 0) {
+                                                    handlepayment();
+                                                    setLayout('payment');
+                                                } else {
+                                                    setTouched({
+                                                        identity: true,
+                                                        birth: true,
+                                                        address: true,
+                                                    });
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        Proceed to payment
+                                    </button>
+                                </>
+                            }
 
+                            {layout==='payment' &&
+                               <>
+                               <h2>Personal Details</h2>
+
+                     <div className="form-group ">
+                  <div className='label-div'>
+                        <label htmlFor="name">Name</label>
+                   </div>
+                  <div className='input-error'>
+                 <Field type="text" id="name" name="name" />
+                 <ErrorMessage name="name" component="div" className="error" />
+                  </div>
+               </div>
+
+                    <div className="form-group">
+               <div className='label-div'>
+              <label htmlFor="email">Email</label>
+              </div>
+                <div className='input-error'>
+                   <Field type="email" id="email" name="email" />
+                  <ErrorMessage name="email" component="div" className="error" />
+                 </div>
+                </div>
+
+                 <div className="form-group">
+                   <div className='label-div'>
+                   <label htmlFor="mobileNo">Mobile No</label>
+                   </div>
+                   <div className='input-error'>
+                    <Field type="text" id="mobileNo" name="mobileNo" />
+                     <ErrorMessage name="mobileNo" component="div" className="error" />
+                       </div>
+                   </div>
+
+             <div className="form-group">
+ <div className='label-div'>
+     <label htmlFor="alterMobileNo">Alternative Mobile No</label>
+ </div>
+ <div className='input-error'>
+     <Field type="text" id="alterMobileNo" name="alterMobileNo" />
+     <ErrorMessage name="alterMobileNo" component="div" className="error" />
+ </div>
+</div>
+
+<div className="form-group">
+ <div className='label-div'>
+     <label htmlFor="motherName">MotherName</label>
+ </div>
+ <div className='input-error'>
+     <Field type="text" id="motherName" name="motherName" />
+     <ErrorMessage name="motherName" component="div" className="error" />
+ </div>
+</div>
+
+
+<button type="submit"> Next</button>
+                               </>
+                            }
                         </Form>
                     )}
                 </Formik>

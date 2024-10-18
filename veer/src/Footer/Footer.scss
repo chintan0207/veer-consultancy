@@ -1,14 +1,14 @@
 @import "../Common/Mixin.scss";
 footer {
   width: 100%;
-  background-color: black;
+  background-color: white;
   .footer-part {
     max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
     min-height: 300px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 60px 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -45,7 +45,7 @@ footer {
 
         &:hover {
           span {
-            color: white;
+            color: red;
             transition: 0.3s;
           }
         }

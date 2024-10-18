@@ -6,7 +6,7 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import MyContext from '../Context/MyContext';
 const Layoutdoc = () => {
 
-  const { pageData, countryName } = useContext(MyContext);
+  const { pageData, countryName,handlepersonal} = useContext(MyContext);
   console.log(countryName)
 
   return (
@@ -56,7 +56,7 @@ const Layoutdoc = () => {
           </div>
         </div>
         <div className="right-content">
-          <h2>Student Visa</h2>
+          <h2>{pageData?.title}</h2>
           {
             pageData?.country
               .filter((item) => item.name === countryName)
@@ -79,7 +79,8 @@ const Layoutdoc = () => {
 
 
       </div>
-
+          
+          <button  onClick={handlepersonal}>Next</button>
     </div>
 
 
