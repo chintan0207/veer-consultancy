@@ -6,7 +6,7 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import MyContext from '../Context/MyContext';
 const Layoutdoc = () => {
 
-  const { pageData, countryName,handlepersonal} = useContext(MyContext);
+  const { pageData, countryName, handlepersonal } = useContext(MyContext);
   console.log(countryName)
 
   return (
@@ -79,8 +79,8 @@ const Layoutdoc = () => {
 
 
       </div>
-          
-          <button  onClick={handlepersonal}>Next</button>
+
+      <button onClick={handlepersonal}>Next</button>
     </div>
 
 

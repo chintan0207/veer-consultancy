@@ -14,16 +14,15 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: stretch;
-    gap: 10px;
+    gap: 30px;
     box-sizing: border-box;
 
     @include max650 {
-      padding: 10px;
+      padding: 10px 0px;
       flex-direction: column;
     }
 
     .left-content {
-      
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -141,86 +140,83 @@
         }
       }
     }
-  
 
-  .right-content {
-   
-    min-width: 500px;
-    max-width: fit-content;
-    padding: 10px 15px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: auto;
+    .right-content {
+      min-width: 500px;
+      max-width: fit-content;
+      padding: 10px 15px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      height: auto;
 
-    @include max1024 {
-      flex: 1;
-      padding: 20px;
-      min-width: 300px;
-    }
-
-    @include max650 {
-      min-width: 200px;
-      padding: 15px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 25px;
-      margin-bottom: 10px;
+      @include max1024 {
+        flex: 1;
+        padding: 20px;
+        min-width: 300px;
+      }
 
       @include max650 {
-        font-size: 18px;
-        line-height: 20px;
+        min-width: 200px;
+        padding: 15px;
       }
-    }
 
-    .list {
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 5px;
+      h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 25px;
+        margin-bottom: 10px;
 
-      .list-icon {
-        color: #ff0000;
         @include max650 {
-          font-size: 12px;
+          font-size: 18px;
+          line-height: 20px;
         }
       }
 
-      span {
-        font-size: 16px;
-        line-height: 22px;
+      .list {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 5px;
 
-        @include max650 {
-          font-size: 12px;
-          line-height: 15px;
+        .list-icon {
+          color: #ff0000;
+          @include max650 {
+            font-size: 12px;
+          }
+        }
+
+        span {
+          font-size: 16px;
+          line-height: 22px;
+
+          @include max650 {
+            font-size: 12px;
+            line-height: 15px;
+          }
         }
       }
     }
   }
-}
 
   button {
-  display: flex;
- justify-content: center;
- align-items: center;
-  padding: 10px 20px;
-  background-color: #ff0000;
-  color: #fff;
-  border:1px solid transparent;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
 
-
-  &:hover {
-    background-color: transparent;
-    border: 1px solid #ff0000;
-    color: black;
+    &:hover {
+      background-color: transparent;
+      border: 1px solid #ff0000;
+      color: black;
+    }
   }
-}
 }

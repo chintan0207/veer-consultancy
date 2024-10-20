@@ -12,9 +12,10 @@
 
   @include max750 {
     padding: 16px;
+    margin: 20px auto;
   }
 
-  @include max525{
+  @include max525 {
     padding: 0px;
     width: 200px;
     // background-color: red;
@@ -26,17 +27,16 @@
     display: flex;
     justify-content: center;
     padding: 20px;
-    
+
     border-radius: 5px;
     box-sizing: border-box;
     @include max750 {
       width: 100%;
     }
 
-    @include max525{
+    @include max525 {
       width: 80%;
       padding: 10px;
-     
     }
 
     form {
@@ -46,15 +46,19 @@
       align-items: center;
       min-width: 500px;
 
+      h2 {
+        margin: 0px;
+        margin-bottom: 20px;
+      }
+
       @include max750 {
         min-width: 300px;
       }
 
-      @include max525{
+      @include max525 {
         width: fit-content;
         // background-color: pink;
       }
-     
 
       .form-group {
         display: flex;
@@ -69,10 +73,10 @@
           flex-direction: column;
         }
 
-        @include max525{
+        @include max525 {
           // background-color: blue;
-         width: 50%;
-         margin: 0;
+          width: 90%;
+          margin: 0;
         }
 
         .label-div {
@@ -80,10 +84,10 @@
           display: flex;
           align-items: start;
 
-          @include max525{
+          @include max525 {
             // background-color: rgb(255, 0, 115);
-           width: fit-content;
-           margin: 0;
+            width: fit-content;
+            margin: 0;
           }
         }
 
@@ -102,7 +106,6 @@
 
         input,
         select {
-        
           width: 100%;
           padding: 10px;
           border: 1px solid #ccc;
@@ -120,19 +123,6 @@
             outline: none;
           }
         }
-
-        // input[type="radio"],
-        // input[type="checkbox"] {
-        //   width: auto;
-        //   margin-right: 5px;
-        //   padding-bottom: 5px;
-        // }
-
-        // .radio-group,
-        // .checkbox-group {
-        //   display: flex;
-        //   justify-content: space-between;
-        // }
 
         .error {
           color: red;
@@ -156,6 +146,33 @@
           color: black;
         }
       }
+
+      .preview-section {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px 50px 50px 50px;
+        width: 100%;
+        height: fit-content;
+
+        @include max650 {
+          width: fit-content;
+        }
+
+        .details {
+          padding-bottom: 5px;
+
+          p {
+            margin: 0;
+            line-height: 32px;
+          }
+        }
+      }
     }
   }
+}
+
+.df {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

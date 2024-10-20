@@ -5,22 +5,6 @@ const detailSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    email: {
-        type: String,
-        required: true,
-    },
-    mobileNo: {
-        type: String,
-        required: true,
-    },
-    education: {
-        type: String,
-        required: true,
-    },
-    alterMobileNo: {
-        type: String,
-        required: false,
-    },
     motherName: {
         type: String,
         required: false,
@@ -29,6 +13,32 @@ const detailSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    education: {
+        type: String,
+        required: true,
+    },
+    employeementType: {
+        type: String,
+        required: true,
+    },
+    serviceType: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    mobileNo: {
+        type: String,
+        required: true,
+    },
+
+    alterMobileNo: {
+        type: String,
+        required: false,
+    },
+
     policeStation: {
         type: String,
         required: true,

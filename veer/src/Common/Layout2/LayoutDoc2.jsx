@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './LayoutDoc2.scss'
+import axios from 'axios'
+import MyContext from '../Context/MyContext';
 const LayoutDoc2 = () => {
 
+    const { setMsg, setLoading, setSneck } = useContext(MyContext);
     const [layout, setLayout] = useState('stage1');
 
     // Validation schema using Yup
@@ -13,6 +16,7 @@ const LayoutDoc2 = () => {
         placeOfBirth: Yup.string().required('*PlaceOfBirth is required'),
         education: Yup.string().required('*Education is required'),
         employeementType: Yup.string().required('*EmployeementType is required'),
+        serviceType: Yup.string().required('*Service Type is required'),
         email: Yup.string().required('*Email is required'),
         mobileNo: Yup.string().required('*MobileNo is required'),
         alterMobileNo: Yup.string().required('*AlterMobileNo is required'),
@@ -30,6 +34,7 @@ const LayoutDoc2 = () => {
         placeOfBirth: '',
         education: '',
         employeementType: '',
+        serviceType: '',
         email: '',
         mobileNo: '',
         alterMobileNo: '',
@@ -40,8 +45,51 @@ const LayoutDoc2 = () => {
     };
 
     // Handle form submission
-    const handleSubmit = (values) => {
-        alert(JSON.stringify(values))
+    const handleSubmit = async (values, { resetForm }) => {
+        // alert(JSON.stringify(values))
+
+        const formData = new FormData();
+        formData.append('name', values.name);
+        formData.append('motherName', values.motherName);
+        formData.append('placeOfBirth', values.placeOfBirth);
+        formData.append('education', values.education);
+        formData.append('employeementType', values.employeementType);
+        formData.append('serviceType', values.serviceType);
+        formData.append('email', values.email);
+        formData.append('mobileNo', values.mobileNo)
+        formData.append('alterMobileNo', values.alterMobileNo)
+        formData.append('policeStation', values.policeStation)
+        formData.append('identityProof', values.identityProof);
+        formData.append('birthProof', values.birthProof);
+        formData.append('addressProof', values.addressProof);
+
+        try {
+            setLoading(true)
+            document.querySelector('body').style.overflow = 'hidden'
+            const { data } = await axios.post('http://localhost:3034/details', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            if (data.success) {
+                setMsg(data.message)
+                setSneck(true)
+                // alert(data.message)
+                resetForm()
+
+            } else {
+                setSneck(true)
+                setMsg(data.error)
+            }
+        } catch (error) {
+            console.error('Error', error);
+            setSneck(true)
+            setMsg(error.message)
+        } finally {
+            document.querySelector('body').style.overflow = 'auto'
+            setLoading(false)
+        }
+
     };
 
     // Handle stage navigation with validation
@@ -65,7 +113,7 @@ const LayoutDoc2 = () => {
                     validationSchema={validationSchema}
                     onSubmit={handleSubmit}
                 >
-                    {({ validateForm, setTouched }) => (
+                    {({ validateForm, setTouched, values }) => (
 
                         <Form>
                             {
@@ -119,8 +167,6 @@ const LayoutDoc2 = () => {
                                         </div>
                                     </div>
 
-
-
                                     <div className="form-group">
                                         <div className='label-div'>
                                             <label htmlFor="employeementType">Employment Type</label>
@@ -142,11 +188,37 @@ const LayoutDoc2 = () => {
                                             <ErrorMessage name="employeementType" component="div" className="error" />
                                         </div>
                                     </div>
+                                    <div className="form-group">
+                                        <div className="label-div">
+                                            <label htmlFor="serviceType">Service Type</label>
+                                        </div>
+                                        <div className="radio-group">
+                                            <label>
+                                                <Field
+                                                    type="radio"
+                                                    name="serviceType"
+                                                    value="normal"
+                                                />
+                                                Normal
+                                            </label>
+                                            <label>
+                                                <Field
+                                                    type="radio"
+                                                    name="serviceType"
+                                                    value="tatkal"
+                                                />
+                                                Emergency
+                                            </label>
+                                        </div>
+                                        <ErrorMessage name="serviceType" component="div" className="error" />
+                                    </div>
+
 
 
                                     <button
                                         type="button"
-                                        onClick={() => handleNextStage(validateForm, setTouched, 'stage2', ['name', 'motherName', 'placeOfBirth', 'education', 'employeementType'])}
+                                        onClick={() => handleNextStage(validateForm, setTouched, 'stage2', ['name', 'motherName', 'placeOfBirth',
+                                            'serviceType', 'education', 'employeementType'])}
                                     >
                                         Next
                                     </button>
@@ -218,7 +290,15 @@ const LayoutDoc2 = () => {
                                             <label>IdentityProof:</label>
                                         </div>
                                         <div className="input-error">
-                                            <Field type="file" name="identityProof" />
+                                            <Field
+                                                name="identityProof"
+                                                render={({ field, form }) => (
+                                                    <input
+                                                        type="file"
+                                                        onChange={(event) => form.setFieldValue("identityProof", event.currentTarget.files[0])}
+                                                    />
+                                                )}
+                                            />
                                             <ErrorMessage name="identityProof" component="div" className="error" />
                                         </div>
                                     </div>
@@ -227,7 +307,15 @@ const LayoutDoc2 = () => {
                                             <label>BirthProof:</label>
                                         </div>
                                         <div className="input-error">
-                                            <Field type="file" name="birthProof" />
+                                            <Field
+                                                name="birthProof"
+                                                render={({ field, form }) => (
+                                                    <input
+                                                        type="file"
+                                                        onChange={(event) => form.setFieldValue("birthProof", event.currentTarget.files[0])}
+                                                    />
+                                                )}
+                                            />
                                             <ErrorMessage name="birthProof" component="div" className="error" />
                                         </div>
                                     </div>
@@ -236,13 +324,64 @@ const LayoutDoc2 = () => {
                                             <label>AddressProof:</label>
                                         </div>
                                         <div className="input-error">
-                                            <Field type="file" name="addressProof" />
+                                            <Field
+                                                name="addressProof"
+                                                render={({ field, form }) => (
+                                                    <input
+                                                        type="file"
+                                                        onChange={(event) => form.setFieldValue("addressProof", event.currentTarget.files[0])}
+                                                    />
+                                                )}
+                                            />
                                             <ErrorMessage name="addressProof" component="div" className="error" />
                                         </div>
                                     </div>
 
+                                    <button type="button"
+                                        onClick={() => handleNextStage(validateForm, setTouched, 'stage4', ['identityProof', 'birthProof', 'addressProof'])}
+                                    >
+                                        Next
+                                    </button>
+                                </>
+                            }
 
-                                    <button type="submit" className="bg-blue-500 text-white p-2 mt-4">
+                            {
+                                layout === 'stage4' &&
+                                <>
+                                    <h2>Preview the Details</h2>
+                                    <div className="preview-section">
+                                        <div className='details'>
+                                            <h3>1. Personal Details</h3>
+                                            <p><strong>Name:</strong> {values.name}</p>
+                                            <p><strong>Mother's Name:</strong> {values.motherName}</p>
+                                            <p><strong>Place of Birth:</strong> {values.placeOfBirth}</p>
+                                            <p><strong>Education:</strong> {values.education}</p>
+                                            <p><strong>Employment Type:</strong> {values.employeementType}</p>
+                                            <p><strong>ServiceType:</strong> {values.serviceType}</p>
+
+                                        </div>
+                                        <div className='details'>
+                                            <h3>2. Contact Details</h3>
+                                            <p><strong>Email:</strong> {values.email}</p>
+                                            <p><strong>Mobile No:</strong> {values.mobileNo}</p>
+                                            <p><strong>Alternative Mobile No:</strong> {values.alterMobileNo}</p>
+                                            <p><strong>Police Station:</strong> {values.policeStation}</p>
+                                        </div>
+
+                                        <div className='details'>
+                                            <h3>3. Uploaded Documents</h3>
+                                            <div className=''>
+                                                <p><strong>Identity Proof:</strong> {values.identityProof ? values.identityProof.name : 'Not uploaded'}</p>
+                                                <p><strong>Birth Proof:</strong> {values.birthProof ? values.birthProof.name : 'Not uploaded'}</p>
+                                                <p><strong>Address Proof:</strong> {values.addressProof ? values.addressProof.name : 'Not uploaded'}</p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <button type="submit"
+                                    >
                                         Submit
                                     </button>
                                 </>

@@ -19,17 +19,17 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-
 app.post('/details', upload.fields([
     { name: 'identityProof', maxCount: 1 },
     { name: 'birthProof', maxCount: 1 },
     { name: 'addressProof', maxCount: 1 }
 ]), async (req, res) => {
     try {
+
         const { identityProof, birthProof, addressProof } = req.files;
         // console.log(identityProof[0].filename)
-        const { name, email, mobileNo, education, alterMobileNo, motherName,
-            placeOfBirth, policeStation } = req.body;
+        const { name, motherName, placeOfBirth, education, employeementType,
+            serviceType, email, mobileNo, alterMobileNo, policeStation, } = req.body;
 
         const exist = await Detail.findOne({ email, mobileNo });
         if (exist) {
@@ -63,16 +63,14 @@ app.post('/details', upload.fields([
 
         // Save detail in the Detail collection
         const detail = await new Detail({
-            name, email, mobileNo, education, alterMobileNo, motherName,
-            placeOfBirth, policeStation,
+            name, motherName, placeOfBirth, education, employeementType, serviceType, email, mobileNo, alterMobileNo,
+            policeStation,
             identityProof: result1.filepath,
             birthProof: result2.filepath,
             addressProof: result3.filepath
         }).save();  // Save the Detail object
-
         console.log(detail)
         res.json({ success: true, message: 'Thanks Data saved successfully' });
-        // console.log(result)
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Internal server error occurred');
