@@ -62,7 +62,7 @@
  position: relative;
  top: 0px;
  left: 20%;
-padding: 20px 0;
+padding: 10px 0;
  @include m606{
   position: relative;
   left: 10px;
@@ -73,10 +73,14 @@ padding: 20px 0;
 }
 
   li {
-  padding: 8px;
+  padding: 8px 10px;
   background-color: #fff;
   margin: 5px 0;
   border-radius: 6px;
+  
+  svg{
+    padding: 0 5px;
+  }
  
   cursor: pointer;
   transition: background-color 0.3s;

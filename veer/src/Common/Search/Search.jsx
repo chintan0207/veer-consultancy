@@ -89,7 +89,7 @@ const Search = () => {
                               style={{ listStyle: 'none' }}
                               onClick={() => handleSearch(a, c)}
                             >
-                              {a.title.match('Visa') ? `${a.title} for ${c.title}` : c.title}
+                              <IoSearchOutline/>  {a.title.match('Visa') ? `${a.title} for ${c.title}` : c.title}
 
                             </li>
                           </ul>
