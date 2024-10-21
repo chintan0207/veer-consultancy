@@ -15,7 +15,8 @@ const Counting = () => {
                 <h5>The market leading visa & <br /> immigration firm</h5>
             </div>
             <div className="count-right">
-
+            <h5>We Provide Special Care <br /> To Make Easy Your Dream</h5>
+            <h5>The market leading visa & <br /> immigration firm</h5>
               <div className="circleone">
                 <span>Visa Approvals</span>
                 <span>

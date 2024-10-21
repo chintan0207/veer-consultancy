@@ -11,13 +11,11 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    background-color: rgba(128, 128, 128, 0.032);
+    background-color: rgba(128,128,128,0.032);
     max-width: 1200px;
     margin: 0px auto;
    
-    @include max650{
-      gap: 20px;
-    }    
+   
 
     .work-head{
         font-size: 20px;
@@ -29,18 +27,24 @@
         gap: 80px;
         justify-content: center;
         align-items: center;
-        padding: 20px 0;
-        @include max650{
-            padding: 0px 150px;
+        padding: 20px 0px;
+
+          @include max760{
+            padding: 0 150px;
+          }
+
+          @include max650{
+            padding: 0px 80px;
+        }
+        @include max525{
+            padding: 0px 50px;
         }
 
-        @include max550{
-            padding: 0px 90px;
+        @include max445{
+            padding: 0px;
         }
 
-        @include max420{
-            padding: 0px 10px;
-        }        
+
         .work-icon{ 
             display: flex;
             flex-direction: column;
@@ -48,7 +52,10 @@
             align-items: center;
             position: relative;
             
-           
+          @include max345{
+            
+            width: 80px;
+          }
 
           .work-line{
           position: absolute;
@@ -72,13 +79,17 @@
             position: absolute;
             bottom: 0px;
             left: 100%;  
+            
 
            
         }
         }
         .no{
 
-          @include max650{
+            @include max760{
+                display: none;
+              }
+          @include max585{
             display: none;
           }
         }

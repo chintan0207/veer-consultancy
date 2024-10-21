@@ -6,7 +6,7 @@ import axios from 'axios'
 import MyContext from '../Context/MyContext';
 const LayoutDoc2 = () => {
 
-    const { setMsg, setLoading, setSneck } = useContext(MyContext);
+    const { setMsg, setLoading, setSneck,Navigate } = useContext(MyContext);
     const [layout, setLayout] = useState('stage1');
 
     // Validation schema using Yup
@@ -71,20 +71,25 @@ const LayoutDoc2 = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
+        
             if (data.success) {
                 setMsg(data.message)
                 setSneck(true)
+                Navigate('/payment')
                 // alert(data.message)
                 resetForm()
 
             } else {
                 setSneck(true)
                 setMsg(data.error)
+                alert('Failed to initiate payment. Please try again.');
             }
         } catch (error) {
             console.error('Error', error);
             setSneck(true)
             setMsg(error.message)
+            console.error('Payment Error:', error.response?.data?.error || error.message);
+            alert('An error occurred during payment. Please try again.');
         } finally {
             document.querySelector('body').style.overflow = 'auto'
             setLoading(false)
@@ -379,9 +384,9 @@ const LayoutDoc2 = () => {
 
                                     </div>
 
-                                    <button type="submit"
+                                    <button type="submit" 
                                     >
-                                        Pay Now
+                                        Submit
                                     </button>
                                 </>
                             }

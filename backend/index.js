@@ -7,7 +7,7 @@ import Inquiryroute from "./routes/Inquiryroute.js"
 import newsletterroute from "./routes/newsletterroute.js"
 import passportroute from "./routes/passportroute.js"
 import datas from "./routes/Api/datas.js"
-
+import paymentroute from "./routes/paymentroute.js"
 import registerroute from './routes/registerroute.js'
 import loginroute from './routes/loginroute.js'
 import accountroute from './routes/accountroute.js'
@@ -42,7 +42,7 @@ app.use('/', passportroute)
 app.use('/', Inquiryroute)
 app.use('/', newsletterroute)
 app.use('/', datas)
-
+app.use('/',paymentroute)
 app.use('/', registerroute)
 app.use('/', loginroute)
 app.use('/', accountroute)

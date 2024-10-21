@@ -26,6 +26,7 @@ import ErrorPage from './Common/ErrorPage/ErrorPage'
 import Droplist from './Common/Droplist/Droplist.jsx'
 import Logout from './Common/Logout/Logout.jsx'
 import LayoutDoc3 from './Common/Layout3/LayoutDoc3.jsx'
+import Payment from './Common/Payment/Payment.jsx'
 
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
           <Route path='/layout' element={<Layoutdoc />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/confirm" element={<LayoutDoc3 />} />
+          <Route path="/payment" element={<Payment />} />
 
         </Routes>
         <ScrollToTop smooth component={<FaCircleArrowUp size={40} color="#ff0000" />} />

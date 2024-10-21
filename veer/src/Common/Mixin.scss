@@ -62,6 +62,18 @@
     @content;
   }
 }
+
+@mixin max760 {
+  @media only screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin max735 {
+  @media only screen and (max-width: 735px) {
+    @content;
+  }
+}
 @mixin max650 {
   @media only screen and (max-width: 650px) {
     @content;
@@ -70,6 +82,12 @@
 
 @mixin d650 {
   @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin max585 {
+  @media only screen and (max-width: 585px) {
     @content;
   }
 }
@@ -117,11 +135,20 @@
     @content;
   }
 }
+
+@mixin max445 {
+  @media only screen and (max-width: 445px) {
+    @content;
+  }
+}
+
 @mixin max420 {
   @media only screen and (max-width: 420px) {
     @content;
   }
 }
+
+
 @mixin max345 {
   @media only screen and (max-width: 345px) {
     @content;

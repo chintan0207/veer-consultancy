@@ -15,8 +15,13 @@
         flex-flow: wrap;
 
         .count-left{
+            display: flex;
+            flex-direction: column;
+            flex-flow: wrap;
             height: 500px;
             width: 50%;
+
+          
           
             h5{
                 text-align: center;
@@ -24,6 +29,18 @@
                 padding: 20px; 
                 color: rgba(9, 11, 12, 0.511);
 
+                @include max1180{
+                    padding: 5px;
+                    font-size: 28px;
+                   }
+                   @include m945{
+                    font-size: 25px;
+                    padding: 2px;
+                   }
+                   @include max850{
+                   
+                    display: none;
+                   }
             }
 
            @include max1180{
@@ -45,6 +62,28 @@
                    width: 50%;
                    height: 500px;
 
+
+                   h5{
+                    display: none;
+
+                    @include max850{
+                        text-align: end;
+                        padding: 0 10px;
+                        font-size: 14px;
+                        display: block;
+                       }
+
+                       @include max550{
+                        font-size: 11px;
+                        padding: 0 8px;
+                        
+                    }
+
+                    @include max420{
+                        font-size: 9px;
+                        padding: 0 9px;
+                       }
+                   }
                    @include max1180{
                     width: 60%;
                    }

@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import './Work.scss'
 import { GrDocumentText } from "react-icons/gr"; 
@@ -23,7 +21,7 @@ const Work = () => {
              <div className='work-line'>
              <div className="triangle"></div>
              </div>
-             <h5>Process</h5>
+             <h5>Initial Consultation <br />& Document Collection</h5>
              </div>
          
         
@@ -32,7 +30,7 @@ const Work = () => {
              <div className='work-line no'>
               <div className="triangle"></div>
              </div>
-             <h5>Process</h5>
+             <h5>University <br />& Course Selection</h5>
              </div>
            
          
@@ -42,13 +40,13 @@ const Work = () => {
              <div className="triangle"></div>
              </div>
               
-             <h5>Process</h5>
+             <h5>Visa Application <br /> Preparation</h5>
              </div>
 
         
              <div className="work-icon">
              <span><VscReferences /></span>
-             <h5>Process</h5>
+             <h5>Submission <br />& Interview Support</h5>
              </div>
             
            </div>

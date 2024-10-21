@@ -19,10 +19,10 @@ const Layoutbox = () => {
         <div className="lbox-left">
 
           <span style={{ color: layout === 'document' && "rgba(255, 0, 0, 0.292)" }} onClick={() => setLayout('document')}>Documents Required</span>
-          <span style={{ color: layout === 'stage1' && "rgba(255, 0, 0, 0.292)" }} >Personal Details</span>
-          <span style={{ color: layout === 'stage2' && "rgba(255, 0, 0, 0.292)" }}  >Contact Details</span>
-          <span style={{ color: layout === 'stage3' && "rgba(255, 0, 0, 0.292)" }}  >Upload Required Documents </span>
-          <span style={{ color: layout === 'stage4' && "rgba(255, 0, 0, 0.292)" }}> Payment Information</span>
+          <span  >Personal Details</span>
+          <span  >Contact Details</span>
+          <span   >Upload Required Documents </span>
+          <span > Payment Information</span>
 
         </div>
         <div className="lbox-right">
