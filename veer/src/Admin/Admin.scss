@@ -11,7 +11,7 @@
     display: flex;
 
     .navigation {
-      flex: 3;
+      flex: 2;
       background-color: black;
 
       .navigation-container {
@@ -24,15 +24,22 @@
 
         .n-heading {
           width: 100%;
+          box-sizing: border-box;
           display: flex;
           justify-content: center;
           align-items: center;
           color: white;
+          padding: 15px;
+          img {
+            width: 40px;
+            height: 40px;
+          }
           h3 {
             margin: 0;
-            padding: 15px;
-            font-size: 25px;
+            padding-top: 10px;
+            font-size: 18px;
             text-align: center;
+            color: #ff0000;
             font-weight: 600;
           }
         }
@@ -52,6 +59,7 @@
 
           &:hover {
             opacity: 1;
+            color: #ff0000;
           }
 
           @include max767 {
@@ -69,16 +77,16 @@
             width: 25px;
           }
           span {
-            font-weight: 500;
+            font-weight: 400;
           }
         }
       }
     }
 
     .right {
-      flex: 9;
-      background-color: #022357d9;
-      color: white;
+      flex: 10;
+      background-color: #f1f1f1;
+      color: black;
       display: flex;
       flex-direction: column;
       justify-content: start;
@@ -89,30 +97,38 @@
 
       .table-container {
         width: 100%;
+
         h3 {
           margin: 5px 0px 10px 0px;
           font-size: 22px;
           font-weight: 500;
         }
-
+        a {
+          text-decoration: none;
+          color: blue;
+          font-weight: 500;
+        }
         table {
           width: 100%;
           border-collapse: collapse;
           margin-bottom: 30px;
           border-radius: 8px;
           overflow: hidden;
-
           th {
-            background-color: #ff0000;
+            background-color: black;
             padding: 8px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
             color: white;
           }
 
-          th,
-          td {
-            border-bottom: 0.5px solid gray;
+          tr {
+            background-color: white;
+            // border-bottom: 0.5px solid gray;
+
+            &:hover {
+              background-color: #e6e8f3;
+            }
           }
 
           td {
@@ -124,6 +140,13 @@
             opacity: 0.8;
             // border: 0.3px solid gray;
             // border-bottom: 0.5px solid gray;
+            input,
+            select {
+              padding: 5px;
+              outline: none;
+              border-radius: 5px;
+              border: 0.5px solid gray;
+            }
           }
 
           .actions-btn {
@@ -140,6 +163,10 @@
             .modify-btn {
               cursor: pointer;
               color: #007bff;
+            }
+            .update-btn {
+              cursor: pointer;
+              color: #28a745;
             }
           }
         }

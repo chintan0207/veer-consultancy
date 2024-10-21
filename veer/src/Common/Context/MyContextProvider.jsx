@@ -7,6 +7,7 @@ const MyContextProvider = ({ children }) => {
   const Navigate = useNavigate()
 
   const location = useLocation()
+  const url = "http://localhost:3034"
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -159,9 +160,107 @@ const MyContextProvider = ({ children }) => {
   const handlepersonal = () => {
     setLayout('stage1');
   }
-
-
   //for layout page open end
+
+  //for payment page start
+
+  const [paymentStatus, setPaymentStatus] = useState('Verifying payment...');
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const [amountpaid, setAmountpaid] = useState(2000)
+  // for payment page end
+
+  // for admin table start
+
+  const [contacts, setContacts] = useState([]);
+  const [inquiries, setInquiries] = useState([]);
+  const [newsletters, setNewsletters] = useState([])
+  const [passportData, setPassportData] = useState([])
+  const [detailsData, setDetailsData] = useState([])
+
+  const [save, setSave] = useState("contact")
+
+  // for get alldata
+  const getContactData = async () => {
+    const { data } = await axios.get('http://localhost:3034/contacts')
+    // console.log(data);
+    setContacts(data.contacts)
+  }
+  const getInquiryData = async () => {
+    const { data } = await axios.get('http://localhost:3034/inquiries')
+    setInquiries(data.inquiries)
+  }
+  const getNewsletterData = async () => {
+    const { data } = await axios.get('http://localhost:3034/allnewsletters')
+    setNewsletters(data.newsletters)
+  }
+  const getPassportVerifyData = async () => {
+    const { data } = await axios.get('http://localhost:3034/allpassportverify')
+    setPassportData(data.passportData)
+  }
+  const getDetailsData = async () => {
+    const { data } = await axios.get('http://localhost:3034/details')
+    setDetailsData(data.data)
+  }
+
+  // for delete data by id
+  const deleteContactById = async (id) => {
+    const { data } = await axios.delete(`http://localhost:3034/contact/${id}`)
+    console.log(data);
+    getContactData()
+  }
+  const deleteInquiryById = async (id) => {
+    const { data } = await axios.delete(`http://localhost:3034/inquiry/${id}`)
+    console.log(data);
+    getInquiryData()
+
+  }
+  const deleteNewsLetterById = async (id) => {
+    const { data } = await axios.delete(`http://localhost:3034/newsletter/${id}`)
+    console.log(data);
+    getNewsletterData()
+  }
+  const deletePassportById = async (id) => {
+    const { data } = await axios.delete(`http://localhost:3034/passportverify/${id}`)
+    console.log(data);
+    getPassportVerifyData()
+  }
+  const deleteDetailsById = async (id) => {
+    const { data } = await axios.delete(`http://localhost:3034/details/${id}`)
+    console.log(data);
+    getDetailsData()
+  }
+
+  // get single data by id
+  const findPById = async (id) => {
+    const { data } = await axios.get(`http://localhost:3034/passport/${id}`)
+    console.log(data.data);
+    setEditedData(data.data);
+    // console.log(data.data._id)
+    setEditingId(data.data._id)
+  }
+  // for update data by id
+  const updateById = async (id, obj) => {
+    const { data } = await axios.patch(`http://localhost:3034/passport/${id}`, obj)
+    console.log(data);
+    getPassportVerifyData()
+    setEditingId(null)
+  }
+
+  useEffect(() => {
+    getContactData()
+    getInquiryData()
+    getNewsletterData()
+    getPassportVerifyData()
+    getDetailsData()
+  }, []);
+
+  const [editedData, setEditedData] = useState({
+    birthPlace: '', employeementType: '', profession: '',
+    education: '', policeStation: ''
+  });
+  const [editingId, setEditingId] = useState(null);
+  // admin table end
 
   return (
     <MyContext.Provider value={{
@@ -173,7 +272,12 @@ const MyContextProvider = ({ children }) => {
       pageData, setPageData, countryName, setCountryName,
       token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal,
       layout, setLayout, logopen, setLogopen, cancelLogout, confirmLogout, showLogoutConfirm, setShowLogoutConfirm,
-
+      paymentStatus, setPaymentStatus, errorMessage, setErrorMessage, amountpaid, setAmountpaid, url,
+      // admin table
+      contacts, setContacts, inquiries, newsletters, passportData, save, setSave, deleteContactById,
+      deleteInquiryById, deleteNewsLetterById, deletePassportById, updateById, findPById,
+      deleteDetailsById, detailsData, getDetailsData, deleteDetailsById, editedData, setEditedData,
+      editingId, setEditingId, updateById
     }}>
       {children}
     </MyContext.Provider>

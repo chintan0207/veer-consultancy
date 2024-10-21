@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        // Define the file naming logic (using original name with timestamp)
+        // Define the file name (using original name with timestamp)
         cb(null, Date.now() + '-' + file.originalname);
     }
 });
@@ -36,7 +36,6 @@ app.post('/details', upload.fields([
             return res.send({ success: false, error: 'You have already submitted with the same query.' });
         }
 
-        // Construct file path using path.join
         const builtPath = (filename) => {
             let filePath = path.join('uploads', filename);
             filePath = filePath.replace(/\\/g, '/');
@@ -46,15 +45,15 @@ app.post('/details', upload.fields([
         // Save the file details to the database
         const identity = new File({
             filename: identityProof[0].filename,
-            filepath: builtPath(identityProof[0].filename),  // Use 'filepath' instead of 'path'
+            filepath: builtPath(identityProof[0].filename),
         });
         const birth = new File({
             filename: birthProof[0].filename,
-            filepath: builtPath(birthProof[0].filename),  // Use 'filepath' instead of 'path'
+            filepath: builtPath(birthProof[0].filename),
         });
         const address = new File({
             filename: addressProof[0].filename,
-            filepath: builtPath(addressProof[0].filename),  // Use 'filepath' instead of 'path'
+            filepath: builtPath(addressProof[0].filename),
         });
         // console.log(address)
         const result1 = await identity.save()
@@ -79,23 +78,14 @@ app.post('/details', upload.fields([
 
 app.get('/details', async (req, res) => {
     try {
-        const data = await Detail.find();  // Fetch file data from the Detail collection
-        res.json(data);
+        const data = await Detail.find();
+        res.json({ data });
     } catch (error) {
         console.error('Error fetching data:', error);
         res.status(500).send(`Error fetching data: ${error.message}`);
     }
 });
 
-app.get('/details', async (req, res) => {
-    try {
-        const data = await Detail.find();  // Fetch file data from the Detail collection
-        res.json(data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        res.status(500).send(`Error fetching data: ${error.message}`);
-    }
-});
 
 app.delete('/details/:id', async (req, res) => {
     try {
