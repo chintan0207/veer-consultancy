@@ -12,14 +12,14 @@ const LayoutDoc2 = () => {
     // Validation schema using Yup
     const validationSchema = Yup.object({
         name: Yup.string().required('*Name is required'),
-        motherName: Yup.string().required('*MotherName is required'),
+        motherName: Yup.string(),
         placeOfBirth: Yup.string().required('*PlaceOfBirth is required'),
         education: Yup.string().required('*Education is required'),
         employeementType: Yup.string().required('*EmployeementType is required'),
-        serviceType: Yup.string().required('*Service Type is required'),
+        serviceType: Yup.string().required("*Required"),
         email: Yup.string().required('*Email is required'),
         mobileNo: Yup.string().required('*MobileNo is required'),
-        alterMobileNo: Yup.string().required('*AlterMobileNo is required'),
+        alterMobileNo: Yup.string(),
         policeStation: Yup.string().required('*PoliceStation is required'),
         identityProof: Yup.mixed().required('*Any Identity Proof is required'),
         birthProof: Yup.mixed().required('*Any Birth Proof is required'),
@@ -198,6 +198,7 @@ const LayoutDoc2 = () => {
                                                     type="radio"
                                                     name="serviceType"
                                                     value="normal"
+                                                // checked="normal"
                                                 />
                                                 Normal
                                             </label>
@@ -212,8 +213,6 @@ const LayoutDoc2 = () => {
                                         </div>
                                         <ErrorMessage name="serviceType" component="div" className="error" />
                                     </div>
-
-
 
                                     <button
                                         type="button"
@@ -351,17 +350,18 @@ const LayoutDoc2 = () => {
                                     <h2>Preview the Details</h2>
                                     <div className="preview-section">
                                         <div className='details'>
-                                            <h3>1. Personal Details</h3>
+                                            <div className='stype-amount'>
+                                                <p><strong>ServiceType :</strong> {values.serviceType}</p>
+                                                <p><strong>Amount to be Paid :</strong> {values.serviceType === "tatkal" ? 3000 : 2000}</p>
+                                            </div>
                                             <p><strong>Name:</strong> {values.name}</p>
                                             <p><strong>Mother's Name:</strong> {values.motherName}</p>
                                             <p><strong>Place of Birth:</strong> {values.placeOfBirth}</p>
                                             <p><strong>Education:</strong> {values.education}</p>
                                             <p><strong>Employment Type:</strong> {values.employeementType}</p>
-                                            <p><strong>ServiceType:</strong> {values.serviceType}</p>
 
                                         </div>
                                         <div className='details'>
-                                            <h3>2. Contact Details</h3>
                                             <p><strong>Email:</strong> {values.email}</p>
                                             <p><strong>Mobile No:</strong> {values.mobileNo}</p>
                                             <p><strong>Alternative Mobile No:</strong> {values.alterMobileNo}</p>
@@ -369,7 +369,6 @@ const LayoutDoc2 = () => {
                                         </div>
 
                                         <div className='details'>
-                                            <h3>3. Uploaded Documents</h3>
                                             <div className=''>
                                                 <p><strong>Identity Proof:</strong> {values.identityProof ? values.identityProof.name : 'Not uploaded'}</p>
                                                 <p><strong>Birth Proof:</strong> {values.birthProof ? values.birthProof.name : 'Not uploaded'}</p>
@@ -382,7 +381,7 @@ const LayoutDoc2 = () => {
 
                                     <button type="submit"
                                     >
-                                        Submit
+                                        Pay Now
                                     </button>
                                 </>
                             }

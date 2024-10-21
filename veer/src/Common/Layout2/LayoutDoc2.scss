@@ -69,6 +69,10 @@
         margin-bottom: 15px;
         width: 100%;
 
+        .radio-group {
+          display: flex;
+        }
+
         @include max750 {
           flex-direction: column;
         }
@@ -156,10 +160,26 @@
 
         @include max650 {
           width: fit-content;
+          padding: 20px;
         }
 
         .details {
           padding-bottom: 5px;
+
+          .stype-amount {
+            width: 40%;
+            margin-left: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            text-align: left;
+
+            @include max650 {
+              // display: none;
+              // width: 100%;
+              margin: 0;
+            }
+          }
 
           p {
             margin: 0;
