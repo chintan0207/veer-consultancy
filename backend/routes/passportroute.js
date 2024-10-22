@@ -10,7 +10,7 @@ app.post('/passportverify', async (req, res) => {
         const passportData = await PassportVerify.create({ birthPlace, employeementType, profession, education, policeStation });
         console.log(passportData);
 
-        return res.status(200).send({ success: true, message: 'Data saved successfully' });
+        res.json({ success: true, message: 'Data saved successfully' });
 
     } catch (error) {
         console.error('Error when passportverify:', error);
@@ -24,7 +24,7 @@ app.get('/allpassportverify', async (req, res) => {
         if (!passportData) {
             return res.status(404).send('Not found');
         }
-        return res.status(200).json({ passportData });
+        res.json({ passportData });
 
     } catch (error) {
         console.error(error);
@@ -65,7 +65,7 @@ app.patch('/passport/:id', async (req, res) => {
             return res.status(404).json({ success: false, error: "passortDetails not found" });
         }
         console.log(data);
-        res.status(200).json({ success: true, message: "Data Updated successfully" })
+        res.json({ success: true, message: "Data Updated successfully" })
     } catch (error) {
         res.status(500).json({ success: false, error: error.message })
     }

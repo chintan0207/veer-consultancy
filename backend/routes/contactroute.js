@@ -67,13 +67,12 @@ app.get('/contacts', async (req, res) => {
 app.delete('/contact/:id', async (req, res) => {
     try {
         const deletedContact = await Contact.findByIdAndDelete(req.params.id);
-        console.log(deletedContact);
         if (!deletedContact) {
-            return res.status(404).json({success:false,error:"contact not found"});
+            return res.status(404).json({ success: false, error: "contact not found" });
         }
-        res.status(200).json({success:true,message:"Data Deleted successfully"})
+        res.status(200).json({ success: true, message: "Data Deleted successfully" })
     } catch (error) {
-        res.status(500).json({success:false,error:error.message})
+        res.status(500).json({ success: false, error: error.message })
     }
 });
 

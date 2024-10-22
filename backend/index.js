@@ -12,6 +12,8 @@ import registerroute from './routes/registerroute.js'
 import loginroute from './routes/loginroute.js'
 import accountroute from './routes/accountroute.js'
 import detailroute from './routes/detalisroute.js'
+import reviews from './routes/Api/reviews.js'
+
 
 import path from "path";  // Ensure this is the path module
 import { fileURLToPath } from "url";  // For static file serving
@@ -42,11 +44,13 @@ app.use('/', passportroute)
 app.use('/', Inquiryroute)
 app.use('/', newsletterroute)
 app.use('/', datas)
-app.use('/',paymentroute)
+app.use('/', reviews)
+app.use('/', paymentroute)
 app.use('/', registerroute)
 app.use('/', loginroute)
 app.use('/', accountroute)
 app.use('/', detailroute)
+
 
 app.listen(3034, () => {
   console.log('Server connected');

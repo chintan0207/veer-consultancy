@@ -3,8 +3,7 @@ import mongoose from 'mongoose';
 const newsLetterSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: true, // corrected 'require' to 'required'
-        trim: true,
+        required: true,
     },
 });
 

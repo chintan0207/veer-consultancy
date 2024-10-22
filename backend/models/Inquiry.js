@@ -4,22 +4,18 @@ const inquirySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        trim: true,
     },
     mobileNo: {
         type: String,
         required: true,
-        trim: true,
     },
     visaType: {
         type: String,
         required: true,
-        trim: true,
     },
     country: {
         type: String,
         required: true,
-        trim: true,
     },
 });
 

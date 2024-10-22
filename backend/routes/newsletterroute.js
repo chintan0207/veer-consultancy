@@ -59,7 +59,7 @@ app.get('/allnewsletters', async (req, res) => {
         if (!newsletters) {
             return res.status(404).send('Not found');
         }
-        return res.status(200).json({ newsletters });
+        res.json({ newsletters });
 
     } catch (error) {
         console.error(error);
@@ -72,11 +72,11 @@ app.delete('/newsletter/:id', async (req, res) => {
         const deletedData = await NewsLetter.findByIdAndDelete(req.params.id);
         console.log(deletedData);
         if (!deletedData) {
-            return res.status(404).json({success:false,error:"Data not found"});
+            return res.status(404).json({ success: false, error: "Data not found" });
         }
-        res.status(200).json({success:true,message:"Data Deleted successfully"})
+        res.json({ success: true, message: "Data Deleted successfully" })
     } catch (error) {
-        res.status(500).json({success:false,error:error.message})
+        res.status(500).json({ success: false, error: error.message })
     }
 });
 
