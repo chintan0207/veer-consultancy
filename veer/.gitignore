@@ -1,16 +1,16 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # dependencies
+
 **/node_modules/
 **/.parcel-cache/
 **/dist/
 **/build/
 
-
-# Git and environment files
 **/.git/
-**/.env
+**/.env/
 **/.idea/
 
-# pnp files
 /.pnp
 .pnp.js
 
@@ -26,12 +26,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
-backend/uploads/
 
-# log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Ignore lockfiles if necessary
-**/package-lock.json
