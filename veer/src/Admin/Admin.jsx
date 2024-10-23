@@ -97,6 +97,7 @@ const Admin = () => {
                             <table>
                                 <tr>
                                     <th>Index</th>
+                                    <th>Date&Time</th>
                                     <th>Name</th>
                                     <th>MobileNo</th>
                                     <th>VisaType</th>
@@ -192,7 +193,7 @@ const Admin = () => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1}</td>
-                                            <td>{new Date(item.date).toLocaleString()}</td>
+                                            <td>{new Date(item.createdAt).toLocaleString()}</td>
                                             <td>{item.serviceType}</td>
                                             <td>{item.name}</td>
                                             <td>{item.motherName}</td>
