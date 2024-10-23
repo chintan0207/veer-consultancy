@@ -269,6 +269,134 @@ const MyContextProvider = ({ children }) => {
   const [editingId, setEditingId] = useState(null);
   // admin table end
 
+  //for razorpay upi start
+
+  const handlepay = async () => {
+    try {
+      const { data } = await axios.post(
+        
+        
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer`,
+          }
+        }
+      );
+  
+      if (data.success) {
+        setMsg(data.message)
+        setSneck(true);
+      } else {
+        setMsg(data.error);
+        setSneck(true);
+      }
+    } catch (error) {
+      console.error('Error during order submission:', error.response?.data?.error || error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleupi = async () => {
+    setLoading(true);
+  
+    try {
+      // Use axios to make the POST request
+      const {data} = await axios.post(`${url}/razorpay`, {
+        amount: amount
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+  
+    
+  
+      if (data.success !== true) {
+        setSneck(true);
+        setMsg(data.error);
+      } else {
+        const options = {
+          key: process.env.REACT_APP_RAZORPAY_KEY,
+          amount: data.amount,
+          currency: data.currency,
+          image: "https://i.ibb.co/Dwt8gPV/logo.png",
+          name: "Veer Consultancy",
+          description: "Test Transaction",
+          order_id: data.id,
+          config: {
+            display: {
+              blocks: {
+                utib: { 
+                  name: "most recommended using",
+                  instruments: [
+                    {
+                      method: "card",
+                      types: ["debit", "credit"]
+                    },
+                    {
+                      method: "upi",
+                      flows: ["qr"]
+                    },
+    
+                    {
+                      method: "wallet",
+                    
+                    },
+    
+                    {
+                      method: "paylater",
+                    
+                    }
+                  ]
+                },
+              
+              },
+             
+              sequence: ["block.utib", "block.other"],
+              preferences: {
+                show_default_blocks: true
+              }
+            }
+          },
+          handler:async (response) => {
+            await handlepay(); 
+          Navigate('/confirm');
+          },
+          // modal: {
+          //   ondismiss: function () {
+          //     if (window.confirm("Are you sure you want to close the form?")) {
+          //       console.log("Checkout form closed by the user");
+          //     } else {
+          //       console.log("Complete the Payment");
+          //     }
+          //   }
+          // },
+          theme: {
+            color: "#F4ACBD",
+            hide_topbar: false,
+            shape: "rectangular",
+            header: {
+              color: "#fff",
+              text: "Payment"
+            }
+          }
+        };
+  
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
+      }
+    } catch (error) {
+      alert(error.message);
+      console.error("Error during payment process:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // for razorpay upi end
+
   return (
     <MyContext.Provider value={{
       sneck, setSneck, ropen, msg, setMsg, loading, setLoading,
@@ -277,7 +405,7 @@ const MyContextProvider = ({ children }) => {
       complete, setComplete, searchTerm, setSearchTerm, data, setData, api, setApi, currentPage, setCurrentPage,
       postsPerPage, setPostsPerPage, currentPosts, totalPosts, lastPostIndex, firstPostIndex,
       pageData, setPageData, countryName, setCountryName,rapi,SetRapi,serviceType, setServiceType,amount, setAmount,
-      token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal,
+      token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal,handlepay,handleupi,
       layout, setLayout, logopen, setLogopen, cancelLogout, showLogoutConfirm, setShowLogoutConfirm,
       paymentStatus, setPaymentStatus, errorMessage, setErrorMessage, amountpaid, setAmountpaid, url,
       // admin table

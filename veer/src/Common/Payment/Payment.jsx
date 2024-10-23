@@ -1,41 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import MyContext from '../Context/MyContext';
-import axios from 'axios';
 import './Payment.scss'
 import gif1 from '../../Assets/images/loading.png'
 
 const Payment = () => {
 
-    const{url,setLoading,amount } = useContext(MyContext)
+    const{amount,handleupi,loading } = useContext(MyContext)
     
-  const handlePayment = async () => {
+    const [openpay, setOpenpay] = useState(false);
 
+    const handleOptionChange = () => {
+  
+      setOpenpay(true);
+    };
     
-    try {
-      setLoading(true)
-      const { data } = await axios.post(
-        `${url}/create-payment`,
-        {
-          amount:amount,
-          orderId: `order_${new Date().getTime()}`,
-        },
-      
-      );
-
-      if (data.success) {
-        window.location.href = data.data; 
-        
-      } else {
-        alert('Failed to initiate payment. Please try again.');
-      }
-    } catch (error) {
-      console.error('Payment Error:', error.response?.data?.error || error.message);
-      alert('An error occurred during payment. Please try again.');
-    }finally{
-      setLoading(false)
-      
-    }
-  };    
   return (
     <div  className='payment-main'>
 
@@ -49,8 +27,20 @@ const Payment = () => {
                <b>  &#8377;{amount}  </b>
                 
               </span>
-              <button onClick={handlePayment}>Continue to Payment</button>
+              <button  onClick={handleupi}>Continue to Payment</button>
 
+
+              { openpay && (
+                <div className="upi">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    onClick={handleupi}
+                  >
+                    {loading ? "Processing..." : "Pay online"}
+                  </button>
+                </div>
+              )}
                </div>
 
         </div>
