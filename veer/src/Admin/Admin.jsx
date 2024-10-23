@@ -46,7 +46,7 @@ const Admin = () => {
                             <img src={newsletter} alt="" />
                             <span>Newsletter</span>
                         </div>
-                       
+
                         <div className="n-item" onClick={() => setSave("details")}>
                             <img src={formDetailsImg} alt="" />
                             <span>Serviceform Details</span>
@@ -60,6 +60,7 @@ const Admin = () => {
                             <table>
                                 <tr>
                                     <th>Index</th>
+                                    <th>Date&Time</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Message</th>
@@ -70,6 +71,7 @@ const Admin = () => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1}</td>
+                                            <td>{new Date(item.createdAt).toLocaleString()}</td>
                                             <td>{item.name}</td>
                                             <td>{item.email}</td>
                                             <td>{item.message}</td>
@@ -106,6 +108,7 @@ const Admin = () => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1}</td>
+                                            <td>{new Date(item.createdAt).toLocaleString()}</td>
                                             <td>{item.name}</td>
                                             <td>{item.mobileNo}</td>
                                             <td>{item.visaType}</td>
@@ -160,7 +163,7 @@ const Admin = () => {
                         </div>
                     )}
 
-                
+
 
                     {save === "details" && (
                         <div className="table-container">
@@ -168,6 +171,7 @@ const Admin = () => {
                             <table>
                                 <tr>
                                     <th>Index</th>
+                                    <th>Date&Time</th>
                                     <th>ServiceType</th>
                                     <th>Name</th>
                                     <th>MotherName</th>
@@ -188,6 +192,7 @@ const Admin = () => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1}</td>
+                                            <td>{new Date(item.date).toLocaleString()}</td>
                                             <td>{item.serviceType}</td>
                                             <td>{item.name}</td>
                                             <td>{item.motherName}</td>

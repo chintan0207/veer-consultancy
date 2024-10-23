@@ -54,7 +54,8 @@ const detailSchema = new mongoose.Schema({
     addressProof: {
         type: String,
         required: true,
-    }
+    },
+    createdAt: { type: Date, default: Date.now }
 
 });
 
