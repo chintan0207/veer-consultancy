@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import logo from '../../Assets/images/flight.png'
+import logo from '../../Assets/images/loderlogo.png'
 import './Loader.scss'
 import MyContext from '../Context/MyContext'
 

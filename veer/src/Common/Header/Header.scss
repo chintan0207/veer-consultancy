@@ -3,14 +3,14 @@ header {
   width: 100%;
   border-bottom: 0.3px solid rgba(0, 0, 0, 0.073);
   position: sticky;
-  position: relative;
+  // position: relative;
   top: 0;
   z-index: 100;
   background-color: white;
 
   @include max650 {
-    position: relative;
-    z-index: 0;
+    // position: relative;
+    z-index: 100;
   }
   .header {
     box-sizing: border-box;

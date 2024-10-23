@@ -180,7 +180,10 @@ const MyContextProvider = ({ children }) => {
   const [paymentStatus, setPaymentStatus] = useState('Verifying payment...');
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const [amountpaid, setAmountpaid] = useState(2000)
+  const [amountpaid, setAmountpaid] = useState()
+
+  const [serviceType, setServiceType] = useState('');
+    const [amount, setAmount] = useState(0);
   // for payment page end
 
   // for admin table start
@@ -273,7 +276,7 @@ const MyContextProvider = ({ children }) => {
       closeModal, cardName, setCardName, bgColor, setBgColor, currentStep, setCurrentStep,
       complete, setComplete, searchTerm, setSearchTerm, data, setData, api, setApi, currentPage, setCurrentPage,
       postsPerPage, setPostsPerPage, currentPosts, totalPosts, lastPostIndex, firstPostIndex,
-      pageData, setPageData, countryName, setCountryName,rapi,SetRapi,
+      pageData, setPageData, countryName, setCountryName,rapi,SetRapi,serviceType, setServiceType,amount, setAmount,
       token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal,
       layout, setLayout, logopen, setLogopen, cancelLogout, showLogoutConfirm, setShowLogoutConfirm,
       paymentStatus, setPaymentStatus, errorMessage, setErrorMessage, amountpaid, setAmountpaid, url,

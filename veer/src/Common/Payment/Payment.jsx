@@ -6,7 +6,7 @@ import gif1 from '../../Assets/images/loading.png'
 
 const Payment = () => {
 
-    const{url,setLoading,amountpaid} = useContext(MyContext)
+    const{url,setLoading,amount } = useContext(MyContext)
     
   const handlePayment = async () => {
 
@@ -16,7 +16,7 @@ const Payment = () => {
       const { data } = await axios.post(
         `${url}/create-payment`,
         {
-          amount:amountpaid,
+          amount:amount,
           orderId: `order_${new Date().getTime()}`,
         },
       
@@ -46,7 +46,7 @@ const Payment = () => {
                <h5>“You’re almost done! Please proceed to the payment page to complete your request.”</h5>
               <span> The amount to be paid for this service is
                 
-               <b>  &#8377;{amountpaid}  </b>
+               <b>  &#8377;{amount}  </b>
                 
               </span>
               <button onClick={handlePayment}>Continue to Payment</button>

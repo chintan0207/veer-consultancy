@@ -6,7 +6,7 @@ import axios from 'axios'
 import MyContext from '../Context/MyContext';
 const LayoutDoc2 = () => {
 
-    const { setMsg, setLoading, setSneck,Navigate,url } = useContext(MyContext);
+    const { setMsg, setLoading, setSneck,Navigate,url,setServiceType,setAmount } = useContext(MyContext);
     const [layout, setLayout] = useState('stage1');
 
     // Validation schema using Yup
@@ -65,6 +65,8 @@ const LayoutDoc2 = () => {
 
         try {
             setLoading(true)
+            setServiceType(values.serviceType); // Store the serviceType in the context
+            setAmount(values.serviceType === "tatkal" ? 3000 : 2000);
             document.querySelector('body').style.overflow = 'hidden'
             const { data } = await axios.post(`${url}/details`, formData, {
                 headers: {
@@ -103,6 +105,7 @@ const LayoutDoc2 = () => {
             if (Object.keys(errors).some(field => nextStageFields.includes(field))) {
                 setTouched(nextStageFields.reduce((acc, field) => ({ ...acc, [field]: true }), {}));
             } else {
+                
                 setLayout(currentStage);
             }
         });
@@ -357,7 +360,7 @@ const LayoutDoc2 = () => {
                                         <div className='details'>
                                             <div className='stype-amount'>
                                                 <p><strong>ServiceType :</strong> {values.serviceType}</p>
-                                                <p><strong>Amount to be Paid :</strong> {values.serviceType === "tatkal" ? 3000 : 2000}</p>
+                                                <p><strong>Amount to be Paid :</strong> {values.serviceType  === "tatkal" ? 3000 : 2000}</p>
                                             </div>
                                             <p><strong>Name:</strong> {values.name}</p>
                                             <p><strong>Mother's Name:</strong> {values.motherName}</p>
