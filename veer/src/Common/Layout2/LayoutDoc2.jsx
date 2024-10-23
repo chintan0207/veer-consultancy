@@ -18,7 +18,7 @@ const LayoutDoc2 = () => {
         employeementType: Yup.string().required('*EmployeementType is required'),
         serviceType: Yup.string().required("*Required"),
         email: Yup.string().required('*Email is required'),
-        mobileNo: Yup.string().required('*MobileNo is required'),
+        mobileNo: Yup.string().matches(/^[0-9]{10}$/, '**Mobile number is not valid').required('*MobileNo is required'),
         alterMobileNo: Yup.string(),
         policeStation: Yup.string().required('*PoliceStation is required'),
         identityProof: Yup.mixed().required('*Any Identity Proof is required'),
