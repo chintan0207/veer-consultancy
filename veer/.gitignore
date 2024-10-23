@@ -3,9 +3,7 @@
 # dependencies
 
 **/node_modules/
-**/.parcel-cache/
-**/dist/
-**/build/
+
 
 **/.git/
 **/.env/
@@ -17,8 +15,6 @@
 # testing
 /coverage
 
-# production
-/build
 
 # misc
 .DS_Store
