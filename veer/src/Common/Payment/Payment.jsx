@@ -24,6 +24,7 @@ const Payment = () => {
 
       if (data.success) {
         window.location.href = data.data; 
+        
       } else {
         alert('Failed to initiate payment. Please try again.');
       }
@@ -32,6 +33,7 @@ const Payment = () => {
       alert('An error occurred during payment. Please try again.');
     }finally{
       setLoading(false)
+      
     }
   };    
   return (

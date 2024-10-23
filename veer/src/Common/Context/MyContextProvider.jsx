@@ -25,10 +25,7 @@ const MyContextProvider = ({ children }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
 
-  // for service details store
-  const [api, setApi] = useState([])
-
-  // for dynamic coutrypage data start
+ 
 
   const [pageData, setPageData] = useState(null);
   const [countryName, setCountryName] = useState(null);
@@ -74,6 +71,11 @@ const MyContextProvider = ({ children }) => {
 
   // for search bar end
 
+   // for service details store
+   const [api, setApi] = useState([])
+
+   // for dynamic coutrypage data start
+
   //for api calling start
   useEffect(() => {
     axios.get('http://localhost:3034/api/service-details')
@@ -81,6 +83,20 @@ const MyContextProvider = ({ children }) => {
   }, [])
   // for api calling end
 
+
+  // for review api start
+
+ const[rapi,SetRapi] =useState([])
+  // for review api end
+
+  //for rapi calling start
+
+  useEffect(() => {
+    axios.get('http://localhost:3034/api/reviews')
+      .then((b) => SetRapi(b.data))
+  }, [])
+
+  //for rapi calling end
 
   // for pagination start
 
@@ -105,7 +121,9 @@ const MyContextProvider = ({ children }) => {
     return storetoken ? storetoken : ''
 
   })
-  // for saving token state start
+  // for saving token state end
+
+  
 
   // for account data save state start
   const [userdata, setUserdata] = useState(() => {
@@ -129,18 +147,13 @@ const MyContextProvider = ({ children }) => {
   const handleLogout = () => {
 
     sessionStorage.removeItem('token');
-    sessionStorage.removeItem('userdata');
     setToken('');
-    setUserdata(null)
     window.location.reload()
-    setShowLogoutConfirm(true);
+    setShowLogoutConfirm(false);
   }
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
-  const confirmLogout = () => {
-    handleLogout(true); // Call the logout handler
-    setShowLogoutConfirm(false); // Hide the confirmation prompt
-  };
+  
 
   const cancelLogout = () => {
     setShowLogoutConfirm(false); // Cancel logout and hide the prompt
@@ -175,7 +188,6 @@ const MyContextProvider = ({ children }) => {
   const [contacts, setContacts] = useState([]);
   const [inquiries, setInquiries] = useState([]);
   const [newsletters, setNewsletters] = useState([])
-  const [passportData, setPassportData] = useState([])
   const [detailsData, setDetailsData] = useState([])
 
   const [save, setSave] = useState("contact")
@@ -194,10 +206,7 @@ const MyContextProvider = ({ children }) => {
     const { data } = await axios.get('http://localhost:3034/allnewsletters')
     setNewsletters(data.newsletters)
   }
-  const getPassportVerifyData = async () => {
-    const { data } = await axios.get('http://localhost:3034/allpassportverify')
-    setPassportData(data.passportData)
-  }
+ 
   const getDetailsData = async () => {
     const { data } = await axios.get('http://localhost:3034/details')
     setDetailsData(data.data)
@@ -220,11 +229,7 @@ const MyContextProvider = ({ children }) => {
     console.log(data);
     getNewsletterData()
   }
-  const deletePassportById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/passportverify/${id}`)
-    console.log(data);
-    getPassportVerifyData()
-  }
+  
   const deleteDetailsById = async (id) => {
     const { data } = await axios.delete(`http://localhost:3034/details/${id}`)
     console.log(data);
@@ -243,7 +248,7 @@ const MyContextProvider = ({ children }) => {
   const updateById = async (id, obj) => {
     const { data } = await axios.patch(`http://localhost:3034/passport/${id}`, obj)
     console.log(data);
-    getPassportVerifyData()
+    
     setEditingId(null)
   }
 
@@ -251,7 +256,6 @@ const MyContextProvider = ({ children }) => {
     getContactData()
     getInquiryData()
     getNewsletterData()
-    getPassportVerifyData()
     getDetailsData()
   }, []);
 
@@ -269,15 +273,15 @@ const MyContextProvider = ({ children }) => {
       closeModal, cardName, setCardName, bgColor, setBgColor, currentStep, setCurrentStep,
       complete, setComplete, searchTerm, setSearchTerm, data, setData, api, setApi, currentPage, setCurrentPage,
       postsPerPage, setPostsPerPage, currentPosts, totalPosts, lastPostIndex, firstPostIndex,
-      pageData, setPageData, countryName, setCountryName,
+      pageData, setPageData, countryName, setCountryName,rapi,SetRapi,
       token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal,
-      layout, setLayout, logopen, setLogopen, cancelLogout, confirmLogout, showLogoutConfirm, setShowLogoutConfirm,
+      layout, setLayout, logopen, setLogopen, cancelLogout, showLogoutConfirm, setShowLogoutConfirm,
       paymentStatus, setPaymentStatus, errorMessage, setErrorMessage, amountpaid, setAmountpaid, url,
       // admin table
-      contacts, setContacts, inquiries, newsletters, passportData, save, setSave, deleteContactById,
-      deleteInquiryById, deleteNewsLetterById, deletePassportById, updateById, findPById,
-      deleteDetailsById, detailsData, getDetailsData, deleteDetailsById, editedData, setEditedData,
-      editingId, setEditingId, updateById
+      contacts, setContacts, inquiries, newsletters, save, setSave, deleteContactById,
+      deleteInquiryById, deleteNewsLetterById,  updateById, findPById,
+      deleteDetailsById, detailsData, getDetailsData, editedData, setEditedData,
+      editingId, setEditingId
     }}>
       {children}
     </MyContext.Provider>

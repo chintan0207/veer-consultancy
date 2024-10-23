@@ -11,7 +11,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Register = () => {
 
-    const{setMsg,setSneck,setLoading,ropen,setRopen,setIsOpen} =useContext(MyContext)
+    const{setMsg,setSneck,setLoading,ropen,setRopen,setIsOpen,url} =useContext(MyContext)
 
      // Form validation schema using Yup
    const validationSchema= Yup.object({
@@ -57,7 +57,7 @@ const Register = () => {
   
         setLoading(true)
       
-        const {data } = await axios.post('http://localhost:3034/register', values)
+        const {data } = await axios.post(`${url}/register`, values)
         
 
         

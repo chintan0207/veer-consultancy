@@ -1,38 +1,33 @@
 // import { FaArrowRightLong } from "react-icons/fa6";
-import { FaGraduationCap } from "react-icons/fa";
-import { FaPersonWalkingLuggage } from "react-icons/fa6";
-import { FaEarthAmericas } from "react-icons/fa6";
-import { FaArrowRightArrowLeft } from "react-icons/fa6";
-import { ImAirplane } from "react-icons/im";
-import { FaPassport } from "react-icons/fa";
-import studentVisaImg from '../Assets/flaticons/s5.png'
-import visitorVisaImg from '../Assets/flaticons/s3.png'
-import workVisaImg from '../Assets/flaticons/s1.png'
-import passportImg from '../Assets/flaticons/s4.png'
-import aadharImg from '../Assets/flaticons/s7.png'
-import pancardImg from '../Assets/flaticons/s8.png'
-import electionImg from '../Assets/flaticons/s6.png'
-import pccImg from '../Assets/flaticons/s2.png'
-import usaFlag from '../Assets/flags/usa.png'
-import canadaFlag from '../Assets/flags/canada.png'
-import ukFlag from '../Assets/flags/united-kingdom.png'
-import franceFlag from '../Assets/flags/france.png'
-import newzealandFlag from '../Assets/flags/new-zealand.png'
-import germanyFlag from '../Assets/flags/germany.png'
-import ausFlag from '../Assets/flags/australia.png'
-import passport from "../Assets/images/passportImg.jpg"
-import visa from "../Assets/images/visaImg.jpg"
-import docoment from "../Assets/images/docoment.jpg"
-import certificates from "../Assets/images/certificates.jpg"
-import registration from "../Assets/images/registration.jpg"
-import travel from "../Assets/images/travel.jpg"
-import auscity from "../Assets/city/auscity.jpg"
-import ukcity from "../Assets/city/englandcity.jpg"
-import canadacity from "../Assets/city/canadacity.jpg"
-import usacity from "../Assets/city/usa.webp"
-import workpermit from "../Assets/images/workpermit.jpg"
-import airticket from "../Assets/images/air-ticket.jpg"
-import immigration from "../Assets/images/immigration.jpg"
+
+import studentVisaImg from './Assets/flaticons/s5.png'
+import visitorVisaImg from './Assets/flaticons/s3.png'
+import workVisaImg from './Assets/flaticons/s1.png'
+import passportImg from './Assets/flaticons/s4.png'
+import aadharImg from './Assets/flaticons/s7.png'
+import pancardImg from './Assets/flaticons/s8.png'
+import electionImg from './Assets/flaticons/s6.png'
+import pccImg from './Assets/flaticons/s2.png'
+import usaFlag from './Assets/flags/usa.png'
+import canadaFlag from './Assets/flags/canada.png'
+import ukFlag from './Assets/flags/united-kingdom.png'
+import franceFlag from './Assets/flags/france.png'
+import newzealandFlag from './Assets/flags/new-zealand.png'
+import germanyFlag from './Assets/flags/germany.png'
+import ausFlag from './Assets/flags/australia.png'
+import passport from "./Assets/images/passportImg.jpg"
+import visa from "./Assets/images/visaImg.jpg"
+import docoment from "./Assets/images/docoment.jpg"
+import certificates from "./Assets/images/certificates.jpg"
+import registration from "./Assets/images/registration.jpg"
+import travel from "./Assets/images/travel.jpg"
+import auscity from "./Assets/city/auscity.jpg"
+import ukcity from "./Assets/city/englandcity.jpg"
+import canadacity from "./Assets/city/canadacity.jpg"
+import usacity from "./Assets/city/usa.webp"
+import workpermit from "./Assets/images/workpermit.jpg"
+import airticket from "./Assets/images/air-ticket.jpg"
+import immigration from "./Assets/images/immigration.jpg"
 
 
 export const ServiceCardDetails = [
@@ -397,38 +392,7 @@ export const ServiceCardDetails = [
     },
 ];
 
-export const services = [
-    {
-        id: 1,
-        name: "Student Visa",
-        icon: <FaGraduationCap />
-    },
-    {
-        id: 2,
-        name: "Work Permit",
-        icon: <FaPersonWalkingLuggage />
-    },
-    {
-        id: 3,
-        name: "Immigration",
-        icon: <FaEarthAmericas />
-    },
-    {
-        id: 4,
-        name: "Visitor Visa",
-        icon: <FaArrowRightArrowLeft />
-    },
-    {
-        id: 5,
-        name: "Air Ticket",
-        icon: <ImAirplane />
-    },
-    {
-        id: 6,
-        name: "Passport",
-        icon: <FaPassport />
-    },
-]
+
 
 export const exploreServices = [
     {

@@ -11,13 +11,11 @@ import Register from './Common/Register/Register'
 import Loader from './Common/Loader/Loader'
 import Error from './Common/Error/Error'
 import Footer from './Footer/Footer'
-import PassportVerify from './Passportcomp/PassportVerify'
 import ScrollToTop from "react-scroll-to-top";
 import { FaCircleArrowUp } from "react-icons/fa6";
 import SubHeader from './SubHeader/SubHeader'
 import GoToTop from './Common/Gototop/GoToTop'
 import ServiceCardModal from './service-modal/ServiceCardModal'
-import "../src/service-modal/ServiceCardModal.scss"
 import Explore from './Explore/Explore'
 import CountryPage from './CountryPage/CountryPage'
 import Admin from './Admin/Admin'
@@ -44,11 +42,11 @@ const App = () => {
         <ServiceCardModal />
         <Droplist />
         <Logout/>
+      
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/passport' element={<PassportVerify />} />
           <Route path='/:servicename/:countryname' element={<CountryPage />} />
           <Route path='/explore' element={<Explore />} />
           <Route path='/admin' element={<Admin />} />
@@ -56,6 +54,7 @@ const App = () => {
           <Route path="*" element={<ErrorPage />} />
           <Route path="/confirm" element={<LayoutDoc3 />} />
           <Route path="/payment" element={<Payment />} />
+
 
         </Routes>
         <ScrollToTop smooth component={<FaCircleArrowUp size={40} color="#ff0000" />} />

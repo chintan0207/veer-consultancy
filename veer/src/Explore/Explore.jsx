@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Explore.scss"
-import { explorecountries, exploreS3, exploreServices } from '../JsonAarrays/CardsDetails';
+import { explorecountries, exploreS3, exploreServices } from '../CardsDetails';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { FaUniversity } from "react-icons/fa";
 import { GrCertificate } from "react-icons/gr";

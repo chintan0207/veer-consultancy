@@ -6,7 +6,7 @@ import axios from 'axios'
 import MyContext from '../Context/MyContext';
 const LayoutDoc2 = () => {
 
-    const { setMsg, setLoading, setSneck,Navigate } = useContext(MyContext);
+    const { setMsg, setLoading, setSneck,Navigate,url } = useContext(MyContext);
     const [layout, setLayout] = useState('stage1');
 
     // Validation schema using Yup
@@ -66,7 +66,7 @@ const LayoutDoc2 = () => {
         try {
             setLoading(true)
             document.querySelector('body').style.overflow = 'hidden'
-            const { data } = await axios.post('http://localhost:3034/details', formData, {
+            const { data } = await axios.post(`${url}/details`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const Footer = () => {
 
-    const { setMsg, setLoading, setSneck, Navigate, api, location } = useContext(MyContext)
+    const { setMsg, setLoading, setSneck, Navigate, api, location ,url} = useContext(MyContext)
 
 
     // console.log(api.filter((i, index) => index === 0))
@@ -32,7 +32,7 @@ const Footer = () => {
 
             setLoading(true)
             document.querySelector('body').style.overflow = 'hidden'
-            const { data } = await axios.post('http://localhost:3034/newsletter', values)
+            const { data } = await axios.post(`${url}/newsletter`, values)
             console.log(data)
             if (data.success) {
                 setMsg(data.message)

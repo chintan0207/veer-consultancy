@@ -4,7 +4,7 @@
     width: 100%;
     margin: 40px 0;
     .count-detail{
-        background-image: url('../../Assets/images/Untitled\ \(1\).png  ');
+        background-image: url('../../Assets/images/counting.png');
         max-width: 1200px;
         margin: 0 auto;
         height: 500px;
@@ -81,7 +81,7 @@
 
                     @include max420{
                         font-size: 9px;
-                        padding: 0 9px;
+                        padding: 0px 9px;
                        }
                    }
                    @include max1180{
@@ -149,6 +149,8 @@
              width: 120px;   
             }
             @include max420{
+                position: absolute;
+                top: 20%;
                 height: 100px;
                 width: 100px;
                }
@@ -196,8 +198,8 @@
                 width: 120px;     
                }
                @include max420{
-                height: 100px;
-                width: 100px;
+                height: 120px;
+                width: 120px;
                }
          }
          .circlefour{
@@ -219,8 +221,8 @@
                 width: 120px;     
                }
                @include max420{
-                height: 100px;
-                width: 100px;
+                height: 120px;
+                width: 120px;
                }
          }
          .circlefive{
@@ -242,8 +244,9 @@
                 width: 120px;     
                }
                @include max420{
-                height: 100px;
-                width: 100px;
+                font-size: 14px;
+                height: 120px;
+                width: 120px;
                }
          }
         }

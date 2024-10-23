@@ -48,7 +48,7 @@ const Counting = () => {
               <p>Helping clients reach their destinations!</p>
               </div>
               <div className="circlethree">
-              <span>Years of Experience</span>
+              <span>Years of <br />Experience</span>
               <span>
                   <CountUp
                    start={0}
@@ -63,7 +63,7 @@ const Counting = () => {
               <p>Providing expert consultancy since many years.</p>
               </div>
               <div className="circlefour">
-              <span>Consultations Held</span>
+              <span>Consultations <br />Held</span>
               <span>
                   <CountUp
                    start={0}
@@ -78,7 +78,7 @@ const Counting = () => {
               <p>Trusted advice for clients worldwide.</p>
               </div>
               <div className="circlefive">
-              <span>Successful Applications</span>
+              <span>Successful <br />Applications</span>
               <span>
                   <CountUp
                    start={0}

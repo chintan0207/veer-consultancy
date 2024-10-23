@@ -12,9 +12,10 @@ const frontendUrl = 'localhost:3000/confirm';
 
 app.post('/verify-payment', async (req, res) => {
 
+  const { orderId } = req.body;
   try {
     // Create the PhonePe check status URL
-    const checkStatusUrl = `https://api.phonepe.com/apis/hermes/pg/v1/status/${merchantId}/${orderId}`;
+    const checkStatusUrl = `https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/status/${merchantId}/${orderId}`;
 
     // Generate the X-VERIFY header
     const stringToHash = `/pg/v1/status/${merchantId}/${orderId}${saltKey}`;
@@ -84,7 +85,7 @@ app.post('/create-payment', async (req, res) => {
     };
 
     // Send request to PhonePe
-    const response = await axios.post('https://api.phonepe.com/apis/hermes/pg/v1/pay', request, {
+    const response = await axios.post('https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay', request, {
       headers: {
         'Content-Type': 'application/json',
         'X-VERIFY': finalXHeader

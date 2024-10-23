@@ -10,11 +10,12 @@ const Droplist = () => {
         <div className="logout-overlay" onClick={() => setLogopen(!logopen)}>
           <div className="drop-list">
             <span>
-              <li>Account</li>
+              <li>Admin</li>
               <li onClick={() => setShowLogoutConfirm(true)}>Logout</li>
             </span>
           </div>
-        </div>)
+        </div>
+        )
       }
     </div>
   )

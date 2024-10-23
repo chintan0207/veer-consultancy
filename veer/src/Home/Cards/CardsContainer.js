@@ -6,18 +6,13 @@ import MyContext from '../../Common/Context/MyContext';
 
 const CardsContainer = () => {
 
-
-
     const{ currentPosts,totalPosts,postsPerPage,currentPage,setCurrentPage} =useContext(MyContext)
 
-   
-
- const handlestep =(page)=>{
+   const handlestep =(page)=>{
     localStorage.setItem('step',page)
- }
-
-const inc= currentPage+1
-const dec= currentPage-1
+    }
+   const inc= currentPage+1
+   const dec= currentPage-1
  
     let pages = [];
 
@@ -35,11 +30,10 @@ const dec= currentPage-1
 
         <div className='pagination'>
   
-      
-    <button 
-      disabled={currentPage === 1}
-    onClick={()=>setCurrentPage(currentPage-1) || handlestep(dec) }> &lt;
-    </button>
+          <button 
+          disabled={currentPage === 1}
+          onClick={()=>setCurrentPage(currentPage-1) || handlestep(dec) }> &lt;
+          </button>
 
     {
         pages.map((page,index)=>{
@@ -56,10 +50,8 @@ const dec= currentPage-1
       disabled={currentPage ===  pages.length}
     onClick={()=>setCurrentPage(currentPage+1) || handlestep(inc)}> &gt;
     </button>
-  
 
 </div>
-
         </>
     )
 }

@@ -31,6 +31,10 @@ const Header = () => {
     return () => clearTimeout(timeout);
   }, [index, items]);
 
+
+  if(location.pathname ==='/admin'){
+    return null;
+  }
   return (
     <>
       <header>

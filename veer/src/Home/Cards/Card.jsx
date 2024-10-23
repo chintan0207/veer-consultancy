@@ -12,6 +12,7 @@ const Card = ({ obj }) => {
 
                 <img className='one' src={obj.icon} alt="" height={'44px'} width={'44px'} />
                 <span className='head'>{obj.title}</span>
+               
                 <span className='two'>
                     {obj.desc}
                 </span>

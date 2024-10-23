@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 import contactroute from "./routes/contactroute.js"
 import Inquiryroute from "./routes/Inquiryroute.js"
 import newsletterroute from "./routes/newsletterroute.js"
-import passportroute from "./routes/passportroute.js"
 import datas from "./routes/Api/datas.js"
 import paymentroute from "./routes/paymentroute.js"
 import registerroute from './routes/registerroute.js'
@@ -40,7 +39,6 @@ mongoose
 
 // importing contact routes
 app.use('/', contactroute)
-app.use('/', passportroute)
 app.use('/', Inquiryroute)
 app.use('/', newsletterroute)
 app.use('/', datas)

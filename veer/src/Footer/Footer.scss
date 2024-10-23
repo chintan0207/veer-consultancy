@@ -13,7 +13,6 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 19px;
-    // border: 1px solid red;
 
     @include d900 {
       padding: 60px 30px;
@@ -24,7 +23,6 @@ footer {
       flex-direction: column;
       align-items: start;
       gap: 25px;
-      // border: 2px solid red;
 
       .fheading {
         font-size: 18px;

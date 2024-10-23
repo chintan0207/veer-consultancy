@@ -12,7 +12,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Login = () => {
   
-  const { handleLogin,isOpen,setIsOpen,setMsg, setLoading, setSneck,setRopen } = useContext(MyContext)
+  const { handleLogin,isOpen,setIsOpen,setMsg, setLoading, setSneck,url } = useContext(MyContext)
 
    // Form validation schema using Yup
    const validationSchema = Yup.object({
@@ -40,7 +40,7 @@ const Login = () => {
   
         setLoading(true)
       
-        const { data } = await axios.post('http://localhost:3034/login', values)
+        const { data } = await axios.post(`${url}/login`, values)
         console.log(data)
 
         
@@ -106,7 +106,7 @@ const Login = () => {
 
               <button type="submit" className="submit-button">Submit</button>
 
-              <div className="register-page">Don't have account? &nbsp;<span onClick={() =>setIsOpen(false) || setRopen(true)}>Register</span> </div>
+              {/* <div className="register-page">Don't have account? &nbsp;<span onClick={() =>setIsOpen(false) || setRopen(true)}>Register</span> </div> */}
             </Form>
       </Formik>
 

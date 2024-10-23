@@ -6,7 +6,7 @@ import axios from 'axios'
 import MyContext from '../Common/Context/MyContext';
 
 const Contact = () => {
-  const { setMsg, setLoading, setSneck } = useContext(MyContext)
+  const { setMsg, setLoading, setSneck ,url} = useContext(MyContext)
 
   // Form validation schema using Yup
   const validationSchema = Yup.object({
@@ -29,7 +29,7 @@ const Contact = () => {
 
       setLoading(true)
       document.querySelector('body').style.overflow = 'hidden'
-      const { data } = await axios.post('http://localhost:3034/contact', values)
+      const { data } = await axios.post(`${url}/contact`, values)
       console.log(data)
       if (data.success) {
         setMsg(data.message)
