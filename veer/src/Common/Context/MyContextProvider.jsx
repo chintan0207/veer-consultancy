@@ -7,16 +7,47 @@ const MyContextProvider = ({ children }) => {
   const Navigate = useNavigate()
 
   const location = useLocation()
+
+  //for backend calling api start
   const url = "http://localhost:3034"
 
+  useEffect(() => {
+    setLoading(true)
+    const fetchData = async () => {
+      try {
+        const {data} = await axios.get(`${url}/api`);
+        setData(data.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, [url]);
+// for backend calling api end
+
+// for login drawer open start
   const [isOpen, setIsOpen] = useState(false)
+// for login drawer open end
 
+// for register drawer open start
   const [ropen, setRopen] = useState(false)
+  // forregisterdrawer open end
 
+  // for loading start
   const [loading, setLoading] = useState(false)
 
+  //for loading end
+
+
+  // for sneck bar start
   const [sneck, setSneck] = useState(false)
   const [msg, setMsg] = useState('');
+
+  // for sneck bar end
+
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [cardName, setCardName] = useState("");
@@ -137,9 +168,7 @@ const MyContextProvider = ({ children }) => {
   // handle login start
   const handleLogin = (data) => {
     sessionStorage.setItem('token', data.data);
-
     setToken(data.data);
-
     setMsg(data.message)
     setIsOpen(false)
     setSneck(true)
@@ -148,7 +177,6 @@ const MyContextProvider = ({ children }) => {
 
   // handle logout start
   const handleLogout = () => {
-
     sessionStorage.removeItem('token');
     setToken('');
     window.location.reload()
@@ -200,43 +228,51 @@ const MyContextProvider = ({ children }) => {
 
   // for get alldata
   const getContactData = async () => {
+    setLoading(true)
     const { data } = await axios.get(`${url}/contacts`)
     // console.log(data);
     setContacts(data.contacts)
   }
   const getInquiryData = async () => {
+    setLoading(true)
     const { data } = await axios.get(`${url}/inquiries`)
     setInquiries(data.inquiries)
   }
   const getNewsletterData = async () => {
+    setLoading(true)
     const { data } = await axios.get(`${url}/allnewsletters`)
     setNewsletters(data.newsletters)
   }
 
   const getDetailsData = async () => {
+    setLoading(true)
     const { data } = await axios.get(`${url}/details`)
     setDetailsData(data.data)
   }
 
   // for delete data by id
   const deleteContactById = async (id) => {
+    setLoading(true)
     const { data } = await axios.delete(`${url}/contact/${id}`)
     console.log(data);
     getContactData()
   }
   const deleteInquiryById = async (id) => {
+    setLoading(true)
     const { data } = await axios.delete(`${url}/inquiry/${id}`)
     console.log(data);
     getInquiryData()
 
   }
   const deleteNewsLetterById = async (id) => {
+    setLoading(true)
     const { data } = await axios.delete(`${url}/newsletter/${id}`)
     console.log(data);
     getNewsletterData()
   }
 
   const deleteDetailsById = async (id) => {
+    setLoading(true)
     const { data } = await axios.delete(`${url}/details/${id}`)
     console.log(data);
     getDetailsData()
@@ -244,6 +280,7 @@ const MyContextProvider = ({ children }) => {
 
   // get single data by id
   const findPById = async (id) => {
+    setLoading(true)
     const { data } = await axios.get(`${url}/passport/${id}`)
     console.log(data.data);
     setEditedData(data.data);
@@ -252,13 +289,14 @@ const MyContextProvider = ({ children }) => {
   }
   // for update data by id
   const updateById = async (id, obj) => {
+    setLoading(true)
     const { data } = await axios.patch(`${url}/passport/${id}`, obj)
     console.log(data);
-
     setEditingId(null)
   }
 
   useEffect(() => {
+    setLoading(true)
     getContactData()
     getInquiryData()
     getNewsletterData()

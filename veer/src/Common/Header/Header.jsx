@@ -4,6 +4,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import MyContext from '../Context/MyContext';
 import { MdLogin } from "react-icons/md";
 import { RiArrowDropDownFill } from "react-icons/ri";
+import { Helmet } from 'react-helmet-async';
 
 const Header = () => {
   const { Navigate, location, setIsOpen, searchTerm, setSearchTerm, token, logopen,setLogopen} = useContext(MyContext)
@@ -40,6 +41,10 @@ const Header = () => {
       <header>
 
         <div className='header'>
+        <Helmet>
+        <title>Veer Consultancy</title>
+        <meta name="description" content="Contact page" />
+      </Helmet>
           <div className='left' onClick={() => Navigate('/')}>Veer Consultancy</div>
           <div className='left' onClick={() => Navigate('/')}>Veer<br /> Consultancy</div>
 

@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import './Contact.scss';
 import axios from 'axios'
 import MyContext from '../Common/Context/MyContext';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const { setMsg, setLoading, setSneck ,url} = useContext(MyContext)
@@ -54,7 +55,15 @@ const Contact = () => {
   };
 
   return (
+
+
     <div className="contact-mainn">
+
+
+<Helmet>
+        <title>Contact</title>
+        <meta name="description" content="Contact page" />
+      </Helmet>
       <h3>Let's Talk</h3>
 
       <div className='con'>

@@ -4,11 +4,17 @@ import { explorecountries, exploreS3, exploreServices } from '../CardsDetails';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { FaUniversity } from "react-icons/fa";
 import { GrCertificate } from "react-icons/gr";
+import { Helmet } from 'react-helmet-async';
 
 const Explore = () => {
 
     return (
         <div className='explore'>
+
+<Helmet>
+        <title>Explore</title>
+        <meta name="description" content="Explore page" />
+      </Helmet>
             <div className='e-first'>
                 <div className='explore1'>
                 </div>

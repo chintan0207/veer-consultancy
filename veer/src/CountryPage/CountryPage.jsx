@@ -3,6 +3,7 @@ import "./CountryPage.scss"
 import MyContext from '../Common/Context/MyContext';
 import { useParams } from 'react-router-dom';
 import Layoutbox from '../Common/Layoutbox/Layoutbox';
+import { Helmet } from 'react-helmet-async';
 
 const CountryPage = () => {
 
@@ -18,6 +19,12 @@ const CountryPage = () => {
 
     return (
         <div className='country-page'>
+
+            
+<Helmet>
+        <title>{servicename}/{countryname}</title>
+        <meta name="description" content="Contact page" />
+      </Helmet>
             <div className='service-bg'>
                 <div className='heading'>
                     {pageData ? (

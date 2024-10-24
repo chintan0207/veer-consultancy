@@ -39,7 +39,7 @@ const Login = () => {
       try {
   
         setLoading(true)
-      
+       document.querySelector('body').style.overflow = 'hidden'
         const { data } = await axios.post(`${url}/login`, values)
         console.log(data)
 
@@ -61,7 +61,7 @@ const Login = () => {
         setMsg("Something went wrong can't login")
   
       } finally {
-        
+        document.querySelector('body').style.overflow = 'auto'
         setLoading(false)
       }
   

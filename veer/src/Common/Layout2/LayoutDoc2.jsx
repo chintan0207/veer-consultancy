@@ -5,8 +5,7 @@ import './LayoutDoc2.scss'
 import MyContext from '../Context/MyContext';
 const LayoutDoc2 = () => {
 
-    const { Navigate, detailFormData, setDetailFormData,
-        setAmount } = useContext(MyContext);
+    const { setDetailFormData,setAmount,handleupi } = useContext(MyContext);
     const [layout, setLayout] = useState('stage1');
 
     // Validation schema using Yup
@@ -51,11 +50,11 @@ const LayoutDoc2 = () => {
         if (values.serviceType === 'tatkal') {
             setAmount(3000)
         } else (
-            setAmount(2000)
+            setAmount(1)
         )
         setDetailFormData(values)
         localStorage.setItem('formdata', JSON.stringify(values))
-        Navigate('/payment')
+     
 
 
     };
@@ -94,7 +93,7 @@ const LayoutDoc2 = () => {
                                             <label htmlFor="name">Name</label>
                                         </div>
                                         <div className='input-error'>
-                                            <Field type="text" id="name" name="name" />
+                                            <Field type="text" id="name" name="name" placeholder="Enter your name" />
                                             <ErrorMessage name="name" component="div" className="error" />
                                         </div>
                                     </div>
@@ -104,7 +103,7 @@ const LayoutDoc2 = () => {
                                             <label htmlFor="motherName">MotherName (optional)</label>
                                         </div>
                                         <div className='input-error'>
-                                            <Field type="text" id="motherName" name="motherName" />
+                                            <Field type="text" id="motherName" name="motherName" placeholder="Enter mother's name" />
                                             <ErrorMessage name="motherName" component="div" className="error" />
                                         </div>
                                     </div>
@@ -114,7 +113,7 @@ const LayoutDoc2 = () => {
                                             <label htmlFor="placeOfBirth">Place of Birth</label>
                                         </div>
                                         <div className='input-error'>
-                                            <Field type="text" id="placeOfBirth" name="placeOfBirth" />
+                                            <Field type="text" id="placeOfBirth" name="placeOfBirth" placeholder="Enter place of birth"  />
                                             <ErrorMessage name="placeOfBirth" component="div" className="error" />
                                         </div>
                                     </div>
@@ -202,7 +201,7 @@ const LayoutDoc2 = () => {
                                             <label htmlFor="email">Email</label>
                                         </div>
                                         <div className='input-error'>
-                                            <Field type="email" id="email" name="email" />
+                                            <Field type="email" id="email" name="email" placeholder="Enter your email" />
                                             <ErrorMessage name="email" component="div" className="error" />
                                         </div>
                                     </div>
@@ -213,7 +212,7 @@ const LayoutDoc2 = () => {
                                             <label htmlFor="mobileNo">Mobile No</label>
                                         </div>
                                         <div className='input-error'>
-                                            <Field type="text" id="mobileNo" name="mobileNo" />
+                                            <Field type="text" id="mobileNo" name="mobileNo" placeholder="Enter your mobile number" />
                                             <ErrorMessage name="mobileNo" component="div" className="error" />
                                         </div>
                                     </div>
@@ -223,7 +222,7 @@ const LayoutDoc2 = () => {
                                             <label htmlFor="alterMobileNo">Alternative Mobile No </label>
                                         </div>
                                         <div className='input-error'>
-                                            <Field type="text" id="alterMobileNo" name="alterMobileNo" />
+                                            <Field type="text" id="alterMobileNo" name="alterMobileNo" placeholder="Enter your alternative mobile number" />
                                             <ErrorMessage name="alterMobileNo" component="div" className="error" />
                                         </div>
                                     </div>
@@ -233,7 +232,7 @@ const LayoutDoc2 = () => {
                                             <label htmlFor="policeStation">PoliceStation</label>
                                         </div>
                                         <div className='input-error'>
-                                            <Field type="text" id="policeStation" name="policeStation" />
+                                            <Field type="text" id="policeStation" name="policeStation" placeholder="Enter your area police station"/>
                                             <ErrorMessage name="policeStation" component="div" className="error" />
                                         </div>
                                     </div>
@@ -321,7 +320,7 @@ const LayoutDoc2 = () => {
                                         <div className='details'>
                                             <div className='stype-amount'>
                                                 <p><strong>ServiceType :</strong> {values.serviceType}</p>
-                                                <p><strong>Amount to be Paid :</strong> {values.serviceType === "tatkal" ? 3000 : 2000}</p>
+                                                <p><strong>Amount to be Paid :</strong> {values.serviceType === "tatkal" ? 3000 : 1}</p>
                                             </div>
                                             <p><strong>Name:</strong> {values.name}</p>
                                             <p><strong>Mother's Name:</strong> {values.motherName}</p>
@@ -347,8 +346,8 @@ const LayoutDoc2 = () => {
                                         </div>
 
                                     </div>
-                                    <span>{detailFormData.name}</span>
-                                    <button type="submit"
+                                   
+                                    <button type="submit" onClick={handleupi}
                                     >
                                         Submit
                                     </button>
