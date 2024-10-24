@@ -1,18 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import MyContext from '../Context/MyContext';
 import './Payment.scss'
 import gif1 from '../../Assets/images/loading.png'
 
 const Payment = () => {
 
-    const{amount,handleupi,loading } = useContext(MyContext)
+    const{amount,handleupi } = useContext(MyContext)
     
-    const [openpay, setOpenpay] = useState(false);
-
-    const handleOptionChange = () => {
   
-      setOpenpay(true);
-    };
+
+    
     
   return (
     <div  className='payment-main'>
@@ -30,17 +27,7 @@ const Payment = () => {
               <button  onClick={handleupi}>Continue to Payment</button>
 
 
-              { openpay && (
-                <div className="upi">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    onClick={handleupi}
-                  >
-                    {loading ? "Processing..." : "Pay online"}
-                  </button>
-                </div>
-              )}
+             
                </div>
 
         </div>
