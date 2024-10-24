@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Helmet } from 'react-helmet-async';
 import "./Admin.scss";
 import contactImg from "../Assets/flaticons/contactImg.png";
 import inquiryImg from "../Assets/flaticons/inquiryImg.png";
@@ -9,9 +10,10 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import vlogo from "../Assets/logo.png"
 const Admin = () => {
 
-    const url = "http://localhost:3034/"
 
     const {
+        url, token,
+        Navigate,
         contacts,
         inquiries,
         newsletters,
@@ -26,8 +28,17 @@ const Admin = () => {
 
     } = useContext(MyContext);
 
+    if (!token) {
+        Navigate('*')
+        return null
+    }
+
     return (
         <div className="admin-page">
+            <Helmet>
+                <title>Admin</title>
+                <meta name="description" content="Admin page" />
+            </Helmet>
             <div className="admin-main">
                 <div className="navigation">
                     <div className="navigation-container">
@@ -204,9 +215,9 @@ const Admin = () => {
                                             <td>{item.mobileNo}</td>
                                             <td>{item.alterMobileNo}</td>
                                             <td>{item.policeStation}</td>
-                                            <td><a target="_blank" rel="noreferrer" download="identity.jpg" href={url + item.identityProof}>IdentityProof</a></td>
-                                            <td><a target="_blank" rel="noreferrer" href={url + item.birthProof}>BirthProof</a></td>
-                                            <td><a target="_blank" rel="noreferrer" href={url + item.addressProof}>AddressProof</a></td>
+                                            <td><a target="_blank" rel="noreferrer" download="identity.jpg" href={url + '/' + item.identityProof}>IdentityProof</a></td>
+                                            <td><a target="_blank" rel="noreferrer" href={url + '/' + item.birthProof}>BirthProof</a></td>
+                                            <td><a target="_blank" rel="noreferrer" href={url + '/' + item.addressProof}>AddressProof</a></td>
                                             <td>
                                                 <div className="actions-btn">
                                                     <div className="delete-btn">

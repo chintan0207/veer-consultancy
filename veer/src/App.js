@@ -19,12 +19,10 @@ import ServiceCardModal from './service-modal/ServiceCardModal'
 import Explore from './Explore/Explore'
 import CountryPage from './CountryPage/CountryPage'
 import Admin from './Admin/Admin'
-import Layoutdoc from './Common/LayoutDoc/Layoutdoc'
 import ErrorPage from './Common/ErrorPage/ErrorPage'
 import Droplist from './Common/Droplist/Droplist.jsx'
 import Logout from './Common/Logout/Logout.jsx'
 import LayoutDoc3 from './Common/Layout3/LayoutDoc3.jsx'
-import Payment from './Common/Payment/Payment.jsx'
 
 
 const App = () => {
@@ -41,19 +39,17 @@ const App = () => {
         <ContactBatch />
         <ServiceCardModal />
         <Droplist />
-        <Logout/>
-      
+        <Logout />
+
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/:servicename/:countryname' element={<CountryPage />} />
+          <Route path='/service/:servicename/:countryname' element={<CountryPage />} />
           <Route path='/explore' element={<Explore />} />
           <Route path='/admin' element={<Admin />} />
-          <Route path='/layout' element={<Layoutdoc />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/confirm" element={<LayoutDoc3 />} />
-          <Route path="/payment" element={<Payment />} />
 
 
         </Routes>

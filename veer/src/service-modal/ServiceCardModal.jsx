@@ -8,7 +8,7 @@ const ServiceCardModal = () => {
         useContext(MyContext);
 
     const handleNavigation = (name, sname) => {
-        window.open(`/${sname}/${name}`);
+        window.open(`/service/${sname}/${name}`);
         closeModal();
     };
 

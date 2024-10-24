@@ -11,29 +11,20 @@ const SubHeader = () => {
     if (location.pathname !== '/') {
         return null
     }
-
-
-
     return (
-        <div className='sub-header'>
-            <div className='sh'>
-                <div className='sub-header-content'>
-                    <div className='left'>
-                        <FaLocationDot className='icon' />
-                        <span>301,Dhun Complex Nizampura,vadodara-390002</span>
-                    </div>
-
-                    <div className='right'>
-                        <FaPhone className='icon' />
-                        <span>+919987564844</span>
-                        <span className='line'>|</span>
-                        <IoIosMail className='icon' size={"20px"} />
-                        <span>abroadvisa2220@gmail.com</span>
-                    </div>
-                </div>
-
+        <div className='sub-header-content'>
+            <div className='left'>
+                <FaLocationDot className='icon' />
+                <span>202,Kunal Complex Opp.Passport Office, Vadodara-390002</span>
             </div>
 
+            <div className='right'>
+                <FaPhone className='icon' />
+                <span>+919316051170</span>
+                <span className='line'>|</span>
+                <IoIosMail className='icon' size={"20px"} />
+                <span>abroadvisa2220@gmail.com</span>
+            </div>
         </div>
 
     )
