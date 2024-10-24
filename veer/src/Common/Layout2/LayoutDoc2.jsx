@@ -2,11 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './LayoutDoc2.scss'
-import axios from 'axios'
 import MyContext from '../Context/MyContext';
 const LayoutDoc2 = () => {
 
-    const { setMsg, setLoading, setSneck,Navigate,url,setServiceType,setAmount } = useContext(MyContext);
+    const { Navigate, detailFormData, setDetailFormData,
+        setAmount } = useContext(MyContext);
     const [layout, setLayout] = useState('stage1');
 
     // Validation schema using Yup
@@ -48,54 +48,15 @@ const LayoutDoc2 = () => {
     const handleSubmit = async (values, { resetForm }) => {
         // alert(JSON.stringify(values))
 
-        const formData = new FormData();
-        formData.append('name', values.name);
-        formData.append('motherName', values.motherName);
-        formData.append('placeOfBirth', values.placeOfBirth);
-        formData.append('education', values.education);
-        formData.append('employeementType', values.employeementType);
-        formData.append('serviceType', values.serviceType);
-        formData.append('email', values.email);
-        formData.append('mobileNo', values.mobileNo)
-        formData.append('alterMobileNo', values.alterMobileNo)
-        formData.append('policeStation', values.policeStation)
-        formData.append('identityProof', values.identityProof);
-        formData.append('birthProof', values.birthProof);
-        formData.append('addressProof', values.addressProof);
+        if (values.serviceType === 'tatkal') {
+            setAmount(3000)
+        } else (
+            setAmount(2000)
+        )
+        setDetailFormData(values)
+        localStorage.setItem('formdata', JSON.stringify(values))
+        Navigate('/payment')
 
-        try {
-            setLoading(true)
-            setServiceType(values.serviceType); // Store the serviceType in the context
-            setAmount(values.serviceType === "tatkal" ? 3000 : 10);
-            document.querySelector('body').style.overflow = 'hidden'
-            const { data } = await axios.post(`${url}/details`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-        
-            if (data.success) {
-                setMsg(data.message)
-                setSneck(true)
-                Navigate('/payment')
-                // alert(data.message)
-                resetForm()
-
-            } else {
-                setSneck(true)
-                setMsg(data.error)
-                alert('Failed to initiate payment. Please try again.');
-            }
-        } catch (error) {
-            console.error('Error', error);
-            setSneck(true)
-            setMsg(error.message)
-            console.error('Payment Error:', error.response?.data?.error || error.message);
-            alert('An error occurred during payment. Please try again.');
-        } finally {
-            document.querySelector('body').style.overflow = 'auto'
-            setLoading(false)
-        }
 
     };
 
@@ -105,7 +66,7 @@ const LayoutDoc2 = () => {
             if (Object.keys(errors).some(field => nextStageFields.includes(field))) {
                 setTouched(nextStageFields.reduce((acc, field) => ({ ...acc, [field]: true }), {}));
             } else {
-                
+
                 setLayout(currentStage);
             }
         });
@@ -360,7 +321,7 @@ const LayoutDoc2 = () => {
                                         <div className='details'>
                                             <div className='stype-amount'>
                                                 <p><strong>ServiceType :</strong> {values.serviceType}</p>
-                                                <p><strong>Amount to be Paid :</strong> {values.serviceType  === "tatkal" ? 3000 : 10}</p>
+                                                <p><strong>Amount to be Paid :</strong> {values.serviceType === "tatkal" ? 3000 : 2000}</p>
                                             </div>
                                             <p><strong>Name:</strong> {values.name}</p>
                                             <p><strong>Mother's Name:</strong> {values.motherName}</p>
@@ -386,8 +347,8 @@ const LayoutDoc2 = () => {
                                         </div>
 
                                     </div>
-
-                                    <button type="submit" 
+                                    <span>{detailFormData.name}</span>
+                                    <button type="submit"
                                     >
                                         Submit
                                     </button>

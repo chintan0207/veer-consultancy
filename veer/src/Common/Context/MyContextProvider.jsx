@@ -21,11 +21,14 @@ const MyContextProvider = ({ children }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [cardName, setCardName] = useState("");
 
+  //for detailsForm
+  const [detailFormData, setDetailFormData] = useState({});
+
   // for stepper
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
 
- 
+
 
   const [pageData, setPageData] = useState(null);
   const [countryName, setCountryName] = useState(null);
@@ -71,14 +74,14 @@ const MyContextProvider = ({ children }) => {
 
   // for search bar end
 
-   // for service details store
-   const [api, setApi] = useState([])
+  // for service details store
+  const [api, setApi] = useState([])
 
-   // for dynamic coutrypage data start
+  // for dynamic coutrypage data start
 
   //for api calling start
   useEffect(() => {
-    axios.get('http://localhost:3034/api/service-details')
+    axios.get(`${url}/api/service-details`)
       .then((a) => setApi(a.data))
   }, [])
   // for api calling end
@@ -86,13 +89,13 @@ const MyContextProvider = ({ children }) => {
 
   // for review api start
 
- const[rapi,SetRapi] =useState([])
+  const [rapi, SetRapi] = useState([])
   // for review api end
 
   //for rapi calling start
 
   useEffect(() => {
-    axios.get('http://localhost:3034/api/reviews')
+    axios.get(`${url}/api/reviews`)
       .then((b) => SetRapi(b.data))
   }, [])
 
@@ -123,7 +126,7 @@ const MyContextProvider = ({ children }) => {
   })
   // for saving token state end
 
-  
+
 
   // for account data save state start
   const [userdata, setUserdata] = useState(() => {
@@ -153,7 +156,7 @@ const MyContextProvider = ({ children }) => {
   }
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
-  
+
 
   const cancelLogout = () => {
     setShowLogoutConfirm(false); // Cancel logout and hide the prompt
@@ -183,7 +186,7 @@ const MyContextProvider = ({ children }) => {
   const [amountpaid, setAmountpaid] = useState()
 
   const [serviceType, setServiceType] = useState('');
-    const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
   // for payment page end
 
   // for admin table start
@@ -197,51 +200,51 @@ const MyContextProvider = ({ children }) => {
 
   // for get alldata
   const getContactData = async () => {
-    const { data } = await axios.get('http://localhost:3034/contacts')
+    const { data } = await axios.get(`${url}/contacts`)
     // console.log(data);
     setContacts(data.contacts)
   }
   const getInquiryData = async () => {
-    const { data } = await axios.get('http://localhost:3034/inquiries')
+    const { data } = await axios.get(`${url}/inquiries`)
     setInquiries(data.inquiries)
   }
   const getNewsletterData = async () => {
-    const { data } = await axios.get('http://localhost:3034/allnewsletters')
+    const { data } = await axios.get(`${url}/allnewsletters`)
     setNewsletters(data.newsletters)
   }
- 
+
   const getDetailsData = async () => {
-    const { data } = await axios.get('http://localhost:3034/details')
+    const { data } = await axios.get(`${url}/details`)
     setDetailsData(data.data)
   }
 
   // for delete data by id
   const deleteContactById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/contact/${id}`)
+    const { data } = await axios.delete(`${url}/contact/${id}`)
     console.log(data);
     getContactData()
   }
   const deleteInquiryById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/inquiry/${id}`)
+    const { data } = await axios.delete(`${url}/inquiry/${id}`)
     console.log(data);
     getInquiryData()
 
   }
   const deleteNewsLetterById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/newsletter/${id}`)
+    const { data } = await axios.delete(`${url}/newsletter/${id}`)
     console.log(data);
     getNewsletterData()
   }
-  
+
   const deleteDetailsById = async (id) => {
-    const { data } = await axios.delete(`http://localhost:3034/details/${id}`)
+    const { data } = await axios.delete(`${url}/details/${id}`)
     console.log(data);
     getDetailsData()
   }
 
   // get single data by id
   const findPById = async (id) => {
-    const { data } = await axios.get(`http://localhost:3034/passport/${id}`)
+    const { data } = await axios.get(`${url}/passport/${id}`)
     console.log(data.data);
     setEditedData(data.data);
     // console.log(data.data._id)
@@ -249,9 +252,9 @@ const MyContextProvider = ({ children }) => {
   }
   // for update data by id
   const updateById = async (id, obj) => {
-    const { data } = await axios.patch(`http://localhost:3034/passport/${id}`, obj)
+    const { data } = await axios.patch(`${url}/passport/${id}`, obj)
     console.log(data);
-    
+
     setEditingId(null)
   }
 
@@ -273,17 +276,27 @@ const MyContextProvider = ({ children }) => {
 
   const handlepay = async () => {
     try {
-      const { data } = await axios.post(
-        
-        
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer`,
-          }
-        }
-      );
-  
+
+      const formData = new FormData();
+      formData.append('name', detailFormData.name);
+      formData.append('motherName', detailFormData.motherName);
+      formData.append('placeOfBirth', detailFormData.placeOfBirth);
+      formData.append('education', detailFormData.education);
+      formData.append('employeementType', detailFormData.employeementType);
+      formData.append('serviceType', detailFormData.serviceType);
+      formData.append('email', detailFormData.email);
+      formData.append('mobileNo', detailFormData.mobileNo)
+      formData.append('alterMobileNo', detailFormData.alterMobileNo)
+      formData.append('policeStation', detailFormData.policeStation)
+      formData.append('identityProof', detailFormData.identityProof);
+      formData.append('birthProof', detailFormData.birthProof);
+      formData.append('addressProof', detailFormData.addressProof);
+
+      const { data } = await axios.post(`${url}/details`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       if (data.success) {
         setMsg(data.message)
         setSneck(true);
@@ -300,19 +313,17 @@ const MyContextProvider = ({ children }) => {
 
   const handleupi = async () => {
     setLoading(true);
-  
+
     try {
       // Use axios to make the POST request
-      const {data} = await axios.post(`${url}/razorpay`, {
+      const { data } = await axios.post(`${url}/razorpay`, {
         amount: amount
       }, {
         headers: {
           'Content-Type': 'application/json',
         }
       });
-  
-    
-  
+
       if (data.success !== true) {
         setSneck(true);
         setMsg(data.error);
@@ -328,7 +339,7 @@ const MyContextProvider = ({ children }) => {
           config: {
             display: {
               blocks: {
-                utib: { 
+                utib: {
                   name: "most recommended using",
                   instruments: [
                     {
@@ -339,30 +350,30 @@ const MyContextProvider = ({ children }) => {
                       method: "upi",
                       flows: ["qr"]
                     },
-    
+
                     {
                       method: "wallet",
-                    
+
                     },
-    
+
                     {
                       method: "paylater",
-                    
+
                     }
                   ]
                 },
-              
+
               },
-             
+
               sequence: ["block.utib", "block.other"],
               preferences: {
                 show_default_blocks: true
               }
             }
           },
-          handler:async (response) => {
-            await handlepay(); 
-          Navigate('/confirm');
+          handler: async (response) => {
+            await handlepay();
+            Navigate('/confirm');
           },
           // modal: {
           //   ondismiss: function () {
@@ -383,7 +394,7 @@ const MyContextProvider = ({ children }) => {
             }
           }
         };
-  
+
         const rzp1 = new window.Razorpay(options);
         rzp1.open();
       }
@@ -404,13 +415,14 @@ const MyContextProvider = ({ children }) => {
       closeModal, cardName, setCardName, bgColor, setBgColor, currentStep, setCurrentStep,
       complete, setComplete, searchTerm, setSearchTerm, data, setData, api, setApi, currentPage, setCurrentPage,
       postsPerPage, setPostsPerPage, currentPosts, totalPosts, lastPostIndex, firstPostIndex,
-      pageData, setPageData, countryName, setCountryName,rapi,SetRapi,serviceType, setServiceType,amount, setAmount,
-      token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal,handlepay,handleupi,
+      pageData, setPageData, countryName, setCountryName, rapi, SetRapi, serviceType, setServiceType, amount, setAmount,
+      token, setToken, userdata, setUserdata, handleLogout, handleLogin, handlepersonal, handlepay, handleupi,
       layout, setLayout, logopen, setLogopen, cancelLogout, showLogoutConfirm, setShowLogoutConfirm,
       paymentStatus, setPaymentStatus, errorMessage, setErrorMessage, amountpaid, setAmountpaid, url,
+      detailFormData, setDetailFormData,
       // admin table
       contacts, setContacts, inquiries, newsletters, save, setSave, deleteContactById,
-      deleteInquiryById, deleteNewsLetterById,  updateById, findPById,
+      deleteInquiryById, deleteNewsLetterById, updateById, findPById,
       deleteDetailsById, detailsData, getDetailsData, editedData, setEditedData,
       editingId, setEditingId
     }}>
