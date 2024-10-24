@@ -9,30 +9,13 @@ const MyContextProvider = ({ children }) => {
   const location = useLocation()
 
   //for backend calling api start
-  const url = "http://localhost:3034"
+  const url = "https://veer-consultancy-three.vercel.app"
 
-  useEffect(() => {
-    setLoading(true)
-    const fetchData = async () => {
-      try {
-        const {data} = await axios.get(`${url}/api`);
-        setData(data.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-  
-    fetchData();
-  }, [url]);
-// for backend calling api end
-
-// for login drawer open start
+  // for login drawer open start
   const [isOpen, setIsOpen] = useState(false)
-// for login drawer open end
+  // for login drawer open end
 
-// for register drawer open start
+  // for register drawer open start
   const [ropen, setRopen] = useState(false)
   // forregisterdrawer open end
 
@@ -232,22 +215,29 @@ const MyContextProvider = ({ children }) => {
     const { data } = await axios.get(`${url}/contacts`)
     // console.log(data);
     setContacts(data.contacts)
+    setLoading(false)
   }
   const getInquiryData = async () => {
     setLoading(true)
     const { data } = await axios.get(`${url}/inquiries`)
     setInquiries(data.inquiries)
+    setLoading(false)
+
   }
   const getNewsletterData = async () => {
     setLoading(true)
     const { data } = await axios.get(`${url}/allnewsletters`)
     setNewsletters(data.newsletters)
+    setLoading(false)
+
   }
 
   const getDetailsData = async () => {
     setLoading(true)
     const { data } = await axios.get(`${url}/details`)
     setDetailsData(data.data)
+    setLoading(false)
+
   }
 
   // for delete data by id
@@ -256,12 +246,16 @@ const MyContextProvider = ({ children }) => {
     const { data } = await axios.delete(`${url}/contact/${id}`)
     console.log(data);
     getContactData()
+    setLoading(false)
+
   }
   const deleteInquiryById = async (id) => {
     setLoading(true)
     const { data } = await axios.delete(`${url}/inquiry/${id}`)
     console.log(data);
     getInquiryData()
+    setLoading(false)
+
 
   }
   const deleteNewsLetterById = async (id) => {
@@ -269,6 +263,8 @@ const MyContextProvider = ({ children }) => {
     const { data } = await axios.delete(`${url}/newsletter/${id}`)
     console.log(data);
     getNewsletterData()
+    setLoading(false)
+
   }
 
   const deleteDetailsById = async (id) => {
@@ -276,17 +272,11 @@ const MyContextProvider = ({ children }) => {
     const { data } = await axios.delete(`${url}/details/${id}`)
     console.log(data);
     getDetailsData()
+    setLoading(false)
+
   }
 
-  // get single data by id
-  const findPById = async (id) => {
-    setLoading(true)
-    const { data } = await axios.get(`${url}/passport/${id}`)
-    console.log(data.data);
-    setEditedData(data.data);
-    // console.log(data.data._id)
-    setEditingId(data.data._id)
-  }
+
   // for update data by id
   const updateById = async (id, obj) => {
     setLoading(true)
@@ -301,6 +291,7 @@ const MyContextProvider = ({ children }) => {
     getInquiryData()
     getNewsletterData()
     getDetailsData()
+    setLoading(false)
   }, []);
 
   const [editedData, setEditedData] = useState({
@@ -460,7 +451,7 @@ const MyContextProvider = ({ children }) => {
       detailFormData, setDetailFormData,
       // admin table
       contacts, setContacts, inquiries, newsletters, save, setSave, deleteContactById,
-      deleteInquiryById, deleteNewsLetterById, updateById, findPById,
+      deleteInquiryById, deleteNewsLetterById, updateById,
       deleteDetailsById, detailsData, getDetailsData, editedData, setEditedData,
       editingId, setEditingId
     }}>

@@ -7,6 +7,9 @@ dotenv.config();
 const app = express.Router();
 
 app.post('/newsletter', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     try {
         const { email } = req.body;
 
@@ -54,6 +57,9 @@ app.post('/newsletter', async (req, res) => {
 });
 
 app.get('/allnewsletters', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     try {
         const newsletters = await NewsLetter.find();
         if (!newsletters) {
