@@ -21,12 +21,12 @@ app.get('/api/service-details', (req, res) => {
 
         const updatedJson = jsonData?.map(item => {
             if (item.icon) {
-                item.icon = 'http://' + req.get('host') + item.icon
-                
+                item.icon = `${req.protocol}://${req.get('host')}${item.icon}`;
+
             }
             item.country = item.country?.map(product => {
                 if (product.img) {
-                    product.img = 'http://' + req.get('host') + product.img
+                    product.img = `${req.protocol}://${req.get('host')}${product.img}`;
                 }
                 return product
             }
