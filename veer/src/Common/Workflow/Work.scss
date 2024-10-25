@@ -32,6 +32,10 @@
             padding: 0 150px;
           }
 
+          @include m680{
+            padding: 0 100px;
+          }
+
           @include max650{
             padding: 0px 80px;
         }

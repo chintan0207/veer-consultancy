@@ -115,6 +115,14 @@
     @content;
   }
 }
+
+@mixin m680 {
+  @media only screen and (max-width: 680px) {
+    @content;
+  }
+}
+
+
 @mixin max625 {
   @media only screen and (max-width: 625px) {
     @content;
@@ -148,6 +156,7 @@
   }
 }
 
+
 @mixin max345 {
   @media only screen and (max-width: 345px) {
     @content;
@@ -171,19 +180,13 @@
   }
 }
 
-@mixin min650 {
-  @media only screen and (min-width: 650px) {
-    @content;
-  }
-}
-
 .scroll-to-top {
   background-color: transparent;
   padding: 0;
   height: 40px;
   width: 40px;
   box-shadow: none;
-
+  
   @include max650 {
     right: 25px;
     bottom: 25px;
