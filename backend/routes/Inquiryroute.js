@@ -10,41 +10,6 @@ app.post('/inquiry', async (req, res) => {
         const inquiryData = await Inquiry.create({ name, mobileNo, visaType, country });
 
         console.log(inquiryData)
-
-        if (inquiryData) {
-            return res.send({ success: false, error: 'You have already contacted us with the same query.' });
-        }
-
-        const result = await Inquiry.create({ name,mobileNo,visaType,country });
-
-        // nodemailer transporter
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-        });
-
-        // email options
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: email,
-            subject: 'Veer Consultancy',
-            html: `
-                <h2>Welcome to Veer Consultancy</h2>
-                <p>Hello ${name},</p>
-                <p>Thank you for contacting our consultancy. We are excited to have you on board!</p>
-                <p>Best regards,</p>
-                <p>Veer Consultancy</p>
-            `,
-        };
-
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent:', info.response);
-
-        res.json({ success: true, message: 'Thanks for contacting' });
-        console.log(result);
         res.json({ success: true, message: 'Thanks for your inquiry' });
 
     } catch (error) {

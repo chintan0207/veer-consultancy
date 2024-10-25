@@ -247,6 +247,13 @@
                 "id": 1,
                 "name": "usa",
                 "title": "USA",
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -260,16 +267,6 @@
                     }
                 ],
                 "img": "/flags/usa.png",
-                "details": [
-                    "Passport",
-                    "Study Permit Application Form",
-                    "Fee Receipt",
-                    "Photo",
-                    "Letter of Acceptance",
-                    "Financial Proof",
-                    "Medical Exam (if applicable)",
-                    "Home Ties"
-                ],
                 "documents": [
                     "Passport",
                     "DS-160 Form",
@@ -279,12 +276,29 @@
                     "Financial Proof",
                     "Itinerary",
                     "Home Ties"
+                ],
+                "details": [
+                    "Passport",
+                    "Study Permit Application Form",
+                    "Fee Receipt",
+                    "Photo",
+                    "Letter of Acceptance",
+                    "Financial Proof",
+                    "Medical Exam (if applicable)",
+                    "Home Ties"
                 ]
             },
             {
                 "id": 2,
                 "name": "canada",
                 "title": "Canada",
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -323,6 +337,13 @@
                 "id": 3,
                 "name": "united-kingdom",
                 "title": "United Kingdom",
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -361,6 +382,13 @@
                 "id": 4,
                 "name": "australia",
                 "title": "Australia",
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -397,84 +425,15 @@
             },
             {
                 "id": 5,
-                "name": "europe",
-                "title": "Europe",
-                "pricing": [
-                    {
-                        "id": 1,
-                        "name": "single-entry",
-                        "price": 700
-                    },
-                    {
-                        "id": 2,
-                        "name": "multiple-entry",
-                        "price": 1200
-                    }
-                ],
-                "img": "/flags/eu.png",
-                "details": [
-                    "Passport",
-                    "Study Permit Application Form",
-                    "Fee Receipt",
-                    "Photo",
-                    "Letter of Acceptance",
-                    "Financial Proof",
-                    "Medical Exam (if applicable)",
-                    "Home Ties"
-                ],
-                "documents": [
-                    "Passport",
-                    "Visa Form",
-                    "Fee Receipt",
-                    "Photo",
-                    "Financial Proof",
-                    "Itinerary",
-                    "Travel Insurance",
-                    "Home Ties"
-                ]
-            },
-            {
-                "id": 6,
-                "name": "france",
-                "title": "France",
-                "pricing": [
-                    {
-                        "id": 1,
-                        "name": "single-entry",
-                        "price": 700
-                    },
-                    {
-                        "id": 2,
-                        "name": "multiple-entry",
-                        "price": 1200
-                    }
-                ],
-                "img": "/flags/france.png",
-                "details": [
-                    "Passport",
-                    "Study Permit Application Form",
-                    "Fee Receipt",
-                    "Photo",
-                    "Letter of Acceptance",
-                    "Financial Proof",
-                    "Medical Exam (if applicable)",
-                    "Home Ties"
-                ],
-                "documents": [
-                    "Passport",
-                    "Visa Form",
-                    "Fee Receipt",
-                    "Photo",
-                    "Financial Proof",
-                    "Itinerary",
-                    "Travel Insurance",
-                    "Home Ties"
-                ]
-            },
-            {
-                "id": 7,
                 "name": "vietnam",
                 "title": "Vietnam",
+                "countryImages": [
+                    "/city/vietnam1.jpg",
+                    "/city/vietnam2.jpg",
+                    "/city/vietnam3.jpg",
+                    "/city/vietnam4.jpg",
+                    "/city/vietnam5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -503,13 +462,19 @@
                     "Photo",
                     "Bank Statement",
                     "Income Tax Return(ITR)"
-                ],
-                "countryImages": []
+                ]
             },
             {
-                "id": 7,
-                "name": "australia",
-                "title": "Australia",
+                "id": 6,
+                "name": "france",
+                "title": "France",
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -535,12 +500,12 @@
                 ],
                 "documents": [
                     "Passport",
-                    "Visa Form",
+                    "Visa Application Form",
                     "Fee Receipt",
                     "Photo",
+                    "Work Contract",
+                    "Labor Market Test (if applicable)",
                     "Financial Proof",
-                    "Itinerary",
-                    "Travel Insurance",
                     "Home Ties"
                 ]
             }

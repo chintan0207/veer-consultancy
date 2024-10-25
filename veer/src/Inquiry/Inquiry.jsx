@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Inquiry = () => {
 
-    const { setMsg, setLoading, setSneck,url } = useContext(MyContext)
+    const { setMsg, setLoading, setSneck, url } = useContext(MyContext)
 
     // Initial form values
     const initialValues = {
@@ -30,7 +30,7 @@ const Inquiry = () => {
             setLoading(true)
             document.querySelector('body').style.overflow = 'hidden'
             const { data } = await axios.post(`${url}/inquiry`, values)
-
+            console.log(data)
             if (data.success) {
                 setMsg(data.message)
                 setSneck(true)
@@ -38,7 +38,7 @@ const Inquiry = () => {
                 resetForm()
             } else {
                 setSneck(true)
-                setMsg("Somthing went wrong")
+                setMsg(data.error)
             }
 
         } catch (error) {
