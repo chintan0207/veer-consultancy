@@ -470,6 +470,79 @@
                     "Travel Insurance",
                     "Home Ties"
                 ]
+            },
+            {
+                "id": 7,
+                "name": "vietnam",
+                "title": "Vietnam",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
+                "img": "/flags/france.png",
+                "details": [
+                    "Passport",
+                    "Study Permit Application Form",
+                    "Fee Receipt",
+                    "Photo",
+                    "Letter of Acceptance",
+                    "Financial Proof",
+                    "Medical Exam (if applicable)",
+                    "Home Ties"
+                ],
+                "documents": [
+                    "Passport",
+                    "Photo",
+                    "Bank Statement",
+                    "Income Tax Return(ITR)"
+                ],
+                "countryImages": []
+            },
+            {
+                "id": 7,
+                "name": "australia",
+                "title": "Australia",
+                "pricing": [
+                    {
+                        "id": 1,
+                        "name": "single-entry",
+                        "price": 700
+                    },
+                    {
+                        "id": 2,
+                        "name": "multiple-entry",
+                        "price": 1200
+                    }
+                ],
+                "img": "/flags/france.png",
+                "details": [
+                    "Passport",
+                    "Study Permit Application Form",
+                    "Fee Receipt",
+                    "Photo",
+                    "Letter of Acceptance",
+                    "Financial Proof",
+                    "Medical Exam (if applicable)",
+                    "Home Ties"
+                ],
+                "documents": [
+                    "Passport",
+                    "Visa Form",
+                    "Fee Receipt",
+                    "Photo",
+                    "Financial Proof",
+                    "Itinerary",
+                    "Travel Insurance",
+                    "Home Ties"
+                ]
             }
         ]
     },

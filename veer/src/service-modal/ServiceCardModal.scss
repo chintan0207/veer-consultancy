@@ -11,6 +11,7 @@
 }
 
 .s-modal {
+  box-sizing: border-box;
   min-width: 250px;
   max-width: 1200px;
   position: fixed;
@@ -24,6 +25,10 @@
   border-radius: 8px;
   height: auto;
   box-shadow: 0px 4px 4px rgba(208, 193, 193, 0.482);
+
+  @include max650 {
+    min-width: 275px;
+  }
 
   .cancel-icon {
     display: flex;
@@ -57,23 +62,21 @@
     }
 
     .country-card {
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      padding-bottom: 10px;
       padding: 0 20px;
       gap: 10px;
-      opacity: 0.9;
+      opacity: 1;
 
-      &:hover {
-        opacity: 1;
-      }
       @include max650 {
-        padding-right: 10px;
+        padding-left: 0;
+        gap: 0px;
       }
-    
+
       img {
         height: 32px;
         opacity: 0.9;

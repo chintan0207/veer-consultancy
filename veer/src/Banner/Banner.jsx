@@ -7,8 +7,8 @@ const Banner = () => {
         <div className='bi'>
             <div className='first'>
                 <div className='heading'>
-                    <h1 className='b-heading'>STUDY ABROAD</h1>
-                    <span className='b-span'>We are your pathfinder at each step of Abroad Education Process</span>
+                    <h1 className='b-heading'>Visa Consultation and Immigration</h1>
+                    <span className='b-span'>Unlock Your Global Opportunities with Trusted visa services</span>
                 </div>
             </div>
             <div className="second">

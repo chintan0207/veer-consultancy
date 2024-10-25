@@ -23,7 +23,7 @@ const SubHeader = () => {
                 <span>+919316051170</span>
                 <span className='line'>|</span>
                 <IoIosMail className='icon' size={"20px"} />
-                <span>abroadvisa2220@gmail.com</span>
+                <span>veer.veerconsultancyglobal.com</span>
             </div>
         </div>
 

@@ -8,6 +8,7 @@
 **/.git/
 **/.env/
 **/.idea/
+**/build/
 
 /.pnp
 .pnp.js

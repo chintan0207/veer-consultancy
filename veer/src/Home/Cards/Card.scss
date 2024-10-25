@@ -1,3 +1,4 @@
+@import "../../Common/Mixin.scss";
 .anim-card {
   display: flex;
   flex-flow: wrap;
@@ -19,29 +20,31 @@
     cursor: pointer;
     transition: all 0.3s ease;
 
-    &:hover .one {
-      transform: translatey(-160px) scale(0.8);
-    }
+    @include min650 {
+      &:hover .one {
+        transform: translatey(-160px) scale(0.8);
+      }
 
-    &:hover .two {
-      transform: translateY(-30px);
-    }
+      &:hover .two {
+        transform: translateY(-30px);
+      }
 
-    &:hover .icon {
-      transform: scale(1);
-    }
+      &:hover .icon {
+        transform: scale(1);
+      }
 
-    &:hover .icon2 {
-      transform: translateY(-105px);
-    }
+      &:hover .icon2 {
+        transform: translateY(-105px);
+      }
 
-    &:hover .head {
-      transform: translateY(-50px);
-      font-size: 18px;
-    }
+      &:hover .head {
+        transform: translateY(-50px);
+        font-size: 18px;
+      }
 
-    &:hover .line {
-      height: 4px;
+      &:hover .line {
+        height: 4px;
+      }
     }
 
     .one {
@@ -99,40 +102,39 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
- 
- button {
-  padding: 10px 15px;
-  margin: 0 5px;
-  border: 1px solid #00000018;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 50%;
-  background-color:transparent;
-  color: black;
 
+  button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #00000018;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    background-color: transparent;
+    color: black;
 
-  &:hover{
-    background-color: rgba(0, 0, 0, 0.04);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    &:active {
+      background-color: rgba(128, 128, 128, 0.262);
+    }
+    &:disabled {
+      color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.01);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      cursor: default;
+      opacity: 0.7;
+    }
   }
-  &:active{
-  background-color: rgba(128, 128, 128, 0.262);
-  }
-  &:disabled {
-  color: rgba(0, 0, 0, 0.2);
-  background-color: rgba(0, 0, 0, 0.01);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  cursor: default;
-  opacity: 0.7;
-  }
- }
 
- .active{
-  background-color: rgba(218, 29, 29, 0.118);
- color:  rgba(255, 0, 0, 0.423);
-  border: 1px solid rgba(255, 0, 0, 0.423);
+  .active {
+    background-color: rgba(218, 29, 29, 0.118);
+    color: rgba(255, 0, 0, 0.423);
+    border: 1px solid rgba(255, 0, 0, 0.423);
 
- &:hover{
-  background-color:rgba(237, 2, 2, 0.221) ;
- }
- }
+    &:hover {
+      background-color: rgba(237, 2, 2, 0.221);
+    }
+  }
 }
