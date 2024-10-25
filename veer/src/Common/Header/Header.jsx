@@ -69,7 +69,7 @@ const Header = () => {
               </div> :
               <button className='btn1' onClick={() => setIsOpen(true)}><MdLogin />Login</button>
             }
-            {!searchmatch && <button className='btn2' onClick={() => Navigate('/explore')}>Explore</button>}
+             <button className='btn2' onClick={() => Navigate('/explore')}>Explore</button>
 
           </div>
 

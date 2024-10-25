@@ -14,7 +14,7 @@ const Search = () => {
 
   // Handle search and update recent searches
   const handleSearch = (a, c) => {
-    Navigate(`/${a.name}/${c.name}`);
+    Navigate(`/service/${a.name}/${c.name}`);
     setSearchTerm('');
 
     // Add the search term to recent searches if it's not already present and if the list is less than 8 items
@@ -36,7 +36,7 @@ const Search = () => {
     const matchingCountry = matchingApi?.country?.find((country) => country.title === cName);
 
     if (matchingApi && matchingCountry) {
-      Navigate(`/${matchingApi.name}/${matchingCountry.name}`);
+      Navigate(`/service/${matchingApi.name}/${matchingCountry.name}`);
     }
   };
 
@@ -86,7 +86,7 @@ const Search = () => {
                         .map((c) => (
                           <ul key={c.id}>
                             <li
-                              style={{ listStyle: 'none' }}
+                              
                               onClick={() => handleSearch(a, c)}
                             >
                               <IoSearchOutline/>  {a.title.match('Visa') ? `${a.title} for ${c.title}` : c.title}

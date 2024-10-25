@@ -144,11 +144,15 @@ const Footer = () => {
                                     onSubmit={onSubmit}
                                 >
                                     <Form className='nform'>
+                                        
                                         <div className="form-field">
                                             <Field type="email" id="email" name="email" placeholder="Your Email Address" />
+                                            <ErrorMessage name="email" component="div" className="error" />
                                         </div>
+
                                         <button type="submit" className="nsubmit-button">SUBSCRIBE</button>
-                                        <ErrorMessage name="email" component="div" className="error" />
+                                        
+                                       
 
                                     </Form>
 

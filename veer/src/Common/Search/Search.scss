@@ -54,41 +54,59 @@
 
 
 .search-list {
-
+flex-flow: wrap;
   z-index: 10;
-  width:550px;
   height: 440px;
   overflow: hidden;
- position: relative;
- top: 0px;
- left: 20%;
-padding: 10px 0;
- @include m606{
+  // background-color: pink;
+  width: 440px;
   position: relative;
-  left: 10px;
- }
-
-  ul {
-  padding-left: 0;
-}
-
-  li {
-  padding: 8px 10px;
-  background-color: #fff;
-  margin: 5px 0;
-  border-radius: 6px;
-  
-  svg{
-    padding: 0 5px;
-  }
+  left: 15%;
  
+
+  @include m1270{
+       width: 330px;
+       position: relative;
+       left: 27%;
+  }
+
+  @include m1000{
+    width: 330px;
+    position: relative;
+    left: 30%;
+  }
+
+  @include m606{
+    position: relative;
+    left: 2%;
+  }
+
+  
+
+
+
+ul{
+  // background-color: red;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 6px 0;
   cursor: pointer;
   transition: background-color 0.3s;
 
    &:hover {
   background-color: #e0e0e042;
 }
-  }  
+
+  li{
+
+    svg{
+
+      padding: 2px 7px;
+    }
+  }
+}
+ 
 }
 }
 }
