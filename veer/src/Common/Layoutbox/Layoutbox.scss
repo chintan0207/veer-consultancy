@@ -2,23 +2,19 @@
 
 .lbox-main {
   width: 100%;
-  margin: 40px 0;
-  padding: 16px;
+  // margin: 40px 0;
+  // padding: 16px;
   box-sizing: border-box;
-
-  @include max650 {
-    padding: 10px;
-  }
 
   .lbox-content {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    border: 1px solid rgba(0, 0, 0, 0.059);
+    // border: 1px solid rgba(0, 0, 0, 0.059);
     border-radius: 10px;
-
-    @include max650 {
+    justify-content: center;
+    @include max767 {
       justify-content: center;
     }
 
@@ -28,8 +24,9 @@
       display: flex;
       flex-direction: column;
       text-align: start;
+      display: none;
 
-      @include max650 {
+      @include max767 {
         display: none;
       }
 
@@ -43,11 +40,13 @@
     .lbox-right {
       border-left: 1px solid rgba(0, 0, 0, 0.059);
       height: fit-content;
-      width: 90%;
-      padding: 0px 40px;
+      // width: 90%;
+      width: 100%;
+      // padding: 0px 40px;
+      border: none;
 
-      @include max650 {
-        padding: 10px 0px;
+      @include max767 {
+        // padding: 10px 0px;
         border: none;
       }
     }

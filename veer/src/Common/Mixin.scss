@@ -122,7 +122,6 @@
   }
 }
 
-
 @mixin max625 {
   @media only screen and (max-width: 625px) {
     @content;
@@ -156,7 +155,6 @@
   }
 }
 
-
 @mixin max345 {
   @media only screen and (max-width: 345px) {
     @content;
@@ -181,16 +179,21 @@
 }
 
 .scroll-to-top {
-  background-color: transparent;
-  padding: 0;
-  height: 40px;
-  width: 40px;
-  box-shadow: none;
-  
+  // background-color: transparent;
+  // padding: 0;
+  // height: 40px;
+  // width: 40px;
+  // box-shadow: none;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+  padding: 0px;
+  background-color: #ff0000;
+  height: 0px;
+  width: 0px;
+  position: fixed;
+  right: 90px;
+  bottom: 80px;
   @include max650 {
-    right: 25px;
-    bottom: 25px;
-    height: 25px;
-    width: 25px;
+    right: 70px;
+    bottom: 90px;
   }
 }

@@ -305,7 +305,7 @@ const MyContextProvider = ({ children }) => {
 
   const handlepay = async () => {
     try {
-
+      console.log(detailFormData)
       const formData = new FormData();
       formData.append('name', detailFormData.name);
       formData.append('motherName', detailFormData.motherName);
@@ -321,11 +321,13 @@ const MyContextProvider = ({ children }) => {
       formData.append('birthProof', detailFormData.birthProof);
       formData.append('addressProof', detailFormData.addressProof);
 
+      console.log(formData)
       const { data } = await axios.post(`${url}/details`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
+      console.log(data)
       if (data.success) {
         setMsg(data.message)
         setSneck(true);

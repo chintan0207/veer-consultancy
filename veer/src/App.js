@@ -50,8 +50,6 @@ const App = () => {
           <Route path='/admin' element={<Admin />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/confirm" element={<LayoutDoc3 />} />
-
-
         </Routes>
         <ScrollToTop smooth component={<FaCircleArrowUp size={40} color="#ff0000" />} />
         <GoToTop />

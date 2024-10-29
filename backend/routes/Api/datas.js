@@ -19,20 +19,15 @@ app.get('/api/service-details', (req, res) => {
 
         const jsonData = JSON.parse(data);
 
-        const updatedJson = jsonData?.map(item => {
-            if (item.icon) {
-                item.icon = `${req.protocol}://${req.get('host')}${item.icon}`;
-
-            }
-            item.country = item.country?.map(product => {
-                if (product.img) {
-                    product.img = `${req.protocol}://${req.get('host')}${product.img}`;
-                }
-                return product
-            }
-            )
-            return item
-        })
+        const updatedJson = jsonData.map(item => ({
+            ...item,
+            icon: item.icon ? `${req.protocol}://${req.get('host')}${item.icon}` : item.icon,
+            country: item.country?.map(product => ({
+                ...product,
+                img: product.img ? `${req.protocol}://${req.get('host')}${product.img}` : product.img,
+                countryImages: product.countryImages?.map(i => i ? `${req.protocol}://${req.get('host')}${i}` : i)
+            }))
+        }));
 
         return res.json(updatedJson);
     })

@@ -10,6 +10,19 @@
                 "id": 1,
                 "name": "usa",
                 "title": "USA",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/uk1.jpg",
+                    "/city/uk2.jpg",
+                    "/city/uk3.jpg",
+                    "/city/uk4.jpg",
+                    "/city/uk5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -48,6 +61,19 @@
                 "id": 2,
                 "name": "canada",
                 "title": "Canada",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/uk1.jpg",
+                    "/city/uk2.jpg",
+                    "/city/uk3.jpg",
+                    "/city/uk4.jpg",
+                    "/city/uk5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -86,6 +112,19 @@
                 "id": 3,
                 "name": "united-kingdom",
                 "title": "United Kingdom",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/uk1.jpg",
+                    "/city/uk2.jpg",
+                    "/city/uk3.jpg",
+                    "/city/uk4.jpg",
+                    "/city/uk5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -124,6 +163,19 @@
                 "id": 4,
                 "name": "australia",
                 "title": "Australia",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/uk1.jpg",
+                    "/city/uk2.jpg",
+                    "/city/uk3.jpg",
+                    "/city/uk4.jpg",
+                    "/city/uk5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -162,6 +214,19 @@
                 "id": 5,
                 "name": "europe",
                 "title": "Europe",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/uk1.jpg",
+                    "/city/uk2.jpg",
+                    "/city/uk3.jpg",
+                    "/city/uk4.jpg",
+                    "/city/uk5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -200,6 +265,19 @@
                 "id": 6,
                 "name": "france",
                 "title": "France",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/uk1.jpg",
+                    "/city/uk2.jpg",
+                    "/city/uk3.jpg",
+                    "/city/uk4.jpg",
+                    "/city/uk5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -247,6 +325,12 @@
                 "id": 1,
                 "name": "usa",
                 "title": "USA",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
                 "countryImages": [
                     "/city/australia1.jpg",
                     "/city/australia2.jpg",
@@ -292,6 +376,12 @@
                 "id": 2,
                 "name": "canada",
                 "title": "Canada",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
                 "countryImages": [
                     "/city/australia1.jpg",
                     "/city/australia2.jpg",
@@ -337,6 +427,12 @@
                 "id": 3,
                 "name": "united-kingdom",
                 "title": "United Kingdom",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
                 "countryImages": [
                     "/city/australia1.jpg",
                     "/city/australia2.jpg",
@@ -382,6 +478,12 @@
                 "id": 4,
                 "name": "australia",
                 "title": "Australia",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
                 "countryImages": [
                     "/city/australia1.jpg",
                     "/city/australia2.jpg",
@@ -414,24 +516,26 @@
                 ],
                 "documents": [
                     "Passport",
-                    "Visa Form 1419",
-                    "Fee Receipt",
                     "Photo",
-                    "Financial Proof",
-                    "Itinerary",
-                    "Invitation (if any)",
-                    "Home Ties"
+                    "Bank Statement",
+                    "Income Tax Return(ITR)"
                 ]
             },
             {
                 "id": 5,
                 "name": "vietnam",
                 "title": "Vietnam",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "30 days",
+                    "validity": "30 days",
+                    "entry": "single"
+                },
                 "countryImages": [
                     "/city/vietnam1.jpg",
                     "/city/vietnam2.jpg",
-                    "/city/vietnam3.jpg",
-                    "/city/vietnam4.jpg",
+                    "/city/vietnam3.png",
+                    "/city/vietnam4.webp",
                     "/city/vietnam5.jpg"
                 ],
                 "pricing": [
@@ -446,7 +550,7 @@
                         "price": 1200
                     }
                 ],
-                "img": "/flags/france.png",
+                "img": "/flags/vietnam.png",
                 "details": [
                     "Passport",
                     "Study Permit Application Form",
@@ -459,15 +563,19 @@
                 ],
                 "documents": [
                     "Passport",
-                    "Photo",
-                    "Bank Statement",
-                    "Income Tax Return(ITR)"
+                    "Photo"
                 ]
             },
             {
                 "id": 6,
                 "name": "france",
                 "title": "France",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
                 "countryImages": [
                     "/city/australia1.jpg",
                     "/city/australia2.jpg",
@@ -522,6 +630,19 @@
                 "id": 1,
                 "name": "usa",
                 "title": "USA",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -561,6 +682,19 @@
                 "id": 2,
                 "name": "canada",
                 "title": "Canada",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -599,6 +733,19 @@
                 "id": 3,
                 "name": "united-kingdom",
                 "title": "United Kingdom",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -637,6 +784,19 @@
                 "id": 4,
                 "name": "australia",
                 "title": "Australia",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -675,6 +835,19 @@
                 "id": 5,
                 "name": "europe",
                 "title": "Europe",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
@@ -713,6 +886,19 @@
                 "id": 6,
                 "name": "france",
                 "title": "France",
+                "visaInformation": {
+                    "visaType": "E-visa",
+                    "lengthOfStay": "90 days",
+                    "validity": "3 years",
+                    "entry": "Multiple"
+                },
+                "countryImages": [
+                    "/city/australia1.jpg",
+                    "/city/australia2.jpg",
+                    "/city/australia3.jpg",
+                    "/city/australia4.jpg",
+                    "/city/australia5.jpg"
+                ],
                 "pricing": [
                     {
                         "id": 1,
