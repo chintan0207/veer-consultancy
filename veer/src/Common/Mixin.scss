@@ -179,21 +179,13 @@
 }
 
 .scroll-to-top {
-  // background-color: transparent;
-  // padding: 0;
-  // height: 40px;
-  // width: 40px;
-  // box-shadow: none;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
-  padding: 0px;
   background-color: #ff0000;
-  height: 0px;
-  width: 0px;
-  position: fixed;
-  right: 90px;
-  bottom: 80px;
-  @include max650 {
-    right: 70px;
-    bottom: 90px;
+  border-radius: 50%;
+  box-shadow: none;
+  .stt {
+    color: white;
+    @include max650 {
+      font-size: 20px;
+    }
   }
 }

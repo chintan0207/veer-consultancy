@@ -10,13 +10,13 @@ import axios from 'axios';
 
 const Footer = () => {
 
-    const { setMsg, setLoading, setSneck, Navigate, api, location ,url} = useContext(MyContext)
+    const { setMsg, setLoading, setSneck, Navigate, api, location, url } = useContext(MyContext)
 
 
     // console.log(api.filter((i, index) => index === 0))
 
     const handleNavigation = (name, sname) => {
-        window.open(`/${sname}/${name}`);
+        window.open(`/service/${sname}/${name}`);
     }
 
     const initialValues = {
@@ -144,15 +144,15 @@ const Footer = () => {
                                     onSubmit={onSubmit}
                                 >
                                     <Form className='nform'>
-                                        
+
                                         <div className="form-field">
                                             <Field type="email" id="email" name="email" placeholder="Your Email Address" />
                                             <ErrorMessage name="email" component="div" className="error" />
                                         </div>
 
                                         <button type="submit" className="nsubmit-button">SUBSCRIBE</button>
-                                        
-                                       
+
+
 
                                     </Form>
 

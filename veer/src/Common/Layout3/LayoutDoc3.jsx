@@ -1,36 +1,33 @@
-import React, { useContext} from 'react'
-import "./LayoutDoc3.scss"
-import MyContext from '../Context/MyContext';
-import gif from '../../Assets/images/tick-13644_256.gif'
-
+import React, { useContext } from "react";
+import "./LayoutDoc3.scss";
+import MyContext from "../Context/MyContext";
+import gif from "../../Assets/images/tick-13644_256.gif";
 
 const LayoutDoc3 = () => {
+  const { Navigate } = useContext(MyContext);
 
-    const{Navigate}=useContext(MyContext)
+  return (
+    <div className="confirm-main">
+      <div className="confirm-content">
+        <div className="confirm">
+          {/* <CheckCircleIcon/> */}
 
-  
-    
-  
-    return (
-        <div className="confirm-main">
+          <p>
+            {" "}
+            <img src={gif} alt="" />{" "}
+          </p>
 
-             <div className="confirm-content">
+          <h5>Payment Successfully Completed!</h5>
 
-                <div className="confirm">
-                    {/* <CheckCircleIcon/> */}
+          <span>
+            A confirmation has been sent to your email for further details.
+          </span>
 
-                    <p>  <img src={gif} alt=''/> </p>
-
-                    <h5>Payment Successfully Completed!</h5>
-
-                    <span>A confirmation has been sent to your email for further details.</span>
-
-                    <button onClick={() => Navigate('/')}>Close</button>
-                </div>
-             </div>
-
+          <button onClick={() => Navigate("/")}>Close</button>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default LayoutDoc3
+export default LayoutDoc3;

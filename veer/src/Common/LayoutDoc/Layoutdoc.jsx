@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Layoutdoc.scss';
-import { FaAngleDoubleRight } from "react-icons/fa";
+// import { FaAngleDoubleRight } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MyContext from '../Context/MyContext';
@@ -24,10 +24,8 @@ const Layoutdoc = () => {
 
   let total = (11000 * quntity) + (3000 * quntity)
 
-  let images = []
-  pageData?.country
-    .filter((item) => item.name === countryName)
-    .map((item) => images = item.countryImages)
+  const selectedCountry = pageData?.country?.find((item) => item.name === countryName);
+  const images = selectedCountry?.countryImages || [];
 
   const handleMinus = () => {
     if (quntity > 0) {

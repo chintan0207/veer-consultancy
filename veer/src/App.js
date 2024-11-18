@@ -12,7 +12,10 @@ import Loader from './Common/Loader/Loader'
 import Error from './Common/Error/Error'
 import Footer from './Footer/Footer'
 import ScrollToTop from "react-scroll-to-top";
-import { FaCircleArrowUp } from "react-icons/fa6";
+// import { FaCircleArrowUp } from "react-icons/fa6";
+// import { FaLongArrowAltUp } from "react-icons/fa";
+// import { FaAngleDoubleUp } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 import SubHeader from './SubHeader/SubHeader'
 import GoToTop from './Common/Gototop/GoToTop'
 import ServiceCardModal from './service-modal/ServiceCardModal'
@@ -51,7 +54,7 @@ const App = () => {
           <Route path="*" element={<ErrorPage />} />
           <Route path="/confirm" element={<LayoutDoc3 />} />
         </Routes>
-        <ScrollToTop smooth component={<FaCircleArrowUp size={40} color="#ff0000" />} />
+        <ScrollToTop smooth component={<FaArrowUp className='stt' size={25} />} />
         <GoToTop />
         <Footer />
       </MyContextProvider>
